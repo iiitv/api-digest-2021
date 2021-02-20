@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import "./RentEstimate.css"
 class Home extends Component {
    
 
@@ -8,12 +9,12 @@ class Home extends Component {
         return (
             <div>
 
-                <div>
-                    <input placeholder="CITY"></input>
-                    <input placeholder="STATE"></input>
+                <div className="rent_inputs">
+                    <input placeholder="CITY" className="rent_input"></input>
+                    <input placeholder="STATE" className="rent_input"></input>
                 </div>
 
-                <button>Submit</button>
+                <button className="submit">Submit</button>
             </div>
         );
     }

@@ -20,9 +20,7 @@ class properties extends Component{
         if(!this.state.pageLoad){
             if(this.state.flag===0)
             {
-                fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=${this.state.compCount}
-                &squareFootage=${this.state.squareFootage}&bathrooms=${this.state.bathrooms}&address=${this.state.address}
-                &bedrooms=${this.state.bedrooms}&propertyType=${this.state.propertyType}`,{
+                fetch("https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=5&squareFootage=1600&bathrooms=2&address=5500%20Grand%20Lake%20Drive%2C%20San%20Antonio%2C%20TX&bedrooms=4&propertyType=Single%20Family",{
                 method:"GET",
                 headers:{
                     "x-rapidapi-key": "ac0ee5cdf5msh2ae5bfedf76c0a9p1588a7jsn1887f7d15fc4",

@@ -1,0 +1,13 @@
+.rent_inputs{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 20%;
+    margin-left: 35%;
+   
+}
+
+
+
+.submit{
+    margin-left: 35%;
+}
