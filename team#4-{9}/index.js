@@ -29,6 +29,14 @@ app.get('/home', verifytoken, async(req, res) => {
 
     res.sendFile('home.html', { root: path.join(__dirname, '/webpages') })
 })
+app.get('/createEvent', verifytoken, async(req, res) => {
+    // console.log(req.username + 'chutasd fhslakjfh ')
+
+    if (!req.username)
+        return res.redirect('/')
+
+    res.sendFile('createEvent.html', { root: path.join(__dirname, '/webpages') })
+})
 
 app.post('/login', async(req, res) => {
     try {
@@ -87,7 +95,7 @@ app.get('/logout',(req,res)=>{
  
     res.cookie('authtoken', '', {
         httpOnly: true,
-        expires:Date.now()
+        maxAge: 0
     })
     res.sendStatus(200)
 })
