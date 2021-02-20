@@ -13,4 +13,13 @@
         <item name = "android:statusBarColor" tools:targetApi = "l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style
+        name="Splash"
+        parent="Theme.AppCompat.Light.DarkActionBar">
+        <item
+            name="android:windowBackground">@drawable/before_adventure
+        </item>
+        <item name="android:scaleType">center</item>
+    </style>
 </resources>
