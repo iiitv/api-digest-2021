@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const user = new schema({
+const userData = new Schema({
     name:{
         type:String,
         required:true
@@ -19,7 +19,9 @@ const user = new schema({
         required:true
     },
     age:{
-        type:integer,
+        type:Number,
         required:true
     }
 })
+
+module.exports = mongoose.model('userData',userData);
