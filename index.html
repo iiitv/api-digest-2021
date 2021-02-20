@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="C:\Users\anujp\OneDrive\Documents\RailConnect\styles.css">
+    <head>
+        <title>RailConnect</title>
+    </head>
+    <header>
+        <div class="header-title">
+            <p>RAIL-CONNECT</p>
+        </div>
+        
+    </header>
+    <body>
+        <div class="row">
+            <div class="column">
+                <div class="container">
+                    <form action="#">
+                        <div class="form-group">
+                            <label>FROM : </label>
+                            <input placeholder="Station code of Start" type="text" id="from" name="from" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>TO : </label>
+                            <input placeholder="Station code of Destination" type="text" id="to" name="to" class="form-control" required>
+                        </div>
+                        <input type="submit" onclick="storeValues()" class="btn" value="Submit">
+                    </form>
+                </div>
+            </div>
+            <div class="column">
+                <div class="container">
+                    <div class="form-group">
+                        <h1>OUTPUT</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function storeValues(){
+                var from = document.getElementById("from");
+                var to = document.getElementById("to");
+                console.log(from.value);
+                console.log(to.value);
+            }
+        </script>
+    </body>
+    <footer>
+        <h3>Developed by Team-13 DigestMeIfYouCan</h3>
+        <h1>Anuj Pillai | Raunak Jaiswal</h1>
+    </footer>
+</html>
