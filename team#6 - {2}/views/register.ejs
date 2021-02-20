@@ -1,0 +1,67 @@
+<%- include("./partials/header.ejs") %>
+<%- include("./partials/chore.ejs") -%>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="stylesheets/signup.css" />
+<div class="container mt-5">
+  <form method="POST" action="/student-register" enctype="multipart/form-data">
+  <h1 class="text-center">Registration</h1>
+    <label class="mt-2">First Name</label>
+    <input
+      type="first name"
+      class="form-control"
+      placeholder="first name"
+      name="fname"
+      id="fname",
+      required
+    />
+    <label class="mt-2">Last Name</label>
+    <input
+      type="last name"
+      class="form-control"
+      placeholder="lastname"
+      name="lname"
+      id="lname",
+      required
+    />
+    <label class="mt-2">Gender</label>
+    <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br />
+    <label class="mt-2">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Enter your email address."
+      name="usremail"
+      id="usremail",
+      required
+    />
+    <label class="mt-2">Create Password</label>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Enter password"
+      name="psw"
+      type="password" 
+      id="psw"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" ,
+      required
+    />
+    <label class="mt-2">Re-enter Password</label>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Re enter password"
+      name="repsw"
+      id="repsw",
+      required
+    />
+    <button type="submit" class="btn btn-primary mt-3" onclick="completionMessage()">Register</button>
+  </form>
