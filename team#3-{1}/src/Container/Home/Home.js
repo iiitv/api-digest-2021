@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
    
@@ -16,16 +17,10 @@ class Home extends Component {
                 </div>
 
                 <div>
-                    <div>Rent Estimate</div>
-                    <div>Rate Listing</div>
+                    <div ><Link to='/rent'>Rent Estimate</Link></div>
+                    <div><Link to='/rate'>Rate Listing</Link></div>
                 </div>
 
-                <div>
-                    <input placeholder="CITY"></input>
-                    <input placeholder="STATE"></input>
-                </div>
-
-                <button>Submit</button>
             </div>
         );
     }
