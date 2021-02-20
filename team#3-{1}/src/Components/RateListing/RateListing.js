@@ -50,8 +50,6 @@ class Home extends Component {
                     <input placeholder="address" name="address" onChange={this.changeHandler}></input>
                     <input placeholder="bedrooms" name="bedrooms" onChange={this.changeHandler}></input>
                     <input placeholder="propertyType" name="propertyType"  onChange={this.changeHandler}></input>
-                    <input placeholder="State" name="State"  onChange={this.changeHandler}></input>
-                    <input placeholder="City" name="city"  onChange={this.changeHandler}></input>
                 </div>
 
                 <button onClick={this.clickHandler}>Submit</button>

@@ -34,23 +34,19 @@ class properties extends Component{
                   }
                   fetchData();
         }else{
-            fetch("https://realty-mole-property-api.p.rapidapi.com/saleListings",{
-                body:{
-                    "city": this.state.city,
-	                "state": this.state.State
-                },
-                headers:{
-                    "x-rapidapi-key": "ac0ee5cdf5msh2ae5bfedf76c0a9p1588a7jsn1887f7d15fc4",
-                    "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
-                    "useQueryString": true
-                }
-            }).then(result=>{
-                console.log(result)
-                this.setState({listings:result})
+            const fetchData = async () => {
+                const res = await fetch(`https://realty-mole-property-api.p.rapidapi.com/saleListings?city=${this.state.city}&state=${this.state.State}`, {
+                  "method": "GET",
+                  "headers": {
+                    "x-rapidapi-key": "eca084dc7emshabfc11644902855p117df7jsn30163e604465"
+                  }
+                });
+                const json = await res.json();
+                console.log(json)
+                this.setState({listings:json})
                 this.state.pageLoaded=true;
-            }).catch(err=>{
-                console.log(err);
-            })
+              }
+              fetchData();
         }
     }
     }
