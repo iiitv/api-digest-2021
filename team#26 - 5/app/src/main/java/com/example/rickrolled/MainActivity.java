@@ -1,19 +1,29 @@
 package com.example.rickrolled;
 
 import androidx.appcompat.app.AppCompatActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    private static final String URL = "https://rickandmortyapi.com/api/character";
     private TextView textView;
 
     @Override
@@ -23,37 +33,37 @@ public class MainActivity extends AppCompatActivity {
 
         textView=findViewById(R.id.tvresult);
 
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("https://rickandmortyapi.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        StringRequest stringRequest=new StringRequest(Request.Method.GET,
+                URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject=new JSONObject(response);
+                            JSONArray jsonArray=jsonObject.getJSONArray("results");
 
-        RickandMortyApi mortyApi = retrofit.create(RickandMortyApi.class);
+                            for(int i=0;i<jsonArray.length();++i){
+                                JSONObject o=jsonArray.getJSONObject(i);
+                                String s=o.getString("name")+"\n"+
+                                        o.getString("status")+"\n\n";
+                                textView.append(s);
+                            }
 
-        Call<List<data>> call = mortyApi.get_results();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d(TAG, "onResponse: "+e.getMessage());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-        call.enqueue(new Callback<List<data>>() {
-            @Override
-            public void onResponse(Call<List<data>> call, Response<List<data>> response) {
-                if(!response.isSuccessful()){
-                    textView.setText("Code: "+response.code());
-                    return;
-                }
-                List<data> list=response.body();
+                    }
+                });
 
-                for(data d : list){
-                    String content="";
-                    content+="Name: "+d.getName()+"\n";
-                    content+="Alive: "+d.getStatus()+"\n\n";
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
-                    textView.append(content);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<data>> call, Throwable t) {
-                textView.setText(t.getMessage()+"error");
-            }
-        });
     }
 }
