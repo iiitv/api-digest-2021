@@ -20,22 +20,19 @@ class properties extends Component{
         if(!this.state.pageLoad){
             if(this.state.flag===0)
             {
-                fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=${this.state.compCount}
-                &squareFootage=${this.state.squareFootage}&bathrooms=${this.state.bathrooms}&address=${this.state.address}
-                &bedrooms=${this.state.bedrooms}&propertyType=${this.state.propertyType}`,{
-                method:"GET",
-                headers:{
-                    "x-rapidapi-key": "ac0ee5cdf5msh2ae5bfedf76c0a9p1588a7jsn1887f7d15fc4",
-                    "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
-                    "useQueryString": true
-                }
-            }).then(result=>{
-                console.log(result)
-                this.setState({listings:result.listings})
-                this.state.pageLoaded=true;
-            }).catch(err=>{
-                console.log(err);
-            })
+                const fetchData = async () => {
+                    const res = await fetch("https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=5&squareFootage=1600&bathrooms=2&address=5500%20Grand%20Lake%20Drive%2C%20San%20Antonio%2C%20TX&bedrooms=4&propertyType=Single%20Family", {
+                      "method": "GET",
+                      "headers": {
+                        "x-rapidapi-key": "ac0ee5cdf5msh2ae5bfedf76c0a9p1588a7jsn1887f7d15fc4"
+                      }
+                    });
+                    const json = await res.json();
+                    console.log(json)
+                    this.setState({listings:json.listings})
+                    this.state.pageLoaded=true;
+                  }
+                  fetchData();
         }else{
             fetch("https://realty-mole-property-api.p.rapidapi.com/saleListings",{
                 body:{

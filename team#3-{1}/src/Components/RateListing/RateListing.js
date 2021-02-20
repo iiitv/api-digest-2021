@@ -26,7 +26,7 @@ class Home extends Component {
             address={this.state.address}
             bedrooms={this.state.bedrooms}
             propertyType={this.state.propertyType}
-            squareFootage={this.state.footage}
+            squareFootage={this.state.squareFootage}
             compCount={this.state.compCount}
             />
         })
