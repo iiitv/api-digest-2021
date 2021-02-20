@@ -4,7 +4,10 @@
 
   /*sign in style*/
   .error-msg{
+    text-align: center;
     background-color: rgba(255, 0, 0, 0.575);
+    width: 100%;
+    color: white;
   }
   .middle {
     height: 70vh;
