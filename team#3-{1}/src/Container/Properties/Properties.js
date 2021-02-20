@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import Property from "./Property/property";
+import Property from "./Property/Property";
 
 class properties extends Component{
     state={
@@ -20,15 +20,10 @@ class properties extends Component{
         if(!this.state.pageLoad){
             if(this.state.flag===0)
             {
-                fetch("https://realty-mole-property-api.p.rapidapi.com/rentalPrice",{
-                body:{
-                    "compCount":this.state.compCount,
-                    "squareFootage": this.state.squareFootage,
-                    "bathrooms": this.state.bathrooms,
-                    "address": this.state.address,
-                    "bedrooms": this.state.bedrooms,
-                    "propertyType": this.state.propertyType
-                },
+                fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=${this.state.compCount}
+                &squareFootage=${this.state.squareFootage}&bathrooms=${this.state.bathrooms}&address=${this.state.address}
+                &bedrooms=${this.state.bedrooms}&propertyType=${this.state.propertyType}`,{
+                method:"GET",
                 headers:{
                     "x-rapidapi-key": "ac0ee5cdf5msh2ae5bfedf76c0a9p1588a7jsn1887f7d15fc4",
                     "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
@@ -64,8 +59,8 @@ class properties extends Component{
     }
 
     render(){
-
-        const property =  this.state.listing.map((p,index)=>{
+        console.log(this.state.listings)
+        const property =  this.state.listings.map((p,index)=>{
             return <Property 
             bathrooms={p.bathrooms} 
             bedrooms={p.bedrooms} 
