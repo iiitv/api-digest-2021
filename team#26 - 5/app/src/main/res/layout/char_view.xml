@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#444444">
+
+            <ImageView
+                android:id="@+id/charimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="40dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toStartOf="@+id/charname"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/charname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Doctor who"
+                android:textSize="25dp"
+                android:textColor="#97CE4C"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/charimage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/chargender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Doctor what"
+                android:textSize="18dp"
+                android:textColor="#FF8552"
+                app:layout_constraintStart_toStartOf="@+id/charname"
+                app:layout_constraintTop_toBottomOf="@+id/charname" />
+
+            <TextView
+                android:id="@+id/charstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Doctor what"
+                android:textSize="18dp"
+                android:textColor="#FF8552"
+                app:layout_constraintStart_toStartOf="@+id/chargender"
+                app:layout_constraintTop_toBottomOf="@+id/chargender" />
+
+            <TextView
+                android:id="@+id/charspecies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Doctor what"
+                android:textSize="18dp"
+                android:textColor="#FF8552"
+                app:layout_constraintStart_toStartOf="@+id/charstatus"
+                app:layout_constraintTop_toBottomOf="@+id/charstatus" />
+
+            <TextView
+                android:id="@+id/charorigin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Doctor what"
+                android:textSize="18dp"
+                android:textColor="#FF8552"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="@+id/charimage"
+                app:layout_constraintTop_toBottomOf="@+id/charimage" />
+
+            <TextView
+                android:id="@+id/charlastknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Doctor what"
+                android:textSize="18dp"
+                android:textColor="#FF8552"
+                app:layout_constraintStart_toStartOf="@+id/charorigin"
+                app:layout_constraintTop_toBottomOf="@+id/charorigin" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

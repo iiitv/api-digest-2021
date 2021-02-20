@@ -1,59 +1,70 @@
 package com.example.rickrolled;
 
 import androidx.appcompat.app.AppCompatActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.util.Log;
 
-import java.util.List;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
+    RecyclerView charView;
+    JSONObject jsonObject;
+    JSONArray jsonArray;
+    private static final String TAG = "MainActivity";
+    private static final String CHAR_URL = "https://rickandmortyapi.com/api/character";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView=findViewById(R.id.tvresult);
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, CHAR_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            jsonObject = new JSONObject(response);
+                            jsonArray = jsonObject.getJSONArray("results");
 
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("https://rickandmortyapi.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d(TAG, "onResponse: "+e.getMessage());
+                        }
+                        finally {
+                            charView = findViewById(R.id.charView);
+                            RVAdapter rva = new RVAdapter(getApplicationContext(), jsonArray);
+                            charView.setAdapter(rva);
+                            charView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-        RickandMortyApi mortyApi = retrofit.create(RickandMortyApi.class);
+                    }
+                });
 
-        Call<List<data>> call = mortyApi.get_results();
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
-        call.enqueue(new Callback<List<data>>() {
-            @Override
-            public void onResponse(Call<List<data>> call, Response<List<data>> response) {
-                if(!response.isSuccessful()){
-                    textView.setText("Code: "+response.code());
-                    return;
-                }
-                List<data> list=response.body();
+//        charView = findViewById(R.id.charView);
+//        RVAdapter rva = new RVAdapter(this, jsonArray);
+//        charView.setAdapter(rva);
+//        charView.setLayoutManager(new LinearLayoutManager(this));
 
-                for(data d : list){
-                    String content="";
-                    content+="Name: "+d.getName()+"\n";
-                    content+="Alive: "+d.getStatus()+"\n\n";
-
-                    textView.append(content);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<data>> call, Throwable t) {
-                textView.setText(t.getMessage()+"error");
-            }
-        });
     }
 }
