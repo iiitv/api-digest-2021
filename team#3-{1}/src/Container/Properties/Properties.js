@@ -91,3 +91,5 @@ class properties extends Component{
     }
 }
 
+
+export default properties
