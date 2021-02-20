@@ -10,30 +10,22 @@
 <div class="container mt-5">
   <form method="POST" action="/student-register" enctype="multipart/form-data">
   <h1 class="text-center">Registration</h1>
-    <label class="mt-2">First Name</label>
+    <label class="mt-2">Name</label>
     <input
-      type="first name"
+      type="text"
       class="form-control"
-      placeholder="first name"
-      name="fname"
+      placeholder="Enter your name"
+      name="name"
       id="fname",
       required
     />
-    <label class="mt-2">Last Name</label>
-    <input
-      type="last name"
-      class="form-control"
-      placeholder="lastname"
-      name="lname"
-      id="lname",
-      required
-    />
     <label class="mt-2">Gender</label>
-    <select name="gender">
+    <select name="gender" class="form-control">
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select>
-    <br />
+    <label class="mt-2">Age</label>
+    <input type="number" name="age" id="age" class="form-control" required /> 
     <label class="mt-2">Email</label>
     <input
       type="email"
@@ -58,7 +50,7 @@
     <input
       type="password"
       class="form-control"
-      placeholder="Re enter password"
+      placeholder="Re enter password"r5e
       name="repsw"
       id="repsw",
       required
