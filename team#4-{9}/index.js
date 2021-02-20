@@ -83,7 +83,14 @@ app.post('/register', async(req, res) => {
 
 })
 
-
+app.get('/logout',(req,res)=>{
+ 
+    res.cookie('authtoken', '', {
+        httpOnly: true,
+        expires:Date.now()
+    })
+    res.sendStatus(200)
+})
 
 app.get(['/*'], (req, res) => {
     res.sendFile('404page.html', { root: path.join(__dirname, '/webpages') })
