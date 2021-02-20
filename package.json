@@ -1,0 +1,20 @@
+{
+  "name": "api-digest-2021",
+  "version": "1.0.0",
+  "description": "This repository contains the rules and code of conduct for __API Digest 2021__.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naman-1234/api-digest-2021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Naman-1234/api-digest-2021/issues"
+  },
+  "homepage": "https://github.com/Naman-1234/api-digest-2021#readme"
+}
