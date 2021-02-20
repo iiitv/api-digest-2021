@@ -6,6 +6,8 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 var path = require('path')
 const registerRouter = require('./routes/register')
+const landingRouter = require('./routes/landing')
+const dashboardRouter  = require('./routes/dashboard')
 
 mongoose.connect("mongodb+srv://user:pass123@cluster0.alsmz.mongodb.net/myFirstDatabase",{
     useNewUrlParser:true,
@@ -25,11 +27,9 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:false}));
 
-
-app.get("/",(req,res)=>{
-    res.render("landing",{});
-})
 app.use('/register',registerRouter)
+app.use('/dashboard',dashboardRouter)
+app.use('/',landingRouter);
 
 // app.use("/auth",require("./routes/auth"));
 
