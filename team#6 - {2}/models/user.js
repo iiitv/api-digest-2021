@@ -19,6 +19,7 @@ const user = new schema({
         required:true
     },
     age:{
-        
+        type:integer,
+        required:true
     }
 })

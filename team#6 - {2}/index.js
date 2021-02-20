@@ -29,7 +29,7 @@ app.get("/",(req,res)=>{
     res.render("landing",{});
 })
 
-app.get("/auth",require("./routes/auth"));
+// app.use("/auth",require("./routes/auth"));
 
 app.listen(port,(req,res)=>{
     console.log(`Server is running on port ${port}`);
