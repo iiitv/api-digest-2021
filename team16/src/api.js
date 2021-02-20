@@ -9,6 +9,7 @@ const getCurrentMonth = () => {
     return month;
   }
 };
+
 //Getting the date
 const getCurrentDay = () => {
   const day = new Date().getDate();
@@ -18,6 +19,7 @@ const getCurrentDay = () => {
     return day;
   }
 };
+
 //Current day/month/year
 const currentYear = new Date().getFullYear();
 const currentMonth = getCurrentMonth();
@@ -34,3 +36,8 @@ const newGames = `games?dates=${lastYear},${currentDate}&ordering=-released&page
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${newGames}`;
+
+//Game Details
+export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`;
+export const gameScreenshotURL = (game_id) => 
+  `${base_url}games/${game_id}/screenshots`;
