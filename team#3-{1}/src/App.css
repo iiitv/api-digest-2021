@@ -1,0 +1,18 @@
+.App{
+  text-align: center;
+}
+
+.Persons {
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px gray;
+  margin: 16px 25rem;
+  padding: 16px;
+}
+
+.red{
+  color: red;
+}
+.bold{
+  font-weight: bold;
+}
