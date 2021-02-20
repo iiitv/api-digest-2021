@@ -3,6 +3,9 @@
 }
 
   /*sign in style*/
+  .error-msg{
+    background-color: rgba(255, 0, 0, 0.575);
+  }
   .middle {
     height: 70vh;
     display: grid;
