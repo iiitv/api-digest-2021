@@ -9,10 +9,12 @@
 />
 <div class="symtom">
     <p>Choose Your Symtom</p>
-    <select name="gender" class="form-control">
-        <% data.forEach((val)=>{ %>
-            <option value=<%=val.ID%>><%= val.Name%></option>
-        <% }) %>
-    </select>
-    <button class="btn btn-primary"><a class="text-white" href="/dashboard/diagnosis">Diagnosis</a></button>
+    <form action="/dashboard/diagnosis" method="POST">
+        <select name="symptom" class="form-control">
+            <% data.forEach((val)=>{ %>
+                <option value=<%=val.ID%>><%= val.Name%></option>
+            <% }) %>
+        </select>
+        <button class="btn btn-primary">Diagnosis</button>
+    </form>
 </div>
