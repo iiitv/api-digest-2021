@@ -1,6 +1,6 @@
 # CryptoX
 
-CryptoX is a simple react web app that provides functionalities like desktop notification and also send messeges to the phone when price of a cryptocurrency price decreases or increases so that users can earn maximum profit using this app.
+CryptoX is a simple react web app that provides functionalities like desktop notification and also send messeges to the phone when price of a cryptocurrency decreases or increases so that users can earn maximum profit using this app.
 
 
 Crypto API used : (https://data.messari.io/api/v1/assets/bitcoin/metrics)
