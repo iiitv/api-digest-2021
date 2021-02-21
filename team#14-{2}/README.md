@@ -5,7 +5,9 @@ To run this web app on your local machine first clone this repo then cd to Healt
 Dependencies :-                      
 
 Python 3.7
-jango
+
+django
+
 requests
 
 Api used are :-                                                                                                                                                                               
