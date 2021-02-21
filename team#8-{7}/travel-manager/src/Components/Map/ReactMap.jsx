@@ -41,7 +41,7 @@ const ReactMap = ({ state }) => {
         offsetLeft={-20}
         offsetTop={-10}
       >
-        <img className="marker" src={markerUrl} alt="" />
+        <img style={markerStyles} src={markerUrl} alt="" />
       </Marker>
     </ReactMapGL>
   );
