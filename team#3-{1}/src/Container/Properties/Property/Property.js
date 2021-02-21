@@ -1,27 +1,29 @@
 import React from 'react';
 
+import home from "../../../Assets/Images/Home.jpg"
+
 import "./Property.css";
 
 const property = (props) => {
     return (
         <div className="property">
-            <div className="prop">
-                <p>Address:{props.address}</p>
-                <p>Bathrooms:{props.bathrooms}</p>
-                <p>Bedrooms:{props.bedrooms}</p>
-                <p>SquareFootage:{props.footage}</p>
-                <p>County:{props.county}</p>
-                <p>Type:{props.type}</p>
-            </div>
-            <div className="prop">
-                <p>City:{props.city}</p>
-                <p>State:{props.state}</p>
-                <p>Zipcode:{props.zipcode}</p>
-                <p><b>Price:${props.price}</b></p>
-                <p><a className="maps" href={`https://google.com/maps?q=${props.latitude},${props.longitude}`}>
+            <img src={home} className="home"/>
+            <div>
+                <div><span className="field"> Address: </span>{props.address}</div><br/>
+                <div><span className="field">Bathrooms:</span> {props.bathrooms}</div><br/>
+                <div><span className="field">Bedrooms:</span> {props.bedrooms}</div><br/>
+                <div><span className="field">SquareFootage:</span> {props.footage}</div><br/>
+                <div><span className="field">County:</span> {props.county}</div><br/>
+                <div><span className="field">Type:</span> {props.type}</div><br/>
+                <div><span className="field">City:</span> {props.city}</div><br/>
+                <div><span className="field">State:</span> {props.state}</div><br/>
+                <div><span className="field">Zipcode:</span> {props.zipcode}</div><br/>
+                <div><span className="field">Price:</span> {props.price}</div><br/>
+                <div><span className="field"><a className="maps" href={`https://google.com/maps?q=${props.latitude},${props.longitude}`}>
                     See on google maps
-                </a></p>
+                </a></span></div><br/>
             </div>
+            
         </div>
     )
 }

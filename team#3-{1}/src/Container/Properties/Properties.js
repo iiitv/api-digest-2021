@@ -2,6 +2,8 @@ import React,{Component} from "react";
 import Property from "./Property/Property";
 import Spinner from "../../Components/Spinner/Spinner"
 
+import "./Properties.css"
+
 class properties extends Component{
     state={
         flag:this.props.flag,
@@ -54,6 +56,10 @@ class properties extends Component{
     }
     }
 
+    scroll = () =>{
+      console.log("inscroll")
+      window.scrollBy(0,600)
+    }
     render(){
         console.log(this.state.listings)
         let address;
@@ -61,6 +67,7 @@ class properties extends Component{
         let property;
         console.log(this.state.pageLoaded)
         if(this.state.pageLoaded){
+        this.scroll();
          property =  this.state.listings.map((p,index)=>{
             if(this.state.flag===0){
               address=p.address;
@@ -69,7 +76,8 @@ class properties extends Component{
               address=p.rawAddress;
               zipcode=p.zipCode;
             }
-            return <Property 
+            return<div className="props">
+              <Property 
             bathrooms={p.bathrooms} 
             bedrooms={p.bedrooms} 
             price={p.price} 
@@ -83,6 +91,7 @@ class properties extends Component{
             latitude={p.latitude}
             longitude={p.longitude}
             />
+            </div> 
           })
         }else{
           property=<Spinner/>

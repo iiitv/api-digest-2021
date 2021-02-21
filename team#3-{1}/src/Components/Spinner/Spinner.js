@@ -3,7 +3,10 @@ import React from 'react';
 import "./Spinner.css";
 
 const spinner = () => (
-    <div class="loader">Loading...</div>
+    <div className="modal">
+        <div class="loader">Loading...</div>
+    </div>
+    
 );
 
 export default spinner;

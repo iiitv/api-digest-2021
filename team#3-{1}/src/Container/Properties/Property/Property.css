@@ -1,15 +1,25 @@
 .property{
-    width: 70%;
-    border: 2px solid silver;
-    box-shadow: 1px 1px silver;
-    display: flex;
+border: 5px solid white;
+border-radius: 10px;
+display: grid;
+grid-template-columns: 1fr 1fr;
 }
 
-.prop{
-    padding: 6px;
+.home{
+    width: 500px;
 }
+
 
 .maps{
     text-decoration: none;
-    font-weight: bold;
+    color: #bb260c;
 }
+.field{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #464866;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
