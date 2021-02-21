@@ -8,7 +8,7 @@ function CustomCard(props) {
             <p>Day Temp:{props.temp.day}</p>
             <p>Night Temp:{props.temp.night}</p>
             {/* Putting an image tag here */}
-            <p>description:{props.weather[0].description}</p>
+            <p>Description:{props.weather[0].description}</p>
             
         </div>
     )

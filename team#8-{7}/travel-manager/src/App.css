@@ -8,6 +8,10 @@
 }
 body {
   background: #f5f5fd;
+  background-image: url('images/Bg7.jpg');
+  background-repeat: none;
+  background-attachment: fixed;
+  background-size: cover;
 }
 .search-bar-container {
   display: flex;
