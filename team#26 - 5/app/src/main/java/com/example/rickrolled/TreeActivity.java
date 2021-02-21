@@ -2,6 +2,7 @@ package com.example.rickrolled;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -74,9 +75,13 @@ public class TreeActivity extends AppCompatActivity {
                                     bundle.putString("origin", object.getJSONObject("origin").getString("name"));
                                     bundle.putString("location", object.getJSONObject("location").getString("name"));
                                     bundle.putString("image", object.getString("image"));
-
                                     InfoFragment fragment=new InfoFragment();
                                     fragment.setArguments(bundle);
+
+                                    int count = getSupportFragmentManager().getBackStackEntryCount();
+                                    if (count != 0){
+                                        getSupportFragmentManager().popBackStack();
+                                    }
                                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).addToBackStack("New Fragment").commit();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
