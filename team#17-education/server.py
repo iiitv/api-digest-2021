@@ -3,6 +3,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from register import Register
 import json
 from gfg import GFG
+from image import Image
 
 
 gfg_links = """{
@@ -14,6 +15,7 @@ gfg_links = """{
 bot = CS_toolkit("config.cfg")
 register_ = Register()
 gfg_ = GFG()
+image_ = Image()
 
 def displayLink(key):
 	links = json.loads(gfg_links)
@@ -55,6 +57,8 @@ def reply(msg, sender, update_id):
 		return displayLink(key)
 	elif msg == "/platform":
 		return register_.show_options(sender, update_id)
+	elif msg == "/error":
+		return image_.take_image(sender, update_id)
 	elif msg is not None:
 		return bot.sendMessage("Okay!", sender, None)
 
