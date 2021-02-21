@@ -8,7 +8,7 @@ const SearchBar = ({ state, setState }) => {
     const value = ref.current.value;
     if (value.length > 0) {
       const res = await getWeatherData(value);
-      
+      console.log('SearchBar',res)
     }
   };
 

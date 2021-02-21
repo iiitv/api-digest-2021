@@ -11,7 +11,7 @@ export const getWeatherData = async (value) => {
     const res = await axios.get(
       `${BASE_URL}onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${API_KEY}`
     );
-    console.log(data, res.data);
+    console.log('Weather',data, res.data);
   } catch (error) {
     console.log(error);
   }
