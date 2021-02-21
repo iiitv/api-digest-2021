@@ -77,10 +77,11 @@
         
         <ImageView
             android:id = "@+id/sparkyhome"
-            android:layout_width = "match_parent"
-            android:layout_height = "match_parent"
-            android:elevation = "0dp"
-            />
+            android:layout_width = "1000dp"
+            android:layout_height = "65dp"
+            android:elevation = "2dp"
+            android:scaleType="fitXY"
+            tools:ignore="MissingConstraints" />
         
         <Button
             android:id = "@+id/rick_roll"
@@ -89,7 +90,7 @@
             android:layout_marginBottom = "10dp"
             android:background = "@color/rick_morty_green"
             android:elevation = "8dp"
-            android:text = "Rick roll me"
+            android:text = "@string/rick_roll_me"
             app:layout_constraintBottom_toBottomOf = "parent"
             app:layout_constraintEnd_toEndOf = "parent"
             app:layout_constraintStart_toStartOf = "parent"
@@ -100,7 +101,7 @@
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
             android:elevation = "8dp"
-            android:text = "Next"
+            android:text = "@string/next"
             app:layout_constraintBottom_toBottomOf = "@id/rick_roll"
             app:layout_constraintEnd_toEndOf = "parent"
             app:layout_constraintStart_toEndOf = "@+id/rick_roll"
@@ -111,7 +112,7 @@
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
             android:elevation = "8dp"
-            android:text = "Prev"
+            android:text = "@string/prev"
             app:layout_constraintBottom_toBottomOf = "@id/rick_roll"
             app:layout_constraintEnd_toStartOf = "@+id/rick_roll"
             app:layout_constraintStart_toStartOf = "parent"

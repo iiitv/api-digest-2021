@@ -18,7 +18,7 @@
         name="Splash"
         parent="Theme.AppCompat.Light.DarkActionBar">
         <item
-            name="android:windowBackground">@drawable/before_adventure
+            name="android:windowBackground">@drawable/splash
         </item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:windowNoTitle">true</item>

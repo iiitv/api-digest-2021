@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import org.json.JSONArray;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     JSONObject jsonObject;
     JSONArray jsonArray;
     Button button, buttonnext, buttonprev, btn;
+    ImageView sparkyHome;
     LinearProgressIndicator progressIndicator;
     private static final String TAG = "MainActivity";
     private String CHAR_URL = "https://rickandmortyapi.com/api/character";
@@ -46,17 +49,16 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.hometoolbar);
         setSupportActionBar(toolbar);
 
-//        btn=findViewById(R.id.family_tree);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "something", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
         button = findViewById(R.id.rick_roll);
         buttonnext = findViewById(R.id.next);
         buttonprev = findViewById(R.id.prev);
+        sparkyHome = findViewById(R.id.sparkyhome);
+
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.sparky)
+                .into(sparkyHome);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

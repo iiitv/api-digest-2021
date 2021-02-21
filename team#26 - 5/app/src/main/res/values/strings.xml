@@ -6,4 +6,6 @@
     <string name="doctor_who">Doctor who</string>
     <string name="rick_roll_me">Rick roll me</string>
     <string name="str_next">Next</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
 </resources>
