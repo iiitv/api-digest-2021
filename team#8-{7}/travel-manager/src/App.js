@@ -1,5 +1,6 @@
 import { useState } from "react";
-import SearchBar from "./components/searchBar/SearchBar";
+import SearchBar from "./Components/searchBar/SearchBar";
+import Card from "./Components/Card";
 import "./App.css";
 import NotFound from "./components/NotFound/NotFound";
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <SearchBar state={state} setState={setState} />
       {state.notFound && <NotFound />}
+      <Card />
     </div>
   );
 }

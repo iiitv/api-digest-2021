@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { getWeatherData } from "../../requests/weather_request";
-
 const SearchBar = ({ state, setState }) => {
   const ref = useRef();
   const handleWeatherFetch = async () => {
@@ -21,7 +20,7 @@ const SearchBar = ({ state, setState }) => {
   return (
     <div className="search-bar-container">
       <input type="text" ref={ref} />
-      <button onClick={handleWeatherFetch}>clck me</button>
+      <button onClick={handleWeatherFetch}>Click me</button>
     </div>
   );
 };
