@@ -8,7 +8,7 @@ const ReactMap = ({ state }) => {
     longitude: userLocation.longitude,
     latitude: userLocation.latitude,
     height: "80vh",
-    width: "80vw",
+    width: "100%",
     zoom: 14,
     markerWidth: 2,
   });
@@ -25,25 +25,28 @@ const ReactMap = ({ state }) => {
     width: viewPort.zoom * 3,
   };
 
-  console.log(viewPort);
+  //   console.log(viewPort);
   return (
-    <ReactMapGL
-      {...viewPort}
-      mapboxApiAccessToken={accessToken}
-      onViewportChange={(viewPort) =>
-        setViewPort({ ...viewPort, markerWidth: state.markerWidth + 1 })
-      }
-    >
-      <NavigationControl style={navControlStyle} />
-      <Marker
-        latitude={userLocation.latitude}
-        longitude={userLocation.longitude}
-        offsetLeft={-20}
-        offsetTop={-10}
+    <div className="map">
+      <ReactMapGL
+        {...viewPort}
+        mapboxApiAccessToken={accessToken}
+        onViewportChange={(viewPort) =>
+          setViewPort({ ...viewPort, markerWidth: state.markerWidth + 1 })
+        }
+        className="map"
       >
-        <img style={markerStyles} src={markerUrl} alt="" />
-      </Marker>
-    </ReactMapGL>
+        <NavigationControl style={navControlStyle} />
+        <Marker
+          latitude={userLocation.latitude}
+          longitude={userLocation.longitude}
+          offsetLeft={-20}
+          offsetTop={-10}
+        >
+          <img style={markerStyles} src={markerUrl} alt="" />
+        </Marker>
+      </ReactMapGL>
+    </div>
   );
 };
 
