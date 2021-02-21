@@ -1,0 +1,13 @@
+<%- include("./partials/header") %>
+<%- include("./partials/chore.ejs") -%>
+<link rel="stylesheet" href="/css/diagnosesData.css">
+<div class="uploadData">
+    <h2>Issue</h2>
+    <p class="symtomName"><%= issue%></p>
+    <% articles.forEach((article)=>{ %>
+        <div class="disease">
+                <p> <%= article.data %></p>
+                <!-- will continue from here -->
+        </div>
+     <% }) %>
+</div>

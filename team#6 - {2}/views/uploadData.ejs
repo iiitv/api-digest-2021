@@ -7,10 +7,12 @@
         <p class="symtomName"><%= symptom%></p>
         <h2>Possible Disease</h2>
         <% data.forEach((val)=>{ %>
-           <div class="disease">
-            <p> <%= val.Issue.Name %></p>
-            <p> Accuracy : <%= val.Issue.Accuracy %></p>
-           </div>
+           <a href="/dashboard/article/<%= val.Issue.ID %>" style="text-decoration: none;color: black;">
+                <div class="disease">
+                    <p> <%= val.Issue.Name %></p>
+                    <p> Accuracy : <%= val.Issue.Accuracy %></p>
+               </div>
+           </a>
         <% }) %>
     <% } %>
 </div>
