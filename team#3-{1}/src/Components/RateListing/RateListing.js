@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Properties from '../../Container/Properties/Properties';
 
+import "./RateListing.css"
+
 class Home extends Component {
    
     state={
@@ -42,17 +44,17 @@ class Home extends Component {
 
     
         return (
-            <div>
-                <div>
-                    <input placeholder="compCount" name="compCount" onChange={this.changeHandler}></input>
-                    <input placeholder="squareFootage" name="squareFootage" onChange={this.changeHandler}></input>
-                    <input placeholder="bathrooms" name="bathrooms"  onChange={this.changeHandler}></input>
-                    <input placeholder="address" name="address" onChange={this.changeHandler}></input>
-                    <input placeholder="bedrooms" name="bedrooms" onChange={this.changeHandler}></input>
-                    <input placeholder="propertyType" name="propertyType"  onChange={this.changeHandler}></input>
+            <div className="rate">
+                <div >
+                    <input placeholder="compCount" name="compCount" onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="squareFootage" name="squareFootage" onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="bathrooms" name="bathrooms"  onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="address" name="address" onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="bedrooms" name="bedrooms" onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="propertyType" name="propertyType"  onChange={this.changeHandler} className="input"></input><br/>
                 </div>
 
-                <button onClick={this.clickHandler}>Submit</button>
+                <button onClick={this.clickHandler} className="submit">Submit</button>
                 {properties}
             </div>
 

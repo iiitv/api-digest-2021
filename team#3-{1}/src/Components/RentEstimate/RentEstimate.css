@@ -1,13 +1,29 @@
-.rent_inputs{
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 20%;
-    margin-left: 35%;
-   
+.rent{
+    background-color: #464866;
+    text-align: center;
 }
 
+.input{
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+    text-align: center;
+    border: 3px solid #25274d;
+    border-radius: 5px;
 
+}
 
 .submit{
-    margin-left: 35%;
+    background-color: #25274d;
+    border: none;
+    padding: 10px 20px;
+    transition: .2s all;
+    border-radius: 5px;
 }
+
+.submit:hover{
+    background-color: white;
+    color: #25274d;
+    cursor: pointer;
+}
+

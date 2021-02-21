@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import "./Property.css";
 
 const property = (props) => {
     return (

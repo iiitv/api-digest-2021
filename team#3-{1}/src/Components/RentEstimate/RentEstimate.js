@@ -29,14 +29,14 @@ class Home extends Component {
     render () {
         let properties=this.state.properties
         return (
-            <div>
+            <div className="rent">
 
 
-                <div>
-                    <input placeholder="CITY" name="city" onChange={this.changeHandler}></input>
-                    <input placeholder="STATE" name="State" onChange={this.changeHandler}></input>
+                <div className="inputs">
+                    <input placeholder="CITY" name="city" onChange={this.changeHandler} className="input"></input><br/>
+                    <input placeholder="STATE" name="State" onChange={this.changeHandler} className="input"></input>
                 </div>
-                <button onClick={this.clickHandler}>Submit</button>
+                <button onClick={this.clickHandler} className="submit">Submit</button>
                 {properties}
 
             </div>
