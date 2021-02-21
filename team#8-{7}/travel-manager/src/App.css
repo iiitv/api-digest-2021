@@ -61,3 +61,12 @@ body {
   width: 60%;
   margin: 0 auto;
 }
+
+/* Map */
+.map {
+  margin: 0 auto;
+}
+.marker-img {
+  width: 80px;
+}
+/*  */
