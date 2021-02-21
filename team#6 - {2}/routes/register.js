@@ -25,7 +25,7 @@ router.post('/',async (req,res)=>{
     let userDetails = new userData({
         name: req.body.name,
         email: req.body.usremail,
-        age: req.body.age,
+        date: req.body.date,
         gender: req.body.gender,
         password: hashedPassword
     });
