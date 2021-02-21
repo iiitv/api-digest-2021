@@ -1,3 +1,4 @@
+import 'package:cf_pursuit/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,11 +9,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'CF Pursuit',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
+        disabledColor: Colors.white
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home:LandingScreenMobile()// MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
