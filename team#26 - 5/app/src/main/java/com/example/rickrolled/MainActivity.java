@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                             RVAdapter rva = new RVAdapter(getApplicationContext(), jsonArray);
                             charView.setAdapter(rva);
                             charView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
                             button2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
