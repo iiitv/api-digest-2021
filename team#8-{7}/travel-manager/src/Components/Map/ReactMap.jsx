@@ -1,43 +1,23 @@
-import ReactMapboxGl from "react-mapbox-gl";
-import ReactMapGL, { NavigationControl, Marker } from "react-map-gl";
-import markerUrl from "./icons8-marker-100.png";
-import { useState } from "react";
-import React, { Component } from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import Markers from "./Marker";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
- const ReactMap = ({ state }) => {
-  const props = {
-    center: {
-      lat: state.userLocation.latitude,
-      lng: state.userLocation.longitude,
-    },
-    zoom: 11,
+const ReactMap = ({ state }) => {
+  const currentLocation = {
+    lat: state.userLocation.latitude,
+    lng: state.userLocation.longitude,
   };
-  const handleApiLoaded = (map, maps) => {
-    // use map and maps objects
-    console.log(map);
-    console.log(maps);
-  };
-
   return (
-    <div className="map container">
-      <ReactMapGL
-        {...viewPort}
-        mapboxApiAccessToken={accessToken}
-        onViewportChange={(viewPort) =>
-          setViewPort({ ...viewPort, markerWidth: state.markerWidth + 1 })
-        }
-        className="map" 
-     />
-        <NavigationControl style={navControlStyle} />
-        <Marker
-          latitude={userLocation.latitude}
-          longitude={userLocation.longitude}
-          offsetLeft={-20}
-          offsetTop={-10} 
+    <div className="map">
+      <MapContainer center={currentLocation} zoom={15}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+        <Markers type={"hospital"} />
+        <Markers type={"school"} />
+        <Markers type={"resturents"} />
+      </MapContainer>
     </div>
   );
 };
