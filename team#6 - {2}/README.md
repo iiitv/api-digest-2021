@@ -38,7 +38,7 @@ Enter your email as username and sandbox password as password and click on gener
 
 Clone this repo using `git clone https://github.com/The-Keshav-Agarwal/api-digest-2021.git`<br>
 
-Change branch to `team#6` using `git checkout team$6`<br>
+Change branch to `team#6` using `git checkout team#6`<br>
 
 Change Directory to `api-digest-2021/team$6 - {2}`, using `cd "api-digest-2021/team#6 - {2}"`<br>
 
@@ -46,7 +46,7 @@ Install All the dependencies using `npm i`.<br>
 
 Replace the token with your token in `routes/dashboard.js` at 22 line.<br>
 
-Start the app using `nodemon index
+Start the app using `nodemon index`
 
 Now go to <a href="http://localhost:3000/">localhost:3000</a> and explore each and every feature of <b>E-Doctor</b>
 
