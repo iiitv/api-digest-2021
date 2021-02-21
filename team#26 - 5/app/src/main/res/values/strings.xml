@@ -4,6 +4,6 @@
     <string name="doctor_what">Doctor what</string>
     <string name="first_seen">First seen:</string>
     <string name="doctor_who">Doctor who</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rick_roll_me">Rick roll me</string>
+    <string name="str_next">Next</string>
 </resources>

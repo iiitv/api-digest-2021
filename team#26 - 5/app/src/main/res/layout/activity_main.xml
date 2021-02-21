@@ -8,21 +8,59 @@
     tools:context = ".MainActivity"
     >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/charView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rel1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="70dp">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rel2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
 
         <Button
-            android:id="@+id/nextscr"
+            android:id="@+id/rick_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/rick_morty_green"
+            android:text="@string/rick_roll_me"
+            app:layout_constraintBottom_toBottomOf="@id/rel2"
+            app:layout_constraintEnd_toEndOf="@id/rel2"
+            app:layout_constraintStart_toStartOf="@id/rel2" />
+
+        <Button
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/rick_morty_green"
-            android:text="Rick roll me"
-
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/str_next"
+            app:layout_constraintBottom_toBottomOf="@id/rick_roll"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/rick_roll" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
