@@ -6,7 +6,9 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
-
+body {
+  background: #f5f5fd;
+}
 .search-bar-container {
   display: flex;
   height: 80px;
@@ -27,7 +29,7 @@
 .search-bar-container button {
   margin-left: 15px;
   height: 40px;
-  border-radius: 18px;
+  border-radius: 5px;
   outline: none;
   padding: 10px 20px;
   text-align: center;
@@ -43,4 +45,12 @@
 .search-bar-container button:hover {
   background: #ec4646;
   color: #fff;
+}
+/* Not found component */
+.not-found {
+  width: 60%;
+  margin: 0 auto;
+}
+.not-found img {
+  width: 100%;
 }
