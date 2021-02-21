@@ -2,6 +2,8 @@ import React,{Component} from "react";
 import Property from "./Property/Property";
 import Spinner from "../../Components/Spinner/Spinner"
 
+import "./Properties.css"
+
 class properties extends Component{
     state={
         flag:this.props.flag,
@@ -66,7 +68,8 @@ class properties extends Component{
               address=p.rawAddress;
               zipcode=p.zipCode;
             }
-            return <Property 
+            return<div className="props">
+              <Property 
             bathrooms={p.bathrooms} 
             bedrooms={p.bedrooms} 
             price={p.price} 
@@ -80,6 +83,7 @@ class properties extends Component{
             latitude={p.latitude}
             longitude={p.longitude}
             />
+            </div> 
           })
 
 
