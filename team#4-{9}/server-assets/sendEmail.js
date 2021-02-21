@@ -1,5 +1,5 @@
+// here we are using the sendgrid api to send emails to the various event attendees
 const sgMail=require('@sendgrid/mail')
-
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 emails=['flarrowbat@gmail.com','201951022@iiitvadodara.ac.in']
 nameList=['FlarrowBat','Amitvikram Dwivedi']
@@ -9,7 +9,7 @@ const sendInvitation=(emailList,nameList,title,)=>{
             to:email,
             from:'dwivedia2001@gmail.com',
             subject:`${title}`,
-            text: `Welcom to the app, ${nameList[index]}. Let me know how are you getting along with the app`
+            text: ` Hey ${nameList[index]} I invite you to the event. Let me know if you will be attending the event`
             })    
     });
     
