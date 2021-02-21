@@ -1,83 +1,43 @@
-# API Digest 2021
-This repository contains the rules and code of conduct for __API Digest 2021__.
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=370px height=280px src="https://github.com/Arsh150701/api-digest-2021/blob/team%2326/team%2326%20-%205/app/src/main/res/drawable/rickmortyrepoimg.jpg" alt="Project logo"></a>
+</p>
+<h3 align="center">Rick Rolled</h3>
 
-## Contents
-- __[Contents](#contents)__
-- __[Requirements](#requirements)__
-- __[Few pointers](#few-pointers)__
-- __[How to submit?](#how-to-submit)__
-- __[Rules](HackIIITV_rules_and_timeline.pdf)__
-- __[Code of Conduct](CODE_OF_CONDUCT.md)__
-- __[Our Community](#our-community)__
-- __[Contact / Support](#contact--support)__
+---
 
-### Requirements
+## 📝 Overview of project
+This is an application build during the Api-digest-2021
 
-- __[GitHub account](https://github.com/login)__
-- Install __[git](https://git-scm.com/)__ for your repsective OS.
-- Make sure you are part of IIITV organisation on GitHub, else join __[here](http://getmein.glitch.me/)__
+The application uses a [_'RickAndMorty'_](https://rickandmortyapi.com) api.
 
-### Few pointers
+On the main screen, there are _cards_ which display basic character info.
 
-- You can make at max one commit per hour.
-- Don't close your PR.
-- No commits after Hackathon ends will be entertained.
-- It is required from the teams to keep committing within __three__ hours of the previous commit to keep your hack backed up.  
-- Make sure your whole project is inside the folder of your team.
-- If you have time left, make sure you make a README.md 📄 😉(it will help others to understand your code)
+User can navigate back and forth among the different pages to view all characters.
 
-### How to submit?
+There is a family tree for the Smith family which also shows character info upon clicking on a certain image.
 
-One member from each team have to follow this instructions:
-Follow the instructions in order:
+#### Future Scope
+We intend to add a filter feature which will allow user to search for a character just by name, species, status(DOA) etc.
 
-1. Fork this repository.
+Add the location and episode views.
 
-2. Clone your fork, using
-    `git clone https://github.com/<your-username>/api-digest-2021.git`
+### Installing
 
-3. Change Directory to `api-digest-2021`, using
-    `cd api-digest-2021`
+A step by step series of instructions that tell you how to get a development env running.
 
-4. Set remote to original repository using
-    `git remote add ups https://github.com/iiitv/api-digest-2021.git`
+```
+Clone the repository
+Open the project in Android Studio
+Connect the Android phone and enable USB debugging  OR  Connect the AVD and have it up and running
+Click on run in Android Studio
+```
 
-5. Create a branch named `team#x`, where __"x"__ is your team number, using
-    `git checkout -b team#x`
+## 🚀 Deployment
 
-6. Add a folder with name `team#x - {Chosen_Theme_number}` in root directory. Make sure your whole hack is in folder `team#x - {Chosen_Theme_number}`.
+To quickly run the app on your phone, head over to Releases on right side of these page and download the .apk file for this application.
 
-7. Now add this folder to your staging area, using
-    `git add "team#x - {Chosen_Theme_number}"`
+## ⚒️ Developers
 
-8. Now commit the changes using,
-    `git commit -m "Add team#x"`
-
-9. Push the changes using,
-    `git push`
-
-10. Open a pull request: As soon as the changes will be pushed, GUI of repository's main page will show a yellow banner saying you too open a Pull request, just click on it and you are done.
-
-For making changes to PR, just keep on repeating Step 6-9.
-
-### Rules
-
-- Keep your content as original as possible.
-- It is allowed to use available softwares/packages as a module, but they can't be your project.
-
-### Contact / Support
-
-- Write to us at: __[technical.committee@iiitvadodara.ac.in](mailto:technical.committee@iiitvadodara.ac.in)__
-- Join the discord server: __[Technical Committee](https://discord.gg/Rw4X9rYZgR)__
-
-### Our Community
-
-- Open source projects created by students at IIITV : [IIITV Open Source Org](https://github.com/iiitv)
-- Discord channel where we discuss topics related to DSA and Competitive Programming: [IIITVCC Discord Server Invite](https://discord.gg/pUPbVHF)
-- Join the Open Source Org and our Slack Channel to ask your doubts and discussion: [Get Me In](https://getmein.glitch.me/), [Slack](https://join.slack.com/t/iiitvadodara/shared_invite/zt-gx92qvc2-X_NREKMxP6f7DlyZuxzM_g)
-
-### Happy Hacking! 🖖
-
- ***
-
-<p align='center'>Made With ❤️ By <a href="https://github.com/iiitv">Team API Digest</a></p>
+- [Akshat Srivastava](https://github.com/Arsh150701)
+- [Devansh Agarwal](https://github.com/devanshagar783)
