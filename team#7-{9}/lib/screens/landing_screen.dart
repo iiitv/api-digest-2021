@@ -7,7 +7,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:provider/provider.dart';
 import '../widgets/header.dart';
 
+String userNameGlobal;
+
 class LandingScreenMobile extends StatefulWidget {
+  static const routeName = "/landing";
   // static String name, institute;
 
   @override
@@ -254,7 +257,7 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                     height: 10,
                   ),
                   ElevatedButton(
-                    focusNode: instituteSubmitNode,
+                    // focusNode: instituteSubmitNode,
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
@@ -269,12 +272,15 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                       // _submitInstituteName();
                     },
                     child: Text(
-                      "Submit",
+                      "See Ranklist",
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
                 ],
               ),
+              
+                  
+                  
             ],
           ),
         ),

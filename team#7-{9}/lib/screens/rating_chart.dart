@@ -97,13 +97,14 @@ class _RanksChartState extends State<RanksChart> {
                 ),
                 Container(
                   // width: MediaQuery.of(context).size.width*300,
-                  height: MediaQuery.of(context).size.height * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  padding:EdgeInsets.symmetric(horizontal:4),
                   child: ListView(
                       controller: _listViewController,
                       scrollDirection: Axis.horizontal,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width,
+                          width: MediaQuery.of(context).size.width-16,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(18)),
                             gradient: LinearGradient(

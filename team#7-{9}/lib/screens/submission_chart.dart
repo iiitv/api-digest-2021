@@ -5,7 +5,6 @@ import 'package:cf_pursuit/globals.dart';
 import 'package:cf_pursuit/utils/user_data.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 
 class SubmissionChart extends StatefulWidget {
   final String userName;
