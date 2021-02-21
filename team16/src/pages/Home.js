@@ -4,7 +4,6 @@ import GameDetail from "../components/GameDetail";
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesAction";
-import {loadDetail} from '../actions/detailAction';
 
 //Components
 import Game from "../components/Game";
@@ -22,26 +21,37 @@ const Home = () => {
 
   //FETCH GAMES
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(loadGames());
-  // }, [dispatch]);
   useEffect(() => {
-    dispatch(loadGames()).then(() => {
-      if (pathId) {
-        dispatch(loadDetail(pathId));
-      }
-    });
+    dispatch(loadGames());
   }, [dispatch]);
-
  
   //Get that data back
-  const { popular, newGames, upcoming } = useSelector((state) => state.games);
+  const { popular, newGames, upcoming, searched } = useSelector((state) => state.games);
   return (
     <GameList>
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
-          {pathId && <GameDetail pathID={pathId} />}
+          {pathId && <GameDetail pathId={pathId} />}
         </AnimatePresence>
+        {searched.length ? (
+          <div className="searched">
+            <h2>Searched Games</h2>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  released={game.released}
+                  id={game.id}
+                  image={game.background_image}
+                  key={game.id}
+                />
+              ))}
+            </Games>
+          </div>
+        ) : (
+          ""
+        )}  
+
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
