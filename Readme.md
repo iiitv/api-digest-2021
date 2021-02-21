@@ -2,9 +2,11 @@ Theme : Travelling
 
 API's USED : 
 https://indianrailapi.com/api/v2/AllTrainOnStation
+
 https://indianrailapi.com/api/v2/TrainSchedule
 
 *PROBLEM STATEMENT*
+
 Whenever we are in a rush to visit any place, often the primary approach to most of the Indian community would be railways. Railways provide decent services at reduced costs which is more preferable compared to any other means of transport. But, what if the buffer time between booking tickets and the actual date of train travel is less than a week? That's where the problem starts, in such situations, you cannot find a suitable direct point-to-point train that picks you from your city and drops you at the desired location. Such trains usually have their tickets sold out if you check a week before the scheduled travel day.
 
 *SOLUTION*
