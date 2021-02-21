@@ -8,7 +8,7 @@
 }
 body {
   background: #f5f5fd;
-  background-image: url('images/Bg7.jpg');
+  background-image: url("images/Bg7.jpg");
   background-repeat: none;
   background-attachment: fixed;
   background-size: cover;
@@ -66,8 +66,7 @@ body {
   margin: 0 auto;
 }
 
-.mynavbar
-{
+.mynavbar {
   height: 100vh; /* Full-height: remove this if you want "auto" height */
   /* width: 160px; Set the width of the sidebar */
   position: sticky;
@@ -78,17 +77,15 @@ body {
   padding-top: 100px;
 }
 
-.mylink
-{
-  color:#fff;
-  padding:20px 0px;
-  font-size:30px;
-
+.mylink {
+  color: #fff;
+  padding: 20px 0px;
+  font-size: 30px;
 }
 /* Map */
 .map {
   margin: 0 auto;
-  width: 80vw;
+  width: 60vw;
 }
 .marker-img {
   width: 80px;
