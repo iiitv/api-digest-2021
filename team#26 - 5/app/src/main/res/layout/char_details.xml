@@ -4,7 +4,8 @@
     xmlns:app = "http://schemas.android.com/apk/res-auto"
     android:layout_width = "match_parent"
     android:layout_height = "wrap_content"
-    app:cardCornerRadius="16dp">
+    app:cardCornerRadius = "16dp"
+    >
     
     <LinearLayout
         android:layout_width = "match_parent"
@@ -23,7 +24,7 @@
                 android:id = "@+id/charimage"
                 android:layout_width = "200dp"
                 android:layout_height = "200dp"
-                android:scaleType="centerCrop"
+                android:scaleType = "centerCrop"
                 android:src = "@drawable/rickimage"
                 />
             
@@ -66,6 +67,8 @@
                     android:layout_width = "wrap_content"
                     android:layout_height = "wrap_content"
                     android:layout_marginTop = "8dp"
+                    android:maxLines = "2"
+                    android:minLines = "1"
                     android:text = "Species"
                     android:textSize = "18sp"
                     />
@@ -77,8 +80,8 @@
         <LinearLayout
             android:layout_width = "match_parent"
             android:layout_height = "wrap_content"
-            android:orientation="horizontal"
             android:layout_margin = "16dp"
+            android:orientation = "horizontal"
             >
             
             <TextView
@@ -91,9 +94,11 @@
                 android:id = "@+id/charorigin"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
+                android:layout_marginStart = "16dp"
+                android:maxLines = "2"
+                android:minLines = "1"
                 android:text = "Earth"
-                android:layout_marginStart="16dp"
-                android:textStyle="italic|bold"
+                android:textStyle = "italic|bold"
                 />
         
         </LinearLayout>
@@ -101,9 +106,9 @@
         <LinearLayout
             android:layout_width = "match_parent"
             android:layout_height = "wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart = "16dp"
+            android:layout_marginBottom = "16dp"
+            android:orientation = "horizontal"
             >
             
             <TextView
@@ -116,9 +121,11 @@
                 android:id = "@+id/charlastknown"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
+                android:layout_marginStart = "16dp"
+                android:maxLines = "2"
+                android:minLines = "1"
                 android:text = "Earth"
-                android:layout_marginStart="16dp"
-                android:textStyle="italic|bold"
+                android:textStyle = "italic|bold"
                 />
         
         </LinearLayout>

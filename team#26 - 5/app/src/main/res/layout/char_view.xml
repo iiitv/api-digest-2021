@@ -1,129 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
-
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    android:layout_margin = "10dp"
+    >
+    
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent"
+        >
+        
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#444444">
-
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:background = "#444444"
+            >
+            
             <ImageView
-                android:id="@+id/charimage"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginEnd="40dp"
-                android:scaleType="centerInside"
-                app:layout_constraintEnd_toStartOf="@+id/charname"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
+                android:id = "@+id/charimage"
+                android:layout_width = "130dp"
+                android:layout_height = "130dp"
+                android:layout_marginEnd = "40dp"
+                android:scaleType = "centerInside"
+                app:layout_constraintEnd_toStartOf = "@+id/charname"
+                app:layout_constraintStart_toStartOf = "parent"
+                app:layout_constraintTop_toTopOf = "parent"
+                tools:srcCompat = "@tools:sample/avatars"
+                />
+            
             <TextView
-                android:id="@+id/charname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_who"
-                android:textSize="25sp"
-                android:textColor="@color/rick_morty_green"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/charimage"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                android:id = "@+id/charname"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginStart = "10dp"
+                android:layout_marginTop = "5dp"
+                android:text = "@string/doctor_who"
+                android:textColor = "@color/rick_morty_green"
+                android:textSize = "25sp"
+                android:textStyle = "bold"
+                app:layout_constraintStart_toEndOf = "@+id/charimage"
+                app:layout_constraintTop_toTopOf = "parent"
+                />
+            
             <TextView
-                android:id="@+id/chargender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_what"
-                android:textSize="18sp"
-                android:textColor="@color/coral_orange"
-                app:layout_constraintStart_toStartOf="@+id/charname"
-                app:layout_constraintTop_toBottomOf="@+id/charname" />
-
+                android:id = "@+id/chargender"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "5dp"
+                android:text = "@string/doctor_what"
+                android:textColor = "@color/coral_orange"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toStartOf = "@+id/charname"
+                app:layout_constraintTop_toBottomOf = "@+id/charname"
+                />
+            
             <TextView
-                android:id="@+id/charstatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_what"
-                android:textSize="18sp"
-                android:textColor="@color/coral_orange"
-                app:layout_constraintStart_toStartOf="@+id/chargender"
-                app:layout_constraintTop_toBottomOf="@+id/chargender" />
-
+                android:id = "@+id/charstatus"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "5dp"
+                android:text = "@string/doctor_what"
+                android:textColor = "@color/coral_orange"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toStartOf = "@+id/chargender"
+                app:layout_constraintTop_toBottomOf = "@+id/chargender"
+                />
+            
             <TextView
-                android:id="@+id/charspecies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_what"
-                android:textSize="18sp"
-                android:textColor="@color/coral_orange"
-                app:layout_constraintStart_toStartOf="@+id/charstatus"
-                app:layout_constraintTop_toBottomOf="@+id/charstatus" />
-
+                android:id = "@+id/charspecies"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "5dp"
+                android:maxLines = "2"
+                android:minLines = "1"
+                android:text = "@string/doctor_what"
+                android:textColor = "@color/coral_orange"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toStartOf = "@+id/charstatus"
+                app:layout_constraintTop_toBottomOf = "@+id/charstatus"
+                />
+            
             <TextView
-                android:id="@+id/charoriginprompt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/first_seen"
-                android:textSize="18sp"
-                android:textColor="@color/purple_200"
-                android:layout_marginStart="10dp"
-                app:layout_constraintStart_toStartOf="@+id/charimage"
-                app:layout_constraintTop_toBottomOf="@+id/charimage" />
-
+                android:id = "@+id/charoriginprompt"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginStart = "10dp"
+                android:layout_marginTop = "5dp"
+                android:text = "@string/first_seen"
+                android:textColor = "@color/purple_200"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toStartOf = "@+id/charimage"
+                app:layout_constraintTop_toBottomOf = "@+id/charimage"
+                />
+            
             <TextView
-                android:id="@+id/charorigin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_what"
-                android:textSize="18sp"
-                android:textColor="@color/coral_orange"
-                android:layout_marginStart="10dp"
-                app:layout_constraintStart_toEndOf="@+id/charoriginprompt"
-                app:layout_constraintTop_toBottomOf="@+id/charimage" />
-
+                android:id = "@+id/charorigin"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginStart = "10dp"
+                android:layout_marginTop = "5dp"
+                android:maxLines = "2"
+                android:minLines = "1"
+                android:text = "@string/doctor_what"
+                android:textColor = "@color/coral_orange"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toEndOf = "@+id/charoriginprompt"
+                app:layout_constraintTop_toBottomOf = "@+id/charimage"
+                />
+            
             <TextView
-                android:id="@+id/charlastknownprompt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/last_seen"
-                android:textSize="18sp"
-                android:textColor="@color/purple_200"
-                app:layout_constraintStart_toStartOf="@+id/charoriginprompt"
-                app:layout_constraintTop_toBottomOf="@+id/charoriginprompt" />
-
+                android:id = "@+id/charlastknownprompt"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "5dp"
+                android:text = "@string/last_seen"
+                android:textColor = "@color/purple_200"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toStartOf = "@+id/charoriginprompt"
+                app:layout_constraintTop_toBottomOf = "@+id/charoriginprompt"
+                />
+            
             <TextView
-                android:id="@+id/charlastknown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/doctor_what"
-                android:textSize="18sp"
-                android:textColor="@color/coral_orange"
-                android:layout_marginStart="10dp"
-                app:layout_constraintStart_toEndOf="@+id/charlastknownprompt"
-                app:layout_constraintTop_toBottomOf="@+id/charorigin" />
-
-
+                android:id = "@+id/charlastknown"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_marginStart = "10dp"
+                android:layout_marginTop = "5dp"
+                android:maxLines = "2"
+                android:minLines = "1"
+                android:text = "@string/doctor_what"
+                android:textColor = "@color/coral_orange"
+                android:textSize = "18sp"
+                app:layout_constraintStart_toEndOf = "@+id/charlastknownprompt"
+                app:layout_constraintTop_toBottomOf = "@+id/charorigin"
+                />
+        
+        
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
