@@ -29,12 +29,12 @@ const userSchema = new Schema({
             type: String,
         },
         date: {
-            type: Date
-        },
-        duration:{
             type: String
         },
-        calenderLink:{
+        duration: {
+            type: String
+        },
+        calendarLink:{
             type:String,
         },
         emailMessage: {

@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const verifytoken = require('./security/verifytoken-middleware')
 const sendDetailsRouter=require('./server-assets/saveEventDetails')
 const sendRecipentsRouter=require('./server-assets/recipients')
+const sendMessageRouter = require('./server-assets/writeMessage.js')
 const bodyParser=require('body-parser')
 require('./database/mongodb.js')
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
   }));
+  app.use(sendMessageRouter)
   app.use(sendRecipentsRouter)
 app.use(express.json())
 app.use(sendDetailsRouter)
@@ -116,6 +118,10 @@ app.get('/logout',(req,res)=>{
 
 app.get('/addRecipents/:id', async (req, res) => {
     res.status(200).render(__dirname+ "/webpages/recipients.ejs", {"id": req.params.id})
+})
+
+app.get('/writeMessage/:id', async (req, res) => {
+    res.status(200).render(__dirname+ "/webpages/writeMessage.ejs", {"id": req.params.id})
 })
 
 app.get(['/*'], (req, res) => {
