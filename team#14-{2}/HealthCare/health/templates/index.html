@@ -59,7 +59,7 @@
             <a class="nav-link" href="{% url 'caloriesCalculator' %}">Calories Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'recomendation' %}">Get Recomendations</a>
+            <a class="nav-link" href="{% url 'recomendation' %}">Get Recommendations</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>          </li>
@@ -77,21 +77,21 @@
           <div class="site-heading">
             
             <h1>HealthCare</h1>
-            <span class="subheading">We care about your health.</span>
+            <span class="subheading">We care about your health then why should not you.</span>
             <h6></h6>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <h1 style="margin:1%;margin-left:10%">Welcome , {{ request.user }}</h1>
+  <h1 style="margin:1%;margin-left:10%">Welcome , {{ request.user }} to our website.</h1>
   <!-- Main Content -->
   <hr class="featurette-divider">
 
   <div class="row featurette" style="margin-left: 7%;margin-right: 7%;">
     <div class="col-md-7" style="margin-top: 7%;margin-bottom: 7%;">
       <h2 class="featurette-heading">Calories Counter</h2>
-      <p class="lead">It tells you about what mineral your food contain and in how much quantiy.So that you know what you should actually eat according to your requirements.  </p>
+      <p class="lead">It tells you about how much energy,protein,carbohydrates, mineral, vitamin etc your food contains. So that you know what you should actually eat to stay healthy.  </p>
     </div>
     <div class="col-md-5">
       <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" src="{% static 'img/calory.jpg' %}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
@@ -108,7 +108,7 @@
     </div>
     <div class="col-md-7" style="margin-top: 4%;margin-bottom: 7%;">
       <h2 class="featurette-heading">Get Recommendations</h2>
-      <p class="lead">It tells you about different type of varieties of a single product and how much protein ,fat ,carbohydrates etc are present in them.So that you know which variety of a product is healthy to eat and then you can choose according to your requirement.   </p>
+      <p class="lead">It tells you about different type of varieties of a single product and how much protein ,fat ,carbohydrates etc are present in them. So that you know which variety of a product is more healthy to eat. </p>
     </div>
   </div>
   <!-- Footer -->
@@ -134,7 +134,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/Jatin-Goyal-552">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>

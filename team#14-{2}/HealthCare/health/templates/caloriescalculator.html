@@ -65,7 +65,8 @@
       display: table;
     }
     table {
-      margin-left: 10%;
+      margin-left: 14%;
+      margin-right: 25%;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 70%;
@@ -100,7 +101,7 @@ tr:nth-child(even) {
             <a class="nav-link" href="{% url 'caloriesCalculator' %}">Calories Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'recomendation' %}">Get Recomendations</a>          </li>
+            <a class="nav-link" href="{% url 'recomendation' %}">Get Recommendations</a>          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>          </li>
         </ul>
@@ -116,14 +117,16 @@ tr:nth-child(even) {
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
             <h1>Calories Counter</h1>
-            <span class="subheading">You should care about what you eat.</span>
-            <span class="subheading">Scroll down to see what you really eat.</span>
+            <span class="subheading">You should know what you actually eat.</span>
+            <span class="subheading">Scroll down to see.</span>
           </div>
         </div>
       </div>
     </div>
   </header>
   <!-- <h2 style="margin-left:10%;">Enter any food name here (e.g. apple,egg)</h2> -->
+  <br>
+  <!-- <h1 style="margin:1%;margin-left:10%">Welcome , {{ request.user }}. Please checkout our calories counter .</h1> -->
   <br>
   <form method="POST" class="example" action="" >
       {% csrf_token %}
@@ -150,41 +153,73 @@ tr:nth-child(even) {
     <td>{{ calories.name }}</td>
   </tr>
   <tr>
-    <td>Energy in Kcal</td>
-    <td> {{ calories.Energy_in_Kcal }}</td>
+    <td>Short Description</td>
+    <td>{{ calories.Short_Description }}</td>
   </tr>
   <tr>
+    <td>Energy</td>
+    <td> {{ calories.Energy_in_Kcal }} Kcal</td>
+  </tr>
+  <tr>
+    <tr>
+      <td>Water</td>
+      <td> {{ calories.Water }} %</td>
+    </tr>
     <td>Protein</td>
-    <td> {{ calories.Protein }}</td>
+    <td> {{ calories.Protein }} g</td>
   </tr>
   <tr>
     <td>Carbohydrates</td>
-     <td>{{ calories.Carbohydrates }}</td>
+     <td>{{ calories.Carbohydrates }} g</td>
 
   </tr>
   <tr>
     <td>Calcium</td>
-    <td> {{ calories.Calcium }}</td>
+    <td> {{ calories.Calcium }} mg</td>
   </tr>
   <tr>
     <td>Iron</td>
-    <td> {{ calories.Iron }}</td>
-  </tr>
-  <tr>
-    <td>Vitamin C</td>
-    <td> {{ calories.Vitamin_C }}</td>
+    <td> {{ calories.Iron }} mg</td>
   </tr>
   <tr>
     <td>Cholestrol</td>
-    <td> {{ calories.Cholestrol }}</td>
+    <td> {{ calories.Cholestrol }} mg</td>
+  </tr>
+  <tr>
+    <td>Vitamin C</td>
+    <td> {{ calories.Vitamin_C }} mg</td>
   </tr>
   <tr>
     <td>Vitamin_b6</td>
-    <td> {{ calories.Vitamin_b6 }}</td>
+    <td> {{ calories.Vitamin_b6 }} mg</td>
   </tr>
   <tr>
     <td>Vitamin_b12</td>
-    <td> {{ calories.Vitamin_b12 }}</td>
+    <td> {{ calories.Vitamin_b12 }} mg</td>
+  </tr>
+  <tr>
+    <td>Vitamin D</td>
+    <td> {{ calories.Vitamin_D }} mg</td>
+  </tr>
+  <tr>
+    <td>Vitamin A</td>
+    <td> {{ calories.Vitamin_A }} mg</td>
+  </tr>
+  <tr>
+    <td>Vitamin E</td>
+    <td> {{ calories.Vitamin_E }} mg</td>
+  </tr>
+  <tr>
+    <td>Sodium</td>
+    <td> {{ calories.Sodium }} mg</td>
+  </tr>
+  <tr>
+    <td>Zinc</td>
+    <td> {{ calories.Zinc }} mg</td>
+  </tr>
+  <tr>
+    <td>Copper</td>
+    <td> {{ calories.Copper }} mg</td>
   </tr>
 </table>
 {% endif %}
@@ -214,7 +249,7 @@ tr:nth-child(even) {
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/Jatin-Goyal-552">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>

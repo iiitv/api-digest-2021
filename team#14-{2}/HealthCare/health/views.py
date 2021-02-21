@@ -67,16 +67,23 @@ def caloriescalculator(request):
         print(r[0])
         calories={
             'name':anything,
+            'Short_Description':r[0]['shrt_desc'],
             'Energy_in_Kcal':r[0]['energ_kcal'],
             'Protein':r[0]['protein'],
             'Carbohydrates':r[0]['carbohydrt'],
             'Calcium':r[0]['calcium'],
             'Iron':r[0]['iron'],
-            'Vitamin_C':r[0]['vit_c'],
             'Cholestrol':r[0]['cholestrl'],
+            'Vitamin_C':r[0]['vit_c'],
             'Vitamin_b6':r[0]['vit_b6'],
             'Vitamin_b12':r[0]['vit_b12'],
-            
+            'Vitamin_D':r[0]['vit_d'],
+            'Vitamin_A':r[0]['vit_a_iu'],
+            'Vitamin_E':r[0]['vit_e'],
+            'Water':r[0]['water'],
+            'Sodium':r[0]['sodium'],
+            'Zinc':r[0]['zinc'],
+            'Copper':r[0]['copper'],
         }
         # for i in r[0]:
         #     print(i)
@@ -115,6 +122,7 @@ def getrecomendation(request):
             'Fat':r['hints'][i]['food']['nutrients']['FAT'],
             'Protein':r['hints'][i]['food']['nutrients']['PROCNT'],
             'Total_Carbohydrates':r['hints'][i]['food']['nutrients']['CHOCDF'],
+            # 'Fibre':r['hints'][i]['food']['nutrients']['FIBTG'],
             'Category':r['hints'][i]['food']['category'],
             }
             rec.append(recom)
