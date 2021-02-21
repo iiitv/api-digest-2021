@@ -1,11 +1,11 @@
 Topic - Health                                                                                                                                                                                   
 Deployed at := http://hackoverflow.pythonanywhere.com/                                                                                                                                                                                                                                                                                                                                                                  
-To run this web app on your local machine first clone this repo then cd to HealthCare folder and then run command {python manage.py runserver}.After that go on localhost:8000.                                                                                                                                                                                          Dependencies :-                      
+To run this web app on your local machine first clone this repo then cd to HealthCare folder and then run command {python manage.py runserver}.After that go on localhost:8000.         
+
+Dependencies :-                      
 
 Python 3.7
-
-django
-
+jango
 requests
 
 Api used are :-                                                                                                                                                                               
