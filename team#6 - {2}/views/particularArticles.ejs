@@ -2,8 +2,10 @@
 <%- include("./partials/chore.ejs") -%>
 <link rel="stylesheet" href="/css/diagnosesData.css">
 <div class="uploadData">
+    <% if(issue!=null){%>
     <h2>Issue</h2>
     <p class="symtomName"><%= issue%></p>
+    <%} %>
     <% articles.forEach((article)=>{ %>
         <div class="disease">
             <div id="disease_info">

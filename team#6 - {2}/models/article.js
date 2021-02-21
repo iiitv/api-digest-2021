@@ -22,6 +22,11 @@ const articleData = new Schema({
         type:String,
         default: null,
         required: true
+    },
+    dtitle:{
+        type:String,
+        default:null,
+        required: true
     }
 })
 
