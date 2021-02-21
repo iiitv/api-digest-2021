@@ -7,6 +7,7 @@
   crossorigin="anonymous"
 />
 <link rel="stylesheet" href="css/sign-in.css" />
+<link rel="stylesheet" href="css/password.css" />
 <div class="container mt-5">
   <form method="POST" action="/register">
   <h1 class="text-center">Registration</h1>
@@ -20,7 +21,7 @@
       required
     />
     <label class="mt-2">Gender</label>
-    <select name="gender" class="form-control">
+    <select name="gender" class="form-control" id="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select>
@@ -55,5 +56,101 @@
       id="repsw",
       required
     />
+    <div id="message">
+      <h3 class="pass__head">Password must contain the following:</h3>
+      <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+      <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+      <p id="number" class="invalid">A <b>number</b></p>
+      <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
     <button type="submit" class="btn btn-primary mt-3" onclick="completionMessage()">Register</button>
   </form>
+  <script>
+  //below code verifies password format
+  var myInput = document.getElementById("psw");
+  var letter = document.getElementById("letter");
+  var capital = document.getElementById("capital");
+  var number = document.getElementById("number");
+  var length = document.getElementById("length");
+  
+  
+  myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+  
+  myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+  
+  myInput.onkeyup = function() {
+    // Validate lowercase letters
+    var lowerCaseLetters = /[a-z]/g;
+    if(myInput.value.match(lowerCaseLetters)) {  
+      letter.classList.remove("invalid");
+      letter.classList.add("valid");
+    } else {
+      letter.classList.remove("valid");
+      letter.classList.add("invalid");
+    }
+    
+    
+    var upperCaseLetters = /[A-Z]/g;
+    if(myInput.value.match(upperCaseLetters)) {  
+      capital.classList.remove("invalid");
+      capital.classList.add("valid");
+    } else {
+      capital.classList.remove("valid");
+      capital.classList.add("invalid");
+    }
+  
+  
+    var numbers = /[0-9]/g;
+    if(myInput.value.match(numbers)) {  
+      number.classList.remove("invalid");
+      number.classList.add("valid");
+    } else {
+      number.classList.remove("valid");
+      number.classList.add("invalid");
+    }
+    
+    if(myInput.value.length >= 8) {
+      length.classList.remove("invalid");
+      length.classList.add("valid");
+    } else {
+      length.classList.remove("valid");
+      length.classList.add("invalid");
+    }
+  }
+  
+  function completionMessage(){
+    let fname  = document.getElementById('name')
+    fname = fname.value;
+    let usremail = document.getElementById('usremail')
+    usremail = usremail.value
+    let psw = document.getElementById('psw')
+    psw = psw.value
+    let age = document.getElementById('age')
+    age = age.value;
+    let gender = document.getElementById('gender')
+    gender = gender.value;
+    if(fname===""||usremail===""||psw===""||age===""||gender==="") {
+      swal({
+        title: "Ohh no !!",
+        text: "Please fill all field",
+        icon: "error",
+        button: "ok",
+      });
+    }
+    else {
+        swal({
+        title: "Good job!",
+        text: "You Are Registered Successfully",
+        icon: "success",
+        button: "Yes",
+      });
+    }  
+  }
+  
+  </script>
+  
+      

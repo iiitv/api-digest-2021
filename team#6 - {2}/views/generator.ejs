@@ -95,6 +95,21 @@
       disease_name = disease.value;
       let title = document.getElementById('dtitle');
       title = title.value;
+      if(email===""||disease_name===""||title==="") {
+      swal({
+        title: "Ohh no !!",
+        text: "Please fill all field",
+        icon: "error",
+        button: "ok",
+      });
+    }
+    else {
+        swal({
+        title: "Good job!",
+        text: "You Are Registered Successfully",
+        icon: "success",
+        button: "Yes",
+      });
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/dashboard/generate', true);
      await xhr.setRequestHeader('Content-Type', 'application/json');
@@ -107,5 +122,7 @@
         })
       );
       window.location.href ="/dashboard/product"
+    }
+    
     }
   </script>
