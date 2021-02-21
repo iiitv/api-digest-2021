@@ -16,6 +16,12 @@ const articleData = new Schema({
         type:String,
         default:null,
         required:true
+    },
+    products: Schema.Types.Mixed,
+    id:{
+        type:String,
+        default: null,
+        required: true
     }
 })
 
