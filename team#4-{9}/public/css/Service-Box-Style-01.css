@@ -1,0 +1,142 @@
+.serviceBox {
+  padding: 10px 0 30px;
+  text-align: center;
+  background: #f2f2f2;
+}
+
+.serviceBox .service-icon {
+  padding: 25px 30px;
+}
+
+.serviceBox .service-icon a {
+  color: #fff;
+  font-size: 50px;
+}
+
+.serviceBox .service-content {
+  padding: 0 50px;
+  color: #6c6060;
+}
+
+.serviceBox .service-content h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.serviceBox .service-content hr {
+  background: #b4b4b4;
+  height: 1px;
+}
+
+.serviceBox .service-content p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+.serviceBox.yellow .service-icon, .serviceBox.yellow:hover .read a {
+  background: #f1bb40;
+}
+
+.serviceBox.yellow:hover h3 {
+  color: #f1bb40;
+}
+
+.serviceBox.green .service-icon, .serviceBox.green:hover .read a {
+  background: #01a89e;
+}
+
+.serviceBox.green:hover h3 {
+  color: #01a89e;
+}
+
+.serviceBox.pink .service-icon, .serviceBox.pink:hover .read a {
+  background: #d66c9a;
+}
+
+.serviceBox.pink:hover h3 {
+  color: #d66c9a;
+}
+
+@media screen and (max-width: 990px) {
+  .serviceBox {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .serviceBox .service-content {
+    padding: 0 30px;
+  }
+}
+
+.serviceBox {
+  padding: 10px 0 30px;
+  text-align: center;
+  background: #f2f2f2;
+}
+
+.serviceBox .service-icon {
+  padding: 25px 30px;
+}
+
+.serviceBox .service-icon a {
+  color: #fff;
+  font-size: 50px;
+}
+
+.serviceBox .service-content {
+  padding: 0 50px;
+  color: #6c6060;
+}
+
+.serviceBox .service-content h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.serviceBox .service-content hr {
+  background: #b4b4b4;
+  height: 1px;
+}
+
+.serviceBox .service-content p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+.serviceBox.yellow .service-icon, .serviceBox.yellow:hover .read a {
+  background: #f1bb40;
+}
+
+.serviceBox.yellow:hover h3 {
+  color: #f1bb40;
+}
+
+.serviceBox.green .service-icon, .serviceBox.green:hover .read a {
+  background: #01a89e;
+}
+
+.serviceBox.green:hover h3 {
+  color: #01a89e;
+}
+
+.serviceBox.pink .service-icon, .serviceBox.pink:hover .read a {
+  background: #d66c9a;
+}
+
+.serviceBox.pink:hover h3 {
+  color: #d66c9a;
+}
+
+@media screen and (max-width: 990px) {
+  .serviceBox {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .serviceBox .service-content {
+    padding: 0 30px;
+  }
+}
+

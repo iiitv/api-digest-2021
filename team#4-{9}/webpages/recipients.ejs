@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/recipientsstyles.min.css">
+</head>
+
+<body style="background: #283747;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background: #283747;">
+        <div class="container"><a class="navbar-brand" href="#">Company Name</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">First Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Second Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Dropdown </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="shadow" style="width: 100%;min-height: 630px;margin-top: 119px;background-color: rgba(255,255,255,0.79);">
+                    <form style="padding-top: 70px;" action="/addRecipients/<%=id%>" method="POST">
+                        <div class="form-group">
+                            <h1 class="text-center">Add Recipients</h1>
+                        </div>
+                        <div class="form-group"><input class="form-control form-control-lg" type="text" style="width: 50%;margin-left: 25%;" name="sheetsurl" placeholder="Google Sheets URL"></div>
+                        <center>OR</center>
+                        <br>
+                        <div class="form-group"><input class="form-control form-control-lg" type="text" style="width: 50%;margin-left: 25%;" name="names" placeholder="Names Separated by Comma"></div>
+                        <div class="form-group"><input class="form-control form-control-lg" type="text" style="width: 50%;margin-left: 25%;" name="emails" placeholder="Emails Separated by Comma"></div>
+                        <div class="form-group"><input class="form-control form-control-lg" type="text" style="width: 50%;margin-left: 25%;" name="numbers" placeholder="Phone Numbers Separated by Comma"></div>
+                        <div class="form-group"><button class="btn btn-dark btn-lg" style="width: 50%;margin-left: 25%;" type="submit">Add Recipients</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
