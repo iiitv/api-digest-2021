@@ -1,20 +1,26 @@
 import React from 'react';
 
+import home from "../../../Assets/Images/Home.jpg"
+
 import "./Property.css";
 
 const property = (props) => {
     return (
         <div className="property">
-            <p>Address:{props.address}</p><br/>
-            <p>Bathrooms:{props.bathrooms}</p><br/>
-            <p>Bedrooms:{props.bedrooms}</p><br/>
-            <p>SquareFootage:{props.footage}</p><br/>
-            <p>County:{props.county}</p><br/>
-            <p>Type:{props.type}</p><br/>
-            <p>City:{props.city}</p><br/>
-            <p>State:{props.state}</p><br/>
-            <p>Zipcode:{props.zipcode}</p><br/>
-            <p>Price:${props.price}</p><br/>
+            <img src={home} className="home"/>
+            <div>
+                <div><span className="field"> Address: </span>{props.address}</div><br/>
+                <div><span className="field">Bathrooms:</span> {props.bathrooms}</div><br/>
+                <div><span className="field">Bedrooms:</span> {props.bedrooms}</div><br/>
+                <div><span className="field">SquareFootage:</span> {props.footage}</div><br/>
+                <div><span className="field">County:</span> {props.county}</div><br/>
+                <div><span className="field">Type:</span> {props.type}</div><br/>
+                <div><span className="field">City:</span> {props.city}</div><br/>
+                <div><span className="field">State:</span> {props.state}</div><br/>
+                <div><span className="field">Zipcode:</span> {props.zipcode}</div><br/>
+                <div><span className="field">Price:</span> {props.price}</div><br/>
+            </div>
+            
         </div>
     )
 }
