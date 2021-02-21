@@ -21,5 +21,15 @@
             name="android:windowBackground">@drawable/before_adventure
         </item>
         <item name="android:scaleType">fitCenter</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style
+        name="EndSplash"
+        parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>

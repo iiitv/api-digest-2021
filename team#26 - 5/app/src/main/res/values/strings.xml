@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Rick Rolled</string>
+    <string name="last_seen">Last seen:</string>
+    <string name="doctor_what">Doctor what</string>
+    <string name="first_seen">First seen:</string>
+    <string name="doctor_who">Doctor who</string>
 </resources>

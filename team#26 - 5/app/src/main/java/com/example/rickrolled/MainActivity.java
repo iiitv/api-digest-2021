@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -60,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
 
-//        charView = findViewById(R.id.charView);
-//        RVAdapter rva = new RVAdapter(this, jsonArray);
-//        charView.setAdapter(rva);
-//        charView.setLayoutManager(new LinearLayoutManager(this));
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, EndSplash.class));
     }
 }

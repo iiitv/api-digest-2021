@@ -48,11 +48,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.MyviewHolder> {
         try {
             JSONObject charsIndi = characters.getJSONObject(position);
             holder.charname.setText(charsIndi.getString("name"));
-            holder.chargender.setText("Gender: " + charsIndi.getString("gender"));
-            holder.charstatus.setText("DOA: " + charsIndi.getString("status"));
-            holder.charspecies.setText("Species: " + charsIndi.getString("species") + ": " + charsIndi.getString("type"));
-            holder.charorigin.setText("First seen: " + charsIndi.getJSONObject("origin").getString("name"));
-            holder.charlastknown.setText("Last seen: " + charsIndi.getJSONObject("location").getString("name"));
+            holder.chargender.setText(charsIndi.getString("gender"));
+            holder.charstatus.setText(charsIndi.getString("status"));
+            holder.charspecies.setText(charsIndi.getString("species") + "   " + charsIndi.getString("type"));
+            holder.charorigin.setText(charsIndi.getJSONObject("origin").getString("name"));
+            holder.charlastknown.setText(charsIndi.getJSONObject("location").getString("name"));
 
             String imgURL = charsIndi.getString("image");
             Glide.with(context)
