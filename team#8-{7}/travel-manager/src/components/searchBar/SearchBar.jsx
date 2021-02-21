@@ -3,12 +3,18 @@ import { getWeatherData } from "../../requests/weather_request";
 
 const SearchBar = ({ state, setState }) => {
   const ref = useRef();
-  const API_KEY = "77a02429b97b271a7456b792ee9bcbaf";
-
   const handleWeatherFetch = async () => {
     const value = ref.current.value;
     if (value.length > 0) {
       const res = await getWeatherData(value);
+      if (res.status === 200)
+        setState({
+          ...state,
+          data: res.data,
+          forecast: res.forecast,
+          notFound: false,
+        });
+      else setState({ notFound: true });
     }
   };
 
