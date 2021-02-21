@@ -3,7 +3,6 @@ var router = express.Router();
 var articleData = require('../models/article')
 const {ensureAuth} = require("../middleware/authMiddleware");
 var request = require('request')
-var CryptoJS  = require('crypto-js')
 var currentArticleId = "";
 
 //function to create id 
