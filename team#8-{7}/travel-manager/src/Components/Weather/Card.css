@@ -1,9 +1,9 @@
-.customimage
-{
-    height:200px;
-    width:200px;
+.customimage {
+  height: 200px;
+  width: 200px;
 }
-.customcard
-{
-    background-color: rgb(21, 255, 0);
+.customcard {
+  background-color: rgb(220, 236, 219);
+  margin: 10px;
+  box-shadow: 4px 10px 10px rgba(235, 226, 226, 0.8);
 }

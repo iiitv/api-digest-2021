@@ -1,81 +1,37 @@
-import ReactMapboxGl from "react-mapbox-gl";
-import ReactMapGL, { NavigationControl, Marker } from "react-map-gl";
-import markerUrl from "./icons8-marker-100.png";
-import { useState } from "react";
+import React, { Component } from "react";
+import GoogleMapReact from "google-map-react";
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 const ReactMap = ({ state }) => {
-  const { userLocation } = state;
-  const [viewPort, setViewPort] = useState({
-    longitude: userLocation.longitude,
-    latitude: userLocation.latitude,
-    height: "80vh",
-    width: "100%",
-    zoom: 14,
-    markerWidth: 2,
-  });
-
-  const accessToken =
-    "pk.eyJ1Ijoicm9oaXRoOTU4OSIsImEiOiJja2c1NDg5eGswcTFnMndwanEybXFhZGdwIn0.qO1IIccfd4OXAPsX9ayBew";
-
-  const navControlStyle = {
-    right: 10,
-    top: 10,
+  const props = {
+    center: {
+      lat: state.userLocation.latitude,
+      lng: state.userLocation.longitude,
+    },
+    zoom: 11,
+  };
+  const handleApiLoaded = (map, maps) => {
+    // use map and maps objects
+    console.log(map);
+    console.log(maps);
   };
 
-  const markerStyles = {
-    width: viewPort.zoom * 3,
-  };
-
-  //   console.log(viewPort);
   return (
     <div className="map">
-      <ReactMapGL
-        {...viewPort}
-        mapboxApiAccessToken={accessToken}
-        onViewportChange={(viewPort) =>
-          setViewPort({ ...viewPort, markerWidth: state.markerWidth + 1 })
-        }
-        className="map"
-      >
-        <NavigationControl style={navControlStyle} />
-        <Marker
-          latitude={userLocation.latitude}
-          longitude={userLocation.longitude}
-          offsetLeft={-20}
-          offsetTop={-10}
+      <div style={{ height: "100vh", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyDsEA4Q4yYfziet_deC4PSvP4uiB5bCK94" }}
+          defaultCenter={props.center}
+          defaultZoom={props.zoom}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
-          <img style={markerStyles} src={markerUrl} alt="" />
-        </Marker>
-      </ReactMapGL>
+          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+        </GoogleMapReact>
+      </div>
     </div>
   );
 };
 
 export default ReactMap;
-//import { useState } from "react";
-// import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-// import ReactMapGL from "react-map-gl";
-
-// const ReactMap = ({ state: { userLocation } }) => {
-//   const [viewPort, setViewPort] = useState({
-//     longitude: userLocation.longitude,
-//     latitude: userLocation.latitude,
-//     height: "80vh",
-//     width: "80vw",
-//     zoom: 14,
-//   });
-
-//   const accessToken =
-//     "pk.eyJ1Ijoicm9oaXRoOTU4OSIsImEiOiJja2c1NDg5eGswcTFnMndwanEybXFhZGdwIn0.qO1IIccfd4OXAPsX9ayBew";
-
-//   return (
-//     <ReactMapGL
-//       {...viewPort}
-//       maxZoom={20}
-//       mapboxApiAccessToken={accessToken}
-//       onViewportChange={(viewPort) => setViewPort({ ...viewPort })}
-//     ></ReactMapGL>
-//   );
-// };
-
-// export default ReactMap;
-//
