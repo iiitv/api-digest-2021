@@ -28,13 +28,13 @@ function App() {
       <div class="row">
         <div id="sticky-navbar" className="col-md-2 bg-success">
           <div className="mynavbar  d-flex flex-column align-items-center font-weight-bolder">
-            <a href="#fid" className="mylink">
+            <a href="#mymap" className="mylink">
               Hospitals
             </a>
-            <a href="#fid" className="mylink">
+            <a href="#mymap" className="mylink">
               Schools
             </a>
-            <a href="#fid" className="mylink">
+            <a href="#mymap" className="mylink">
               Restaurants
             </a>
             <a href="#weather" className="mylink">
@@ -52,30 +52,38 @@ function App() {
           <SearchBar state={state} setState={setState} />
           {state.notFound && <NotFound />}
           <div className="card container">
-            <div
-              className="card-header text-center font-weight-bolder"
-              id="weather"
-            >
-              Check your Weather Details Here
-            </div>
+            {state.data && (
+              <div
+                className="card-header text-center font-weight-bolder"
+                id="weather"
+              >
+                Check your Weather Details Here
+              </div>
+            )}
             {state.data && <Card state={state} setState={setState} />}
             {/* {state.data && <Card state={state} setState={setState} />} */}
-            <h2 className="text-center font-weight-bolder mt-4">
-              Graph for Above Data is{" "}
-            </h2>
+            {state.data && (
+              <h2 className="text-center font-weight-bolder mt-4">
+                Graph for Above Data is{" "}
+              </h2>
+            )}
             {state.forecast && <WeatherChart state={state} />}
           </div>
           <div id="aqi">
             {state.aqi_result && <AQI state={state} setState={setState} />}
           </div>
-          <div id="hospital" className="card mt-4 ">
-            <div className="card-header  text-center font-weight-bolder">
-              See your Hospitals here
+          {state.data && (
+            <div id="hospital" className="card mt-4 container">
+              <div className="card-header  text-center font-weight-bolder">
+                See your Hospitals here
+              </div>
+              <div id="mymap">
+                {!state.notFound && state.userLocation && (
+                  <ReactMap state={state} />
+                )}
+              </div>
             </div>
-            {!state.notFound && state.userLocation && (
-              <ReactMap state={state} />
-            )}
-          </div>
+          )}
         </div>
       </div>
       {/* <GoogleMaps /> */}

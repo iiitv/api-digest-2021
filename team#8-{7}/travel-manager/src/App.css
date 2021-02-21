@@ -85,7 +85,6 @@ body {
 /* Map */
 .map {
   margin: 0 auto;
-  width: 60vw;
 }
 .marker-img {
   width: 80px;
