@@ -28,7 +28,10 @@
             var data = "<%- article.data %>"
             var disease_info = document.getElementById('disease_info');
             disease_info.innerHTML = data;
-            const handleLikeDislike = async(postId,userId,like)=>{
+        </script>
+     <% }) %>
+    <script>
+        const handleLikeDislike = async(postId,userId,like)=>{
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', '/dashboard/likePost', true);
                 await xhr.setRequestHeader('Content-Type', 'application/json');
@@ -41,6 +44,5 @@
                 );
                 location.reload();
             }
-        </script>
-     <% }) %>
+    </script>
 </div>
