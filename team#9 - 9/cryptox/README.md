@@ -1,3 +1,11 @@
+# CryptoX
+
+CryproX is a simple react web app that provides functionalities like desktop notification when price of a cryptocurrency decreases or increases so that users can earn maximum profit using this app.
+Crypto API used : (https://data.messari.io/api/v1/assets/bitcoin/metrics)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
