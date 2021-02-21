@@ -1,8 +1,11 @@
 import requests
 import json
 from admins import CS_toolkit
+from ocr import OCR
+
 
 bot = CS_toolkit("config.cfg")
+ocr_ = OCR()
 
 class Image():
     
@@ -13,7 +16,8 @@ class Image():
         image_id = image["result"][0]["message"]["photo"][0]["file_id"]
         url = bot.base + "getFile?file_id={}".format(image_id)
         r = requests.get(url)
-        file_path = r["result"]["file_path"]
-        print(file_path)
-        url = "api.telegram.org/file/{}/{}".format(bot.token, file_path)
-        bot.sendMessage(url, sender, None)
+        content = json.loads(r.content)
+        image_file_path = content["result"]["file_path"]
+        url = "api.telegram.org/file/bot{}/{}".format(bot.token, image_file_path)
+        # print(url)
+        return bot.sendMessage(ocr_.ocr_space_url(url), sender, None)
