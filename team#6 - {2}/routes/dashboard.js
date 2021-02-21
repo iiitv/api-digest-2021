@@ -45,7 +45,16 @@ router.post("/diagnosis",(req,res)=>{
 
 //get request for showing possbile cure
 router.get("/cure/:id",(req,res)=>{
-    res.render("uploadData");
+    const id = req.params.id;
+    const gender = res.locals.user.gender;
+    const year = res.locals.user.date.getFullYear();
+    const ed = `&symptoms=[${id}]&gender=${gender}&year_of_birth=${year}&format=json&language=en-gb`;
+    const url=`https://sandbox-healthservice.priaid.ch/diagnosis?token=${token}${ed}`;
+    request(url, { json: true }, (err, response, body) => {
+        if (err) { return console.log(err); }
+        console.log(body);
+        res.render("uploadData");
+    });
 })
 
 module.exports = router;
