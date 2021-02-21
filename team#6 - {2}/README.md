@@ -16,6 +16,13 @@
 <h5>Working </h5>
 <p>Once user arrive he will be greeted with the landing page and the he/she can register themselves on registering onwards they can login themselves with proper credentials once login done they will be at dashboard where they had two options one to diagnose himself and other to add article on one of the home made medicine(article includes how to make that medicine what are the benefits of medicine, what the article is actaully for ect). suppose he move with diagnose then he need to choose the symptoms he/she is experiencing and based upon the symptoms he will receive the name of disease of which he can a patient of once getting disease information if the home medicinal cure article is availiable then he can receive the same by clicking on disease card (card displaying disease information) and follow accordingly to get cure on the other hand if he chooses to add an article he can do so by clicking on add article and put necessary information about the home medicine therapy he is also provided with feature to add ingredients information needed to make the medicine in the next step of the form where whether he can manually add the links with name or just select among already present products </p>
 
-
+<h4>features: <h4>
+<ul>
+<li>User will get information regarding disease he may have from symptoms </li>
+<li>Old home medicine culture is feature in the way article on it formed</li>
+<li>Every article can be liked or disliked so that user can get the most trusted articles</li>
+<li>Ingredients details(needed for making medicine) can be added with article</li>
+<li> Login and sign up facility for user </li>
+</ul>
 
 
