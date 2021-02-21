@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_KEY = "77a02429b97b271a7456b792ee9bcbaf";
-const BASE_URL = "http://api.openweathermap.org/data/2.5/";
+const BASE_URL = "https://api.openweathermap.org/data/2.5/";
 const aqi_key='a1b981a276f0414585248191ad674656';
 const aqi_url='https://api.weatherbit.io/v2.0/current/airquality'
 export const apiRequest=async(value)=>{

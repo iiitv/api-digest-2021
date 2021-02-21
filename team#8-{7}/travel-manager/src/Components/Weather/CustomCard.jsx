@@ -5,7 +5,7 @@ function CustomCard(props) {
   console.log("CustomCard", props);
   props = props.props;
   const iconName = props.weather[0].icon;
-  const iconApi = `http://openweathermap.org/img/w/${iconName}.png`;
+  const iconApi = `https://openweathermap.org/img/w/${iconName}.png`;
 
   console.log(props);
   const imgsrc = "images/bg.jpg";

@@ -10,7 +10,7 @@ function Card(props) {
   const forecast = state.forecast;
   // const imgsrc=`${data.weather[0].icon}.png`
   const iconName = data.weather[0].icon;
-  const iconApi = `http://openweathermap.org/img/w/${iconName}.png`;
+  const iconApi = `https://openweathermap.org/img/w/${iconName}.png`;
   // const imgsrc='images/bg.jpg';
   const arr = state.forecast.daily;
   // console.log(iconApi);

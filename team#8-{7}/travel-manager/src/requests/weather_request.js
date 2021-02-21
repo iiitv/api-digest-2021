@@ -1,7 +1,7 @@
 import axios from "axios";
 import { formatDate } from "./helper";
 const API_KEY = "77a02429b97b271a7456b792ee9bcbaf";
-const BASE_URL = "http://api.openweathermap.org/data/2.5/";
+const BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
 export const getWeatherData = async (value) => {
   try {
