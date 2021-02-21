@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "./Card.css";
 function CustomCard(props) {
     console.log('CustomCard',props);
@@ -21,4 +21,4 @@ function CustomCard(props) {
     )
 }
 
-export default CustomCard
+export default CustomCard;

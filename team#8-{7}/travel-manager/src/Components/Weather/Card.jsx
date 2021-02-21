@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { formatDate } from "../../requests/helper";
 import "./Card.css";
-import CustomCard from './CustomCard';
+import CustomCard from "./CustomCard";
 function Card(props) {
     console.log('Inside',props);
     const state=props.state;
@@ -65,13 +66,13 @@ function Card(props) {
         {arr.map((ele)=>{
             return(
             <div className="col-sm-3">
-            <CustomCard props={ele} />
-            </div> 
-            )
+              <CustomCard props={ele} key={ele.temp.night} />
+            </div>
+          );
         })}
-        </div>
-</div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default Card;

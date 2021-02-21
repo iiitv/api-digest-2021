@@ -14,20 +14,25 @@ const ReactMap = ({ state }) => {
     zoom: 10,
     markerWidth: 2,
   });
+import React, { Component } from "react";
+import GoogleMapReact from "google-map-react";
 
-  const accessToken =
-    "pk.eyJ1Ijoicm9oaXRoOTU4OSIsImEiOiJja2c1NDg5eGswcTFnMndwanEybXFhZGdwIn0.qO1IIccfd4OXAPsX9ayBew";
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-  const navControlStyle = {
-    right: 10,
-    top: 10,
+const ReactMap = ({ state }) => {
+  const props = {
+    center: {
+      lat: state.userLocation.latitude,
+      lng: state.userLocation.longitude,
+    },
+    zoom: 11,
+  };
+  const handleApiLoaded = (map, maps) => {
+    // use map and maps objects
+    console.log(map);
+    console.log(maps);
   };
 
-  const markerStyles = {
-    width: viewPort.zoom * 3,
-  };
-
-  //   console.log(viewPort);
   return (
     <div className="map container">
       <ReactMapGL
@@ -45,9 +50,9 @@ const ReactMap = ({ state }) => {
           offsetLeft={-20}
           offsetTop={-10}
         >
-          <img style={markerStyles} src={markerUrl} alt="" />
-        </Marker>
-      </ReactMapGL>
+          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+        </GoogleMapReact>
+      </div>
     </div>
   );
 };
