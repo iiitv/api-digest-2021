@@ -21,7 +21,7 @@ const SearchBar = () => {
         setLocation(e);
         console.log("Searched---",e);
         try {
-            const res = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${e}&units=metric&APPID=ae566f5c70ac2b725e9515b7d65afb9f`);
+            const res = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${e}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API}`);
             let weather=[];
             for (let index = 0; index < res.data.list.length; index += 8) {
                 weather.push(res.data.list[index]);
@@ -39,7 +39,7 @@ const SearchBar = () => {
     return ( 
         <div className="container mx-auto py-5 w-50">
             <Search placeholder="Enter city name" onSearch={onSearch} enterButton />
-            { weather && <WeatherForecast weather={weather} /> }
+            { weather && <WeatherForecast weather={weather} location={location} /> }
         </div>
     );
 }
