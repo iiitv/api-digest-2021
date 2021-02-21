@@ -25,42 +25,42 @@ function Card(props) {
         <h2 className="display-4">{data.main.temp}</h2>
         <p className="text-capitalize font-weight-bolder">{data.weather[0].description}</p>
         </div>
-        <div className="col-sm-6 text-center">
+        <div className="col-sm-6 text-center bg-info rounded-lg text-white font-weight-bolder infos" >
         <div className="row">
 
 <div className="col-sm-4">
-    <p>Max Temparature is</p>
-    <p>{data.main.temp_max}</p>
+    <p className="m-0 mt-4">Max Temp. is</p>
+    <p className="m-0">{data.main.temp_max}</p>
     </div>
 <div className="col-sm-4">
-<p>Min Temparature is</p>
-<p>{data.main.temp_min}</p>
+<p className="m-0 mt-4">Min Temp. is</p>
+<p className="m-0">{data.main.temp_min}</p>
 </div>
 <div className="col-sm-4">
-<p>Wind Speed is</p>
-    <p>{data.wind.speed}</p>
+<p className="m-0 mt-4">Wind Speed is</p>
+    <p className="m-0">{data.wind.speed}</p>
 
 </div>
         </div>
         <div className="row">
 <div className="col-sm-4">
-<p>Sun rises at</p>
-    <p>
-{data.sys.sunrise}</p>
+<p className="m-0 mt-4">Sun rises at</p>
+    <p className="m-0 mb-4"> 
+{data.sys.sunrise}</p> 
 
 </div>
          <div className="col-sm-4">
-         <p>SunSet at</p>
-         <p>{data.sys.sunset}</p>
+         <p className="m-0 mt-4">SunSet at</p>
+         <p className="m-0 mb-4">{data.sys.sunset}</p>
          </div>  
          <div className="col-sm-4">
-         <p>Humidity is </p>
-         <p> {data.main.humidity}</p>
+         <p className="m-0 mt-4"> Humidity is </p>
+         <p className="m-0 mb-4"> {data.main.humidity}</p>
         </div>   
         </div>
         </div>
         </div>
-        <h2 className="text-center font-weight-bolder ">Weather for next 8 days is</h2>
+        <h2 className="text-center font-weight-bolder mt-4">Weather for next 8 days is</h2>
         <div className="row">
         {arr.map((ele)=>{
             return(

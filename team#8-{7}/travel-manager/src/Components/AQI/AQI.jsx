@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./AQI.css";
 function AQI({state,setState}) {
     let data=state.aqi_result;
     let temp=data.aqi_result;
@@ -7,11 +8,11 @@ function AQI({state,setState}) {
     data=data.aqi_result.data.data[0];
     return (
         <div>
-           <div className="card container text-center mt-4">
+           <div className="card container text-center mt-4 ">
            <div className="card-header font-weight-bolder">
                Check Your Quality of Air Here
            </div>
-               <div className="row">
+               <div className="row  aqicontainer pt-4 font-weight-bolder">
         <div className="col-sm-4">
             <h2 className="">Aqi Level:</h2>
             <p>{data.aqi}</p>
@@ -25,7 +26,7 @@ function AQI({state,setState}) {
             <p>{data.no2}</p>
 </div>
                </div>
-               <div className="row">
+               <div className="row  aqicontainer pt-4 font-weight-bolder">
                    <div className="col-sm-4">
                    <h2 className="">Ozone Level:</h2>
             <p>{data.o3}</p>
