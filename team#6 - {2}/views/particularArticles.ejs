@@ -4,6 +4,9 @@
 <div class="uploadData">
     <h2>Issue</h2>
     <p class="symtomName"><%= issue%></p>
+    <% if(articles.length==0){ %>
+        <p>OOPS! There is No Article Regarding <%=issue%></p>
+    <% } %>
     <% articles.forEach((article)=>{ %>
         <div class="disease">
             <div id="disease_info">
@@ -14,11 +17,29 @@
                 <h1 class="product_name"><%= data.name %></h1>
                 <a href="<%= data.link %>" target = "_blank" class="btn btn-primary">Buy it</a>
             <% })} %>
+            <br>
+            <%= article.rating%>
+            <i class="fa-lg far fa-thumbs-up" onclick="handleLike('<%= article._id%>','<%=user._id%>')"></i>
+            <i class="fa-lg far fa-thumbs-down"></i>
+            <% console.log("hello") %>
+            <!-- <i class="fa-lg fas fa-thumbs-up"></i>
+            <i class="fa-lg fas fa-thumbs-down"></i> -->
         </div>
         <script>
             var data = '<%- article.data %>'
             var disease_info = document.getElementById('disease_info');
             disease_info.innerHTML = data;
+            const handleLike = async(postId,userId)=>{
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/dashboard/likePost', true);
+                await xhr.setRequestHeader('Content-Type', 'application/json');
+                var resp = await xhr.send(
+                    JSON.stringify({
+                        postId,
+                        userId
+                    })
+                );
+            }
         </script>
      <% }) %>
 </div>

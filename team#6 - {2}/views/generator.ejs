@@ -84,13 +84,13 @@
       disease_name = disease.value;
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/dashboard/generate', true);
-     await xhr.setRequestHeader('Content-Type', 'application/json');
-     var resp = await xhr.send(
-        JSON.stringify({
-          value: quill.root.innerHTML,
-          email: email,
-          disease_name: disease_name
-        })
+      await xhr.setRequestHeader('Content-Type', 'application/json');
+      var resp = await xhr.send(
+          JSON.stringify({
+            value: quill.root.innerHTML,
+            email: email,
+            disease_name: disease_name
+          })
       );
       window.location.href ="/dashboard/product"
     }

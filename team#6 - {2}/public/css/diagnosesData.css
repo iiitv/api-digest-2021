@@ -18,5 +18,10 @@
     display: inline;
 }
 .info__text {
-    font-size: 15px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.thumb-icon{
+    height: 50px;
 }

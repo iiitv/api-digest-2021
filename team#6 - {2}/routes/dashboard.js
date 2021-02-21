@@ -19,7 +19,7 @@ function getId(length) {
   
 
 //this is keshav token.
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imhib3k2Mjc2OEBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6Ijg2NDkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjEtMDItMjAiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYxMzkxMDM2MCwibmJmIjoxNjEzOTAzMTYwfQ.lzlyBNrUgCRwSXor9GrMCTsgPnzVZg_DFZBVGXQVn2s';
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imhib3k2Mjc2OEBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6Ijg2NDkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjEtMDItMjAiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYxMzkyMDQxMiwibmJmIjoxNjEzOTEzMjEyfQ.e-10OwUwh_SkcJrmCA5BTTO8_mDxHTJPk4TFyaMXzUc';
 
 // const token ="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5sb2toYW5kZTU5MjNAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI4NjQ4IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDIxLTAyLTIwIiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MTM5MDIxMzQsIm5iZiI6MTYxMzg5NDkzNH0.sQkmoD7V6aPYN-l7GoCbrrl37a5Zxvs7SS57Cx1T2v0";
 
@@ -56,7 +56,6 @@ router.post('/product',async (req,res)=>{
     var updatedData = await articleData.findOneAndUpdate(filter, update, {
       new: true
     });
-    console.log(updatedData);
 })
 
 router.post('/generate', function(req, res, next) {
@@ -69,7 +68,7 @@ router.post('/generate', function(req, res, next) {
     })
     articleDetails.save()
     .then((doc)=>{
-        console.log("saved successfully",doc);
+        console.log("saved successfully Article");
     }) 
     .catch((err)=>{
         console.error(error);
@@ -127,6 +126,43 @@ router.get("/article/:id",(req,res)=>{
         })
         res.render("particularArticles",{issue,articles});
     });
+})
+
+//like post
+router.post("/likePost",async(req,res)=>{
+    // req.body
+    const {postId,userId} = req.body;
+    const query = { _id: postId};
+    const result = await articleData.findOne(query);
+    const vote = result.rating;
+    console.log(vote);
+    articleData.findOneAndUpdate({_id:postId},{
+        rating:vote+1
+    },{
+        new:true
+    });
+    // const post = await articleData.findOne({_id:postId,votes:{$elemMatch: {id:userId}}});
+    // // const doc1 = await post.votes.find({id:userId});
+    //     console.log("ayyyyyar ")
+    //     try {
+    //         articleData.findOneAndUpdate(
+    //             {_id:postId},
+    //             {
+    //                 $push : {
+    //                     votes :  {
+    //                              "id": userId,
+    //                              "like": true,
+    //                              "dislike":false
+    //                            } //inserted data is the object to be inserted 
+    //                   }
+    //             },
+    //             {
+    //                 new: true
+    //             }
+    //         )
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
 })
 
 module.exports = router;

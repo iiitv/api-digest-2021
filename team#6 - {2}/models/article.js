@@ -22,7 +22,16 @@ const articleData = new Schema({
         type:String,
         default: null,
         required: true
-    }
+    },
+    rating:{
+        type:Number,
+        default:0
+    },
+    votes:[{
+        id:String,
+        like:Boolean,
+        dislike:Boolean
+    }]
 })
 
 module.exports = mongoose.model('articleData',articleData);
