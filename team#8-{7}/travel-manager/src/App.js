@@ -1,5 +1,6 @@
 import { useState } from "react";
-import SearchBar from "./components/searchBar/SearchBar";
+import SearchBar from "./Components/searchBar/SearchBar"
+import Card from "./Components/Card";
 import "./App.css";
 function App() {
   const [state, setState] = useState("");
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar state={state} setState={setState} />
-      <p></p>
+      <Card />
     </div>
   );
 }

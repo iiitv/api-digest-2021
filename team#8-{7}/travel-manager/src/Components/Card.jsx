@@ -1,17 +1,22 @@
 import React from 'react'
-function Card() {
-    const res=`https://api.openweathermap.org/data/2.5/weather?q=Bhiwani&appid=55cd8303f8cb6319e0ce1c3761950f74`;
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+function Card(props) {
+    console.log('Inside',props);
+    const imgsrc=`images/bg.jpg`;
     return (
-        <div className="card">
-           <div className="left">
+        <div className="card container">
+        <div className="row">
+           <div className="left col-sm-6">
+           <img src={imgsrc} alt="Weather" className="img-fluid"></img>
            </div>
-           <div className="right">
+           <div className="right col-sm-6 d-flex align-items-center justify-content-center">
+           <div className="detail">
                <h2>22 Deg</h2>
-               <h3>Clouds</h3>
-               <p>Sunday, july 21</p>
-               
+               <h3>Cloudy</h3>
+               <p>Sunday 20 feb,2021</p>
+               </div>
            </div>
-
+</div>
         </div>
     )
 }
