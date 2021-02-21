@@ -156,6 +156,9 @@ router.get("/all",async (req,res)=>{
 router.get("/all/:id",async (req,res)=>{
     let id = req.params.id;
     let articles = await articleData.find({id:id});
+    articles.map((article)=>{
+        article.data = article.data.replace(/["]+/g, "'")
+     })
     res.render('particularArticles',{issue:null,articles});
 })
 
