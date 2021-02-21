@@ -7,25 +7,24 @@
 
 <div class="container mt-5">
     <h1 class="text-center display-3 text-dark font-weight-bold">Create Remedial article</h1>
-    <!-- <form method="POST" action="/dashboard/generate" enctype="multipart/form-data"> -->
-    <label for="email" class="mt-4">Enter your mail</label> <span class="required">*</span>
     <input
-      type="email"
+      type="hidden"
+      value="<%= user.email%>"
       class="form-control"
       placeholder="enter your email"
       name="usremail"
       id="usremail"
       required
     />
+    
     <label for="disease" class="mt-4">Disease</label><span class="required">*</span>
-    <input
-      type="text"
-      class="form-control"
-      name="disease_name"
-      id="disease"
-      placeholder="Enter disease name"
-      required
-    />
+    <select name="disease_name" id="disease" class="form-control">
+      <% if(data){ %>
+          <% data.forEach((val)=>{ %>
+              <option value=<%=val.ID%>><%= val.Name%></option>
+          <% }) %>
+      <% } %>
+    </select>
     <label for="gist" class="mt-4">Provide the gist of whole Remedy</label><span class="required">*</span>
     <div>
       <input name="gist" type="hidden" required/>
