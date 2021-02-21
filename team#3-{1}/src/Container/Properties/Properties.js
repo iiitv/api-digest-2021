@@ -56,6 +56,9 @@ class properties extends Component{
     }
     }
 
+    
+
+
     scroll = () =>{
       console.log("inscroll")
       window.scrollBy(0,600)
@@ -67,7 +70,6 @@ class properties extends Component{
         let property;
         console.log(this.state.pageLoaded)
         if(this.state.pageLoaded){
-        this.scroll();
          property =  this.state.listings.map((p,index)=>{
             if(this.state.flag===0){
               address=p.address;
@@ -101,6 +103,7 @@ class properties extends Component{
         return(
             <div>
                 {property}
+                {this.state.pageLoaded?setTimeout(this.scroll,500):null}
             </div>
         )
     }
