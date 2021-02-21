@@ -7,21 +7,21 @@ bot = CS_toolkit("config.cfg")
 register_ = Register()
 
 
-def reply(msg, sender):
+def reply(msg, sender, update_id):
 	if msg is None:
 		return
-	if msg == "/start":
+	elif msg == "/start":
 		return bot.sendMessage("This is your one-stop bot for all CS related things.\nType /help to see all commands.", sender, None)
-	if msg == "/help":
+	elif msg == "/help":
 		return bot.sendMessage("""You can use the following commands:
 		/start : to start the bot.
 		/help : to get a list of commands.
 		/register : to register with your username on a given Competitive programming platform.
 		""",
 		sender, None)
-	if msg == "/register":
-		return register_.show_options(sender)
-	if msg is not None:
+	elif msg == "/register":
+		return register_.show_options(sender, update_id)
+	elif msg is not None:
 		return bot.sendMessage("Okay!", sender, None)
 
 update_id = None
@@ -37,4 +37,4 @@ while True:
 			except:
 				msg = None
 				sender = None
-		reply(msg, sender)
+		reply(msg, sender, update_id)
