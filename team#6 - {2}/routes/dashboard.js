@@ -4,6 +4,7 @@ var articleData = require('../models/article')
 const {ensureAuth} = require("../middleware/authMiddleware");
 var request = require('request')
 var currentArticleId = "";
+
 //function to create id 
 function getId(length) {
     var result = '';
@@ -59,7 +60,7 @@ router.post('/generate', function(req, res, next) {
     currentArticleId = getId(6);
     let articleDetails = new articleData({
         email: req.body.email,
-        name: req.body.disease_name,
+        disease_id: req.body.disease_name,
         data: req.body.value,
         id: currentArticleId,
     })
@@ -94,7 +95,6 @@ router.post("/diagnosis",(req,res)=>{
 //get request for showing possbile cure
 // router.get("/cure",async(req,res)=>{
 router.get("/cure/:id",(req,res)=>{
-    
     const id = req.params.id;
     // let symptom_id = "";
     // symptoms.map((id)=>{
@@ -120,6 +120,20 @@ router.get("/cure/:id",(req,res)=>{
             if (err1) { return console.log(err1); }
             res.render("uploadData",{data:body1,symptom:symptom});
         });
+    });
+})
+
+//article regarding disease
+router.get("/article/:id",(req,res)=>{
+    const id = req.params.id;
+    let ed = `&issues=[${id}]&format=json&language=en-gb`
+    let url=`https://sandbox-healthservice.priaid.ch/issues?token=${token}${ed}`;
+    let issue = '';
+    request(url, { json: true }, async(err, response, body) => {
+        if (err) { return console.log(err); }
+        issue = body[0].Name;
+        const articles = await articleData.find({disease_id:id});
+        res.render("particularArticles",{issue,articles});
     });
 })
 
