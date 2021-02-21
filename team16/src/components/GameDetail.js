@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {smallImage} from '../util';
 
-const GameDetail = ({pathId}) => {
+const GameDetail = ({ pathId }) => {
   const history = useHistory();
   //exit detail
   const exitDetailHandler = (e) => {
@@ -24,10 +24,10 @@ const GameDetail = ({pathId}) => {
     <> 
     {!isLoading && (
       <CardShadow className="shadow" onClick={exitDetailHandler}>
-        <Detail layoutId={ pathId }>
+        <Detail LayoutId = { pathId }>
           <Stats>
             <div className="rating">
-              <h3>{game.name}</h3>
+              <motion.h3 LayoutId = {`title ${pathId}`}>{game.name}</motion.h3>
               <p>Rating: {game.rating}</p>
             </div>
             <Info>
@@ -40,8 +40,8 @@ const GameDetail = ({pathId}) => {
             </Info>
           </Stats>
           <Media>
-            <img
-              loading='lazy'
+            <motion.img
+              layoutId = {`image ${pathId}`}
               src={smallImage(game.background_image, 1280)}
               alt={game.background_image}
             />
@@ -52,7 +52,6 @@ const GameDetail = ({pathId}) => {
           <div className="gallery">
             {screen.results && screen.results.map((screen) => (
               <img
-                loading='lazy'
                 src={smallImage(screen.image, 1280)}
                 key={screen.id}
                 alt={screen.image}
@@ -67,6 +66,7 @@ const GameDetail = ({pathId}) => {
 
 const CardShadow = styled(motion.div)`
   width: 100%;
+  z-index: 999;
   min-height: 100vh;
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.5);
