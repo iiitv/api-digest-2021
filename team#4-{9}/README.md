@@ -2,6 +2,10 @@
 
 -------------------------------------------
 
+## Problem Statement:
+
+ In today’s world, it is not easy to organize and manage an event. Organizing an event involves quite a few hectic steps, ranging from sending invites, managing registrations, communicating to the participants, and keeping a check on the RSVPs. Since the steps involved are widely distributed over different platforms, and due to this, managing the information becomes a restless task. So, we thought about creating a single platform, where an user can create events, invite all the participants via customizable and dynamic email and text messages, not only this, but this platform also helps the organizers by providing them with real time data to easily manage the RSVPs. The participants do not need to put any efforts while registering for the event, as they can do it hassle-free, with just a few clicks on this platform. Furthermore, we have also provided a Discussion Platform where all the participants can easily discuss the event, ask their queries, and interact with the organizers as well as their peer group, thus solving the problem of distributed communication. The Discussion platform has also been integrated with a Sentiment Analysis API, so that the user can be sure about the sentiments they channel through their messages.
+
 ## APIs Used:
 
 - [SendGrid API](https://sendgrid.com/solutions/email-api/)
