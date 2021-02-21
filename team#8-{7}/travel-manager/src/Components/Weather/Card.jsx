@@ -22,7 +22,7 @@ function Card(props) {
         <div className="row d-flex justify-content-center align-items-center">
         <div className="col-sm-6 text-center mt-4">
         <img src={imgsrc} alt="weather" className="img-fluid img-responsive customimage"></img>
-        <h2 className="display-4">{data.main.temp}</h2>
+        <h2 className="display-4">{data.main.temp}°C</h2>
         <p className="text-capitalize font-weight-bolder">{data.weather[0].description}</p>
         </div>
         <div className="col-sm-6 text-center bg-info rounded-lg text-white font-weight-bolder infos" >
@@ -30,11 +30,11 @@ function Card(props) {
 
 <div className="col-sm-4">
     <p className="m-0 mt-4">Max Temp. is</p>
-    <p className="m-0">{data.main.temp_max}</p>
+    <p className="m-0">{data.main.temp_max}°C</p>
     </div>
 <div className="col-sm-4">
 <p className="m-0 mt-4">Min Temp. is</p>
-<p className="m-0">{data.main.temp_min}</p>
+<p className="m-0">{data.main.temp_min}°C</p>
 </div>
 <div className="col-sm-4">
 <p className="m-0 mt-4">Wind Speed is</p>

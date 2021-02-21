@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "./Components/searchBar/SearchBar";
-import Card from "./Components/Weather/Card"
+import Card from "./Components/Weather/Card";
 import "./App.css";
 import NotFound from "./Components/NotFound/NotFound";
 import WeatherChart from "./Components/WeatherChart/WeatherChart"
 import AQI from "./Components/AQI/AQI";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import ReactMap from "./Components/Map/ReactMap";
 function App() {
-  const [state, setState] = useState({notFound:true});
-  console.log(state);
+  const [state, setState] = useState("");
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (location) => setState({ userLocation: location.coords }),
+      (err) => console.log(err),
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
   return (
     <div className="App">
     <div class="row">
@@ -29,16 +38,17 @@ function App() {
       <div className="card-header text-center font-weight-bolder" id="weather">
         Check your Weather Details Here
       </div>
-      {!state.notFound&&  <Card state={state} setState={setState}/>}
+      {state.data&&  <Card state={state} setState={setState}/>}
       {/* {state.data && <Card state={state} setState={setState} />} */}
       <h2 className="text-center font-weight-bolder mt-4">Graph for Above Data is </h2>
       {state.forecast && <WeatherChart state={state} />}
       </div>
       <div id="aqi">
-      {!state.notFound&& <AQI state={state} setState={setState}/>}
+      {state.aqi_result&& <AQI state={state} setState={setState}/>}
       </div>
     </div>
     </div>
+      {state.userLocation && <ReactMap state={state} />}
     </div>
   );
 }

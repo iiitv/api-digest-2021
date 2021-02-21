@@ -85,3 +85,11 @@ body {
   font-size:30px;
 
 }
+/* Map */
+.map {
+  margin: 0 auto;
+}
+.marker-img {
+  width: 80px;
+}
+/*  */

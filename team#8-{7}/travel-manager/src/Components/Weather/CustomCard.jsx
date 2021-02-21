@@ -13,8 +13,8 @@ function CustomCard(props) {
            
             {/* Putting an image tag here */}
             <img src={imgsrc} alt="Status of weather" className="cardimage rounded-circle"></img>
-            <p className="m-1">Day Temp:{props.temp.day}</p>
-            <p className="m-1">Night Temp:{props.temp.night}</p>
+            <p className="m-1">Day Temp:{props.temp.day}°C</p>
+            <p className="m-1">Night Temp:{props.temp.night}°C</p>
             <p className="m-1">Description:{props.weather[0].description}</p>
             </div>
         </div>

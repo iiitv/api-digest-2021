@@ -26,7 +26,7 @@ function AQI({state,setState}) {
             <p>{data.no2}</p>
 </div>
                </div>
-               <div className="row  aqicontainer pt-4 font-weight-bolder">
+               <div className="row  aqicontainer pt-4 ">
                    <div className="col-sm-4">
                    <h2 className="">Ozone Level:</h2>
             <p>{data.o3}</p>
