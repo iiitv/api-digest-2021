@@ -37,7 +37,7 @@ const SearchBar = () => {
     }
 
     return ( 
-        <div className="container mx-auto my-5">
+        <div className="container mx-auto py-5 w-50">
             <Search placeholder="Enter city name" onSearch={onSearch} enterButton />
             { weather && <WeatherForecast weather={weather} /> }
         </div>
