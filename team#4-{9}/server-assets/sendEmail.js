@@ -20,3 +20,4 @@ sendInvitation(emails,nameList,'Digital Ocean')
 //     console.log(email)
 //     console.log(nameList[index])
 // });
+module.exports=sendInvitation

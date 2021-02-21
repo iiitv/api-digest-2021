@@ -31,6 +31,12 @@ const userSchema = new Schema({
         date: {
             type: Date
         },
+        duration:{
+            type: String
+        },
+        calenderLink:{
+            type:String,
+        },
         emailMessage: {
             type: String,
         },
@@ -49,6 +55,9 @@ const userSchema = new Schema({
                 },
                 contact: {
                     type: Number
+                },
+                status:{
+                    type:String
                 }
             }
         ]
