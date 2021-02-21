@@ -1,6 +1,6 @@
 import React from 'react'
-
-function AQI() {
+import axios from "axios";
+function AQI({state,setstate}) {
     return (
         <div>
             
