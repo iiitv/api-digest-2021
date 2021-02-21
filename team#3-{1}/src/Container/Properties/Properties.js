@@ -57,7 +57,9 @@ class properties extends Component{
     }
 
     
-
+    timeout = () =>{
+      
+    }
 
     scroll = () =>{
       console.log("inscroll")
@@ -80,17 +82,17 @@ class properties extends Component{
             }
             return<div className="props">
               <Property 
-            bathrooms={p.bathrooms} 
-            bedrooms={p.bedrooms} 
-            price={p.price} 
-            address={address}
-            footage={p.squareFootage}
-            county={p.county}
-            type={p.propertyType}
-            city={p.city}
-            state={p.state}
-            zipcode={zipcode}
-            latitude={p.latitude}
+            bathrooms={p.bathrooms || "Not Available"} 
+            bedrooms={p.bedrooms || "Not Available"} 
+            price={p.price || "Not Available"} 
+            address={address || "Not Available"}
+            footage={p.squareFootage || "Not Available"}
+            county={p.county || "Not Available"}
+            type={p.propertyType || "Not Available"}
+            city={p.city || "Not Available"}
+            state={p.state || "Not Available"}
+            zipcode={zipcode || "Not Available"}
+            latitude={p.latitude }
             longitude={p.longitude}
             />
             </div> 
@@ -103,7 +105,10 @@ class properties extends Component{
         return(
             <div>
                 {property}
+                <div style={{display:"none"}}>
                 {this.state.pageLoaded?setTimeout(this.scroll,500):null}
+                </div>
+                
             </div>
         )
     }
