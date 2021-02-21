@@ -5,6 +5,8 @@ const generateAuthToken = require('./security/jwt.js')
 const cookieParser = require('cookie-parser')
 const verifytoken = require('./security/verifytoken-middleware')
 const sendDetailsRouter = require('./server-assets/saveEventDetails')
+const updateInviteRouter = require('./server-assets/updateInvite.js')
+
 const sendRecipentsRouter = require('./server-assets/recipients')
 const sendMessageRouter = require('./server-assets/writeMessage.js')
 const bodyParser = require('body-parser')
@@ -29,6 +31,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(sendMessageRouter)
 app.use(sendRecipentsRouter)
+app.use(updateInviteRouter)
 app.use(express.json())
 app.use(sendDetailsRouter)
 // app.post('/eventDetails',(req,res)=>{
@@ -249,7 +252,57 @@ io.on('connection', (socket) => {
 })
 
 
+app.get('/invitation/:eventid/:inviteid', async (req, res) => {
+    let event = null
+    let users = await User.find({})
+    users.forEach(e=>{
+        e.events.forEach(ele=>{
+            if(ele._id==req.params.eventid){
+                event = ele;
+            }
+        })//http://localhost:3000/invitation/603243d92aef9508a876e2df/603243e22aef9508a876e2e1
+    })
+    if(event!=null){
+        res.status(200).render(__dirname+ "/webpages/yesorno.ejs", {"id": req.params.inviteid, "event": event.Title, "event_id": event._id})
+    }
+    
+})
 
+app.get('/events', async (req, res) => {
+    events = []
+    users = await User.find({})
+    users.forEach(user => {
+        events.push(...user.events)
+    })
+    res.status(200).render(__dirname+"/webpages/events.ejs",{events})
+})
+
+app.get('/info/:eventid', verifytoken, async (req, res) => {
+    let event = null
+    let users = await User.find({})
+    users.forEach(e=>{
+        e.events.forEach(ele=>{
+            if(ele._id==req.params.eventid){
+                event = ele;
+            }
+        })
+    })
+    if (event!=null) {
+        let stats = []
+        event.attendees.forEach(e=>{
+            stats.push({
+                name: e.name,
+                email: e.email,
+                phonenumber: e.contact,
+                status: e.status
+            })
+        })
+        res.status(200).render(__dirname+"/webpages/status.ejs", {stats})
+    }
+    else {
+        res.redirect('/home')
+    }
+})
 
 
 app.get(['/*'], (req, res) => {
