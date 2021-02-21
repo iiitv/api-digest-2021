@@ -21,7 +21,7 @@ const SearchBar = ({ state, setState }) => {
   return (
     <div className="search-bar-container">
       <input type="text" ref={ref} />
-      <button onClick={handleWeatherFetch}>Click me</button>
+      <button onClick={handleWeatherFetch}>Search</button>
     </div>
   );
 };
