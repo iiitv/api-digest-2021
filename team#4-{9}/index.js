@@ -5,12 +5,12 @@ const generateAuthToken = require('./security/jwt.js')
 const cookieParser = require('cookie-parser')
 const verifytoken = require('./security/verifytoken-middleware')
 require('./database/mongodb.js')
+
 const app = express()
 app.use(express.json())
 
 const User = require('./model/user')
     // token
-
 // /Users/Kaushalendra/mongodb/bin/mongod --dbpath=/Users/Kaushalendra/mongodb-data
 app.use(express.static('public'))
 app.use(cookieParser())
@@ -46,7 +46,7 @@ app.post('/login', async(req, res) => {
         console.log(token)
         res.cookie('authtoken', token, {
             httpOnly: true,
-            maxAge: 86400*2,
+            maxAge: 86400*2*10000,
         })
         const obj = {
             ...user,

@@ -17,20 +17,54 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true
-    }
-    
+    },
+    events: [{
+        Title: {
+            type: String,
+        },
+        venue: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        date: {
+            type: Date
+        },
+        emailMessage: {
+            type: String,
+        },
+        textMessage: {
+            type: String,
+        },
+        attendees: [
+            {
+                name: {
+                    type: String,
+                },
+                email: {
+                    type: String,
+                    trim: true,
+                    lowercase: true,
+                },
+                contact: {
+                    type: Number
+                }
+            }
+        ]
+    }]
 
 }, { timestamps: true })
 
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
 
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 8)
     }
     next()
 })
-userSchema.statics.findUserAndVerifyCredentials = async(username, password) => {
+userSchema.statics.findUserAndVerifyCredentials = async (username, password) => {
 
     const user = await User.findOne({ username })
     if (!user)
