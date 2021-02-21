@@ -68,10 +68,10 @@ const GameDetail = ({ pathId }) => {
     <> 
     {!isLoading && (
       <CardShadow className="shadow" onClick={exitDetailHandler}>
-        <Detail LayoutId = { pathId }>
+        <Detail layoutId = { pathId }>
           <Stats>
             <div className="rating">
-              <motion.h3 LayoutId = {`title ${pathId}`}>{game.name}</motion.h3>
+              <h3 layoutId = {`title ${pathId}`}>{game.name}</h3>
               <p>Rating: {game.rating}</p>
               {getStars()}
             </div>

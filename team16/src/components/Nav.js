@@ -61,6 +61,7 @@ const StyledNav = styled(motion.nav)`
     cursor: pointer;
     background: #ff7676;
     color: white;
+    /* font-family : inherit; */
   }
 `;
 
