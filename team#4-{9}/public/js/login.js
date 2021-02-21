@@ -56,9 +56,7 @@ $signin.addEventListener('click', async(e) => {
         if (response.status !== 200) {
             throw new Error(data.errormsg)
         }
-        // console.log(data)
         console.log(response.status)
-            // window.alert('congratulations for logging in')
         window.location.href = '/home';
 
 

@@ -34,17 +34,10 @@ app.use(sendRecipentsRouter)
 app.use(updateInviteRouter)
 app.use(express.json())
 app.use(sendDetailsRouter)
-// app.post('/eventDetails',(req,res)=>{
 
-//     console.log(req.body)
-//     res.send().status(200)
-// })
 const User = require('./model/user')
-// token
-// /Users/Kaushalendra/mongodb/bin/mongod --dbpath=/Users/Kaushalendra/mongodb-data
 app.use(express.static('public'))
 app.use(cookieParser())
-// verifytoken== 
 app.get('/', verifytoken, (req, res) => {
     if (req.username)
         return res.sendFile('home.html', { root: path.join(__dirname, '/webpages') })
@@ -52,7 +45,7 @@ app.get('/', verifytoken, (req, res) => {
     res.sendFile('login.html', { root: path.join(__dirname, '/webpages') })
 })
 app.get('/home', verifytoken, async (req, res) => {
-    console.log(req.username + 'chutasd fhslakjfh ')
+
 
     if (!req.username)
         return res.redirect('/')
@@ -60,7 +53,6 @@ app.get('/home', verifytoken, async (req, res) => {
     res.sendFile('home.html', { root: path.join(__dirname, '/webpages') })
 })
 app.get('/createEvent', verifytoken, async (req, res) => {
-    // console.log(req.username + 'chutasd fhslakjfh ')
 
     if (!req.username)
         return res.redirect('/')
@@ -71,9 +63,9 @@ app.get('/createEvent', verifytoken, async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const user = await User.findUserAndVerifyCredentials(req.body.username, req.body.password)
-        console.log(user)
+        
         const token = await generateAuthToken(user.username)
-        console.log(token)
+        
         res.cookie('authtoken', token, {
             httpOnly: true,
             maxAge: 86400 * 2 * 10000,
@@ -169,7 +161,6 @@ io.on('connection', (socket) => {
     //    _id=user.room
        const _id=user.room
        let userObjForThisEvent = await User.findOne({"events._id": user.room})
-       console.log(userObjForThisEvent.username+' asdfsdfdsafasd')
        index = 0
        finalindex=-1
        userObjForThisEvent.events.forEach(e => {
@@ -178,15 +169,10 @@ io.on('connection', (socket) => {
            }
            index++
        })
-       console.log(finalindex+' index')
-       console.log(userObjForThisEvent.events[0]._id+' lawda')
 
-       // socket.emit('ownMessage',generateTimeMessage(user.username,message))
-       // console.log(user.username+'  asdhf  '+ user.room)
     userObjForThisEvent.events[finalindex].forumChats.forEach((chat)=>{
     socket.emit('message', generateTimeMessage(chat.username, chat.message))
    })
-//  userObjForThisEvent.events[finalindex].title
     console.log(userObjForThisEvent.events[finalindex].Title)
         io.to(user.room).emit('roomData', {
             room: "Event Name: "+userObjForThisEvent.events[finalindex].Title,
@@ -213,10 +199,6 @@ io.on('connection', (socket) => {
             }
             index++
         })
-        console.log(finalindex+' index')
-        console.log(userObjForThisEvent.events[0]._id+' lawda')
-        // socket.emit('ownMessage',generateTimeMessage(user.username,message))
-        // console.log(user.username+'  asdhf  '+ user.room)
         userObjForThisEvent.events[finalindex].forumChats.push({"username":user.username,"message":message})
         await userObjForThisEvent.save()
         io.to(user.room).emit('message', generateTimeMessage(user.username, message))

@@ -59,8 +59,6 @@ sendMessageRouter.post('/writeMessage/:id', verifyToken, async (req, res) => {
             body = body.split('\n').join("<br>")
             values[3] = formatLink(true,generate_link(p))
             phone_message = render_template(data.phoneMessage,templates,values)
-            // console.log(typeof(phone_message) )
-            // await sendEmail(p.email,subject,body)
             sendMessage(p.contact,phone_message)
         }
     res.status(200).redirect("/home")

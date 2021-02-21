@@ -56,13 +56,6 @@ socket.on('locationMessage',(locationurl)=>{
     autoscroll()
 })
 
-// socket.on('locationMessage ',(location_url)=>{
-// console.log(location_url)
-// // const html=Mustache.render(locationTemplate,{location_url})
-// // $messages.insertAdjacentHTML('beforeend',html)
-// })
-
-
 $messageForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -98,7 +91,6 @@ $sendLocation.addEventListener('click', async () => {
     $sendLocation.setAttribute('disabled', 'disabled')
 
     navigator.geolocation.getCurrentPosition((position) => {
-        // console.log(position)
         const location = {
             lat: position.coords.latitude,
             long: position.coords.longitude
@@ -123,19 +115,3 @@ socket.emit('join',{username,room},(error)=>{
         location.href='/'
     }
 })
-
-
-
-
-// socket.on('messageToClient',(message)=>{
-//     console.log(message)
-// })
-// socket.on('countUpdated',(count)=>{
-//     console.log('The count has been updated! ',count)
-// })
-// const button=document.querySelector('#increment')
-
-// button.addEventListener('click',()=>{
-//     console.log("clicked")
-//     socket.emit('increment')
-// })
