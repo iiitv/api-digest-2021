@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const [number,setNumber] = useState();
   const [llimit,setLlimit] = useState();
   const [ulimit,setUlimit] = useState();
   // const [limit24,setLimit24] = useState();
@@ -21,6 +22,14 @@ function App() {
       showNotification();}
     })
   }
+  const textmessage = "Hi bitcoin just crossed limit set by you - CryptoX";
+
+  function sendtext(e){
+    e.preventDefault();
+    fetch(`http://localhoast:4000/send-text?recipient=${number}&textmessage=${textmessage}`)
+    .catch(err => console.error(err))
+  }
+
   var x = percent.change > ulimit;
   var y = percent.change < llimit;
   // if(x){
@@ -67,8 +76,11 @@ function App() {
       <input placeholder="percent" value={llimit} onChange={e => setLlimit(e.target.value)}></input>
       <h3>Set hourly Upper limit %</h3>
       <input placeholder="Percent" value={ulimit} onChange={e => setUlimit(e.target.value)}></input>
-      {/* <h3>Set Daily limit</h3>
-      <input value={limit24} onChange={e => setLimit24(e.target.value)}></input> */}
+       <br></br>
+       <br></br>
+       <br></br>
+       <input value={number} onChange={e => setNumber(e.target.value)} placeholder="Mobile No."></input>
+        <button onClick={sendtext}>Register</button>
     </div>
   );
 }
