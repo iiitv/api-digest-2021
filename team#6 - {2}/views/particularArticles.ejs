@@ -13,12 +13,8 @@
                 <h1 class="product_name"><%= data.name %></h1>
                 <a href="<%= data.link %>" target = "_blank"class="btn btn-primary">Buy it</a>
             <% }) %>
-            <!-- //products -->
-                <!-- <p> <%= article.data %></p> -->
-                <!-- will continue from here -->
         </div>
         <script>
-            // doc[0].para.replace(/["]+/g, "'"),
             var data = '<%- article.data %>'
             var disease_info = document.getElementById('disease_info');
             disease_info.innerHTML = data;
