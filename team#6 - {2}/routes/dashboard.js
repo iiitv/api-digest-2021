@@ -18,7 +18,7 @@ function getId(length) {
   
 
 //currently using get for testing purposes
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imhib3k2Mjc2OEBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6Ijg2NDkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjEtMDItMjAiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYxMzg4NTE3OSwibmJmIjoxNjEzODc3OTc5fQ.HvrJPns_M64TAJ1lYxj-8vCWzszqJhtjZnJCUcFVL1Q';
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imhib3k2Mjc2OEBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6Ijg2NDkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjEtMDItMjAiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYxMzg5NDM0MywibmJmIjoxNjEzODg3MTQzfQ.Bsi2O4WCUhMbXDaNAKryUUm8Fvz12_6Hlq2Wr7TXXBM';
 
 router.get('/',ensureAuth, function(req, res, next) {
   res.render('dashboard', {});
@@ -83,16 +83,25 @@ router.post("/diagnosis",(req,res)=>{
 })
 
 //get request for showing possbile cure
-router.get("/cure/:id",(req,res)=>{
+router.get("/cure/:id",async(req,res)=>{
+    
     const id = req.params.id;
-    const gender = res.locals.user.gender;
-    const year = res.locals.user.date.getFullYear();
-    const ed = `&symptoms=[${id}]&gender=${gender}&year_of_birth=${year}&format=json&language=en-gb`;
-    const url=`https://sandbox-healthservice.priaid.ch/diagnosis?token=${token}${ed}`;
-    request(url, { json: true }, (err, response, body) => {
+    let ed = `&symptoms=[${id}]&format=json&language=en-gb`
+    let url=`https://sandbox-healthservice.priaid.ch/symptoms?token=${token}${ed}`;
+    let symptom = '';
+    let t = await request(url, { json: true }, (err, response, body) => {
         if (err) { return console.log(err); }
         console.log(body);
-        res.render("uploadData");
+        symptom = body[0].Name;
+        console.log(symptom)
+    });
+    const gender = res.locals.user.gender;
+    const year = res.locals.user.date.getFullYear();
+    ed = `&symptoms=[${id}]&gender=${gender}&year_of_birth=${year}&format=json&language=en-gb`;
+    url=`https://sandbox-healthservice.priaid.ch/diagnosis?token=${token}${ed}`;
+    request(url, { json: true }, (err, response, body) => {
+        if (err) { return console.log(err); }
+        res.render("uploadData",{data:body});
     });
 })
 

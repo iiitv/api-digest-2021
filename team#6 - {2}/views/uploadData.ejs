@@ -1,5 +1,14 @@
 <%- include("./partials/header") %>
 <%- include("./partials/chore.ejs") -%>
-<div>
-    hello
+<link rel="stylesheet" href="/css/diagnosesData.css">
+<div class="uploadData">
+    <% if(data){ %>
+        <h2>Possible Disease</h2>
+        <% data.forEach((val)=>{ %>
+           <div class="disease">
+            <p> <%= val.Issue.Name %></p>
+            <p> Accuracy : <%= val.Issue.Accuracy %></p>
+           </div>
+        <% }) %>
+    <% } %>
 </div>
