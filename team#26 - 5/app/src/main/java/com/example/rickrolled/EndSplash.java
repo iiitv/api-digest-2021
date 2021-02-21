@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -26,6 +27,11 @@ public class EndSplash extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, 6000);
+        }, 5000);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "hold up child, people are grieving", Toast.LENGTH_SHORT).show();
     }
 }
