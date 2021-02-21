@@ -22,8 +22,8 @@ const userData = new Schema({
         default:null,
         required:true
     },
-    age:{
-        type:Number,
+    date:{
+        type:Date,
         default:null,
         required:true
     }
