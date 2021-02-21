@@ -14,8 +14,6 @@ sendDetailsRouter.post('/createEvent',verifyToken, async (req,res)=>{
         res.redirect(`/addRecipents/${event_._id}`)
     }
     
-
-
 })
 
 module.exports=sendDetailsRouter

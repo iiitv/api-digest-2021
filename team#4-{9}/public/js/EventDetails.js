@@ -14,6 +14,7 @@ $createEvent.addEventListener('click',async (e)=>{
         description:$description.value,
         date:$date.value
     }
+    console.log()
     try {
         const response = await fetch('/createEvent', {
             method: 'POST',

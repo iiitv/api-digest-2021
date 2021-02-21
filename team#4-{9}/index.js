@@ -5,6 +5,7 @@ const generateAuthToken = require('./security/jwt.js')
 const cookieParser = require('cookie-parser')
 const verifytoken = require('./security/verifytoken-middleware')
 const sendDetailsRouter=require('./server-assets/saveEventDetails')
+const sendRecipentsRouter=require('./server-assets/recipients')
 const bodyParser=require('body-parser')
 require('./database/mongodb.js')
 
@@ -13,6 +14,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
   }));
+  app.use(sendRecipentsRouter)
 app.use(express.json())
 app.use(sendDetailsRouter)
 // app.post('/eventDetails',(req,res)=>{
