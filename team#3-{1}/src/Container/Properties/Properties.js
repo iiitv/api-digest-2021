@@ -32,7 +32,7 @@ class properties extends Component{
                     const json = await res.json();
                     console.log(json)
                     this.setState({listings:json.listings})
-                    this.state.pageLoaded=true;
+                    this.setState({pageLoaded:true})
                   }
                   fetchData();
 
@@ -47,7 +47,7 @@ class properties extends Component{
                 const json = await res.json();
                 console.log(json)
                 this.setState({listings:json})
-                this.state.pageLoaded=true;
+                this.setState({pageLoaded:true})
               }
               fetchData();
         }
@@ -58,7 +58,10 @@ class properties extends Component{
         console.log(this.state.listings)
         let address;
         let zipcode;
-        const property =  this.state.listings.map((p,index)=>{
+        let property;
+        console.log(this.state.pageLoaded)
+        if(this.state.pageLoaded){
+         property =  this.state.listings.map((p,index)=>{
             if(this.state.flag===0){
               address=p.address;
               zipcode=p.zipcode;
@@ -81,6 +84,9 @@ class properties extends Component{
             longitude={p.longitude}
             />
           })
+        }else{
+          property=<Spinner/>
+        }
 
 
         return(
