@@ -6,9 +6,9 @@ Dependencies :-
 
 Python 3.7
 
-django
+django framework
 
-requests
+requests library
 
 Api used are :-                                                                                                                                                                               
 1. https://rapidapi.com/kenpi04/api/food-calorie-data-search                                                                                                                                          
