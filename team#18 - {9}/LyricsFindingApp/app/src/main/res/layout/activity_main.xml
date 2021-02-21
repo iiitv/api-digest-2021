@@ -51,6 +51,7 @@
                         android:id="@+id/img_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
                         android:background="@drawable/bkg_2" />
 
                     <LinearLayout
@@ -81,7 +82,7 @@
                                 android:background="#00FFFFFF"
                                 android:inputType="textCapWords"
                                 android:textSize="14sp"
-                                tools:text="Babban Dhillon" />
+                                tools:text="Rihanna" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,7 +101,7 @@
                                 android:background="#00FFFFFF"
                                 android:inputType="textCapWords"
                                 android:textSize="14sp"
-                                tools:text="Ch()()t Vol.1" />
+                                tools:text="Work" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <Button

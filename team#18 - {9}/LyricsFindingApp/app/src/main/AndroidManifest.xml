@@ -12,9 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LyricsFindingApp">
-        <activity android:name=".KnowActivity"
+        <activity
+            android:name=".SocialActivity"
+            android:label="Social Media"
+            android:parentActivityName=".KnowActivity" />
+        <activity
+            android:name=".KnowActivity"
             android:label="Know More"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LyricActivity"
             android:label="Song Lyrics"
