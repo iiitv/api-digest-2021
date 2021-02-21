@@ -33,12 +33,13 @@ def reply(msg, sender, update_id):
 		return bot.sendMessage("""You can use the following commands:
 		/start : to start the bot.
 		/help : to get a list of commands.
-		/gfg : to fetch categories of articles from GeeksforGeeks
-		/search_algos : to fetch the link to learn about searching algorithms
-		/sort_algos : to fetch the link to learn about sorting algorithms
-		/dp : to fetch the link to learn about dynamic programming
-		/dnc : to fetch the link to learn about divide and conquer
-		/platform : to get your profile or a problem from a given Competitive programming platform.
+		/gfg : to fetch categories of articles from GeeksforGeeks.
+		/search_algos : to fetch the link to learn about searching algorithms.
+		/sort_algos : to fetch the link to learn about sorting algorithms.
+		/dp : to fetch the link to learn about dynamic programming.
+		/dnc : to fetch the link to learn about divide and conquer.
+		/platform : to access different online platforms through this bot.
+		/error : to take an image of your error and search it on stackoverflow.
 		""",
 		sender, None)
 	elif msg == "/gfg":
