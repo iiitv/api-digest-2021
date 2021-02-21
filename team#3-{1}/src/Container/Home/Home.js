@@ -17,15 +17,19 @@ class Home extends Component {
                     <div className="tagline">Let us guide you Home!</div>
                 </div>
 
-                <div className="tabs">
-                    <div className="tab">Properties</div>
-                    <div className="tab">Chat</div>
+                <div className="middle">
+                    <div className="tabs">
+                        <div className="tab">Properties</div>
+                        <div className="tab">Chat</div>
+                    </div>
+
+                    <div className="methods">
+                        <div className="method"><Link to='/rent'>Rent Estimate</Link></div>
+                        <div class ="method"><Link to='/rate'>Rate Listing</Link></div>
+                    </div>
                 </div>
 
-                <div className="methods">
-                    <div className="method"><Link to='/rent'>Rent Estimate</Link></div>
-                    <div class ="method"><Link to='/rate'>Rate Listing</Link></div>
-                </div>
+               
 
             </div>
         );

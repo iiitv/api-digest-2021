@@ -1,26 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-*{
-    background-color: #1A1A1D;
-}
 .header{
     height: 20%;
     padding: 10px;
-    background-color: #1A1A1D;
+    background-color: #25274d;
     
 }
 
 .name{
     font-family: 'Anton', sans-serif;
     font-size: 100px;
-    color: #6f2232;
+    color: white;
 }
 
 .tagline{
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
-    color: white;
+    color: #AAABB8;
+}
+
+.middle{
+    background-color: #464866;
 }
 
 .tabs{
@@ -28,12 +29,19 @@
     grid-template-columns: 1fr 1fr;
     width: 20%;
     text-align: center;
-    margin-left: 35%;
-    padding: 50px;
+    margin-left: 0;
+    /* padding-left: 500px;
+    padding-right: 700px; */
+    background-color: #464866;
+    /* padding-top: 20px;
+    padding-bottom: 10px; */
+
+    padding: 20px;
+    padding-left: 40%;;
 }
 
 .tab{
-    border: 1px solid whitesmoke;
+    border: 2px solid whitesmoke;
     font-weight: bold;
     color: white;
     padding: 5px 0px 5px 10px;
@@ -44,8 +52,9 @@
 }
 
 .tab:hover{
-    background-color: #6f2232;
-    cursor: pointer;
+    background-color: white;
+    cursor: #6f2232;
+    color: #112D32;
 }
 
 .methods{
@@ -54,7 +63,9 @@
     width: 20%;
     text-align: center;
     /* margin-left: 35%; */
-    padding: 50px;
+    padding: 5%;
+    /* padding-right: 500px; */
+    background-color: #464866;
 }
 
 .method{
@@ -66,4 +77,12 @@
     padding: 10px;
     /* font-size: 20px; */
     transition: 0.3s all;
+    text-decoration: none;
+    transition: 0.3s all;
+}
+
+.method:hover{
+    background-color: white;
+    cursor: #6f2232;
+    color: #112D32;
 }
