@@ -2,15 +2,16 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [limit,setLimit] = useState();
-  const [limit24,setLimit24] = useState();
+  const [llimit,setLlimit] = useState();
+  const [ulimit,setUlimit] = useState();
+  // const [limit24,setLimit24] = useState();
   const [percent,setPercent] = useState({
     price:0,
     change: 0
   });
   function showNotification() {
     const notification = new Notification("New meessage",{
-      body:"hey hello"
+      body: `Bitcoin just crossed limit set by you, for further details click`
     })
   }
   if(Notification.permission === "granted"){  }
@@ -20,13 +21,21 @@ function App() {
       showNotification();}
     })
   }
-  var x = percent.change > limit;
+  var x = percent.change > ulimit;
+  var y = percent.change < llimit;
+  // if(x){
+  //   var lim = "lower limit";
+  // }
+
+  // if(y){
+  //   lim = "upper limit";
+  // }
   useEffect(()=>{
     // const timer = setTimeout(()=>{
     //   console.log("hello")
     // },5000)
     showNotification()
-  },[x])
+  },[x,y])
 
   useEffect( () => {
     const updateinterval = setInterval( () => {
@@ -53,11 +62,13 @@ function App() {
       <h1>Bitcoin</h1>
       <h3>Price: {percent.price}</h3>
       <h1>Hourly % Change: {percent.change}</h1>
-      <h1>%Change in 24 Hours: {percent.change24}</h1>
-      <h3> Set hourly limit</h3>
-      <input value={limit} onChange={e => setLimit(e.target.value)}></input>
-      <h3>Set Daily limit</h3>
-      <input value={limit24} onChange={e => setLimit24(e.target.value)}></input>
+      <h1>24 Hours % change: {percent.change24}</h1>
+      <h3> Set hourly Lower limit %</h3>
+      <input placeholder="percent" value={llimit} onChange={e => setLlimit(e.target.value)}></input>
+      <h3>Set hourly Upper limit %</h3>
+      <input placeholder="Percent" value={ulimit} onChange={e => setUlimit(e.target.value)}></input>
+      {/* <h3>Set Daily limit</h3>
+      <input value={limit24} onChange={e => setLimit24(e.target.value)}></input> */}
     </div>
   );
 }
