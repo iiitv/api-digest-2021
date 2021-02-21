@@ -1,7 +1,60 @@
+# THEME: TRAVELLING
+
+## Problem Statement
+Currently Data is the key to advance in this modern world, but that data is of not much use if it is distributed.
+
+Currently there is no single platform in which you can enter a location and it will fetch you all details about it, Example Hospitals, Schools near that location, AQI etc and if you need multiple details about a location then you have to go to multiple apps and also sometimes also apply filters on it. Now suppose if a user needs to see all these details for multiple locations.If a user needs to save it for comparison or something else then it becomes even worse because then he have to put similar location data in a single place.
+
+## Solution 
+One Step Solution is our Platform Travel-Manager
+Basically Travel Manager is a platform at which you can come and enter a location and it will fetch you most of the details about it, Like Weather, AQI, Schools near it etc.
+
+## Features Offered
+- Show Weather along with forecast for next 8 days(Along with Graph).
+- Show AQI(Along with concentrations of different Things like NO2 etc).
+- Showing Schools near that location.
+- Showing Hospitals near that location.
+- Showing Restaurants near that location.
+- User can print Page
+
+## Work To DO
+- Currently the data which is being used to show schools, Hospitals and Restaurants is not dynamic and We have made raw data for it, The Reason being google maps api provides the features of making this dynamically but it needs billing to be active for that.
+We also tried to use API For Hospitals and schools and after retriving Data from it, then after wards plotting them by using markers in place of their latitute and longitude but we dropped down that idea, Because all those data majorly is of US. So it was not feasible to build on this.
+- Will also add some more features like Good Places to visit by Giving option of like and comment in order to increase popularity of good places.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
