@@ -1,29 +1,63 @@
-const GSheetReader = require('g-sheets-api');
+const nodefetch = require('node-fetch')
+const gsheetsAPI = function (sheetId, sheetNumber = 1) {
+  const errorObj = {
+    hasError: true
+  };
+  let fetchFunc;
 
-const options = {
-    sheetId: '1jVwIwYROOlfD73DRgIdIWCLs2l7dPWIlMNIvYfXZJ0A',
-    sheetNumber: 1,
-    returnAllResults: false,
-    // filter: {
-    //   'department': 'archaeology',
-    //   'module description': 'introduction'
-    // },
-    // filterOptions: {
-    //   operator: 'or',
-    //   matching: 'loose'
-    // }
+  try {
+    fetchFunc = window.fetch;
+  } catch (err) {
+    fetchFunc = nodefetch;
   }
 
-//  const 
+  try {
+    const sheetsUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values?alt=json-in-script`;
 
-  GSheetReader(options, results => {
-    // do something with the results here
-    console.log(results)
+    return fetchFunc(sheetsUrl)
+      .then(response => {
+        if (!response.ok) {
+          console.log('there is an error in the gsheets response');
+          throw new Error('Error fetching GSheet');
+        }
+        return response.text();
+      })
+      .then(resultText => {
+        const formattedText = resultText
+          .replace('gdata.io.handleScriptLoaded(', '')
+          .slice(0, -2);
+        return JSON.parse(formattedText);
+      })
+      .catch(err => {
+        throw new Error(
+          'Failed to fetch from GSheets API. Check your Sheet Id and the public availability of your GSheet.'
+        );
+      });
+  } catch (err) {
+    throw new Error(`General error when fetching GSheet: ${err}`);
+  }
+};
 
-    results.forEach(element => {
-        console.log(`${element.name} ${element.contact} ${element.email}`)
-    });
-  }).catch(err => {
-    // do something with the error message here'
-    console.error(err)
-  });
+async function getSheetData(id) {
+  data = await gsheetsAPI(id)
+  a = []
+  console.log(Object.keys(data))
+  data.feed.entry.forEach(e => {
+    a.push(e.content.$t)
+  })
+  console.log(a)
+  j = 0;
+  b = []
+  c = []
+  a.forEach(e => {
+    j++;
+    c.push(e)
+    if (j % 3 == 0) {
+      b.push(c)
+      c = []
+    }
+  })
+  return b;
+}
+
+module.exports = getSheetData

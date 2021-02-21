@@ -2,7 +2,7 @@ $description = document.querySelector('.description')
 $checkSentiment = document.querySelector('.checkSentiment')
 
 // Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.  Sundar Pichai said in his keynote that users love their new Android phones.
-$checkSentiment.addEventListener('click', () => {
+$checkSentiment.addEventListener('click', async () => {
     // try {
     //     const obj = {
     //         text: $description.value
@@ -38,10 +38,20 @@ $checkSentiment.addEventListener('click', () => {
         redirect: 'follow'
     };
 
-    fetch("https://sentim-api.herokuapp.com/api/v1/", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+    const response = await fetch("https://sentim-api.herokuapp.com/api/v1/", requestOptions)
+    const data = await response.json();
+    const polarity = data.result.polarity
+    if (polarity < 0) {
+        $checkSentiment.style.backgroundColor = "#DC143C"
+        $checkSentiment.innerText = `Negative (${polarity} Polarity)`
+    }
+    else if (polarity > 0) {
+        $checkSentiment.style.backgroundColor = "#149414"
+        $checkSentiment.innerText = `Positive (${polarity} Polarity)`
+    }
+    else {
+        $checkSentiment.innerText = `Neutral (${polarity} Polarity)`
+    }
 
 
 }
