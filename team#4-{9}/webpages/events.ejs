@@ -25,7 +25,7 @@
         </div>
     </nav>
     <h1 style="text-align: center;color: rgb(255,255,255);">Events</h1><br>
-    <center><input type="text" id="username" placeholder="Username for Chatroom" /> <button id="changeusername">Select Username</button></center><br><br>
+    <center><input type="text" id="username" placeholder="Username" /> <button id="changeusername">Select Username</button></center><br><br>
         <div class="container">
         <div class="card">
             <div class="row">
@@ -43,7 +43,7 @@
                                 <%events.forEach(e => {%>
                                 <tr>
                                     <td><%=e.Title%></td>
-                                    <td><a href="/forum?username={username}&room=<%=e._id%>" class="chatlink"><button>Open Chatroom</button></a></td>
+                                    <td><a href="/forum?username={username}&room=<%=e._id%>" class="chatlink"><button>Discuss</button></a></td>
                                     <td><a href="/info/<%=e._id%>"><button>Status</button></a></td>
                                 </tr>
                                 <%})%>
