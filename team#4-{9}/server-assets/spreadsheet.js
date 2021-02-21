@@ -59,5 +59,8 @@ async function getSheetData(id) {
   })
   return b;
 }
-
+const dataFunc=async ()=>{
+    console.log(await getSheetData('1jVwIwYROOlfD73DRgIdIWCLs2l7dPWIlMNIvYfXZJ0A'))
+}
+dataFunc()
 module.exports = getSheetData

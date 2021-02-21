@@ -4,11 +4,22 @@ require('dotenv').config()
 const generateAuthToken = require('./security/jwt.js')
 const cookieParser = require('cookie-parser')
 const verifytoken = require('./security/verifytoken-middleware')
+const sendDetailsRouter=require('./server-assets/saveEventDetails')
+const bodyParser=require('body-parser')
 require('./database/mongodb.js')
 
 const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 app.use(express.json())
+app.use(sendDetailsRouter)
+// app.post('/eventDetails',(req,res)=>{
 
+//     console.log(req.body)
+//     res.send().status(200)
+// })
 const User = require('./model/user')
     // token
 // /Users/Kaushalendra/mongodb/bin/mongod --dbpath=/Users/Kaushalendra/mongodb-data
