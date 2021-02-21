@@ -2,6 +2,7 @@ import requests
 import json
 import configparser as cfg
 
+
 class CS_toolkit():
 
     def __init__(self, config):
@@ -16,8 +17,10 @@ class CS_toolkit():
         r = requests.get(url)
         return json.loads(r.content)
 
-    def sendMessage(self, msg, chat_id):
+    def sendMessage(self, msg, chat_id, reply_markup):
         url = self.base + "sendMessage?chat_id={}&text={}".format(chat_id, msg)
+        if reply_markup is not None:
+            url += "&reply_markup={}".format(reply_markup)
         if msg is not None:
             requests.get(url)
 

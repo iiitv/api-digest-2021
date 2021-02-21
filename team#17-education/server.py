@@ -1,16 +1,28 @@
 from admins import CS_toolkit
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from register import Register
 
 
 bot = CS_toolkit("config.cfg")
+register_ = Register()
 
 
-def reply(msg):
-	if msg == "/start":
-		return "This is your one-stop bot for all CS related things.\nType /help to see all commands."
+def reply(msg, sender):
 	if msg is None:
 		return
+	if msg == "/start":
+		return bot.sendMessage("This is your one-stop bot for all CS related things.\nType /help to see all commands.", sender, None)
+	if msg == "/help":
+		return bot.sendMessage("""You can use the following commands:
+		/start : to start the bot.
+		/help : to get a list of commands.
+		/register : to register with your username on a given Competitive programming platform.
+		""",
+		sender, None)
+	if msg == "/register":
+		return register_.show_options(sender)
 	if msg is not None:
-		return "Okay!"
+		return bot.sendMessage("Okay!", sender, None)
 
 update_id = None
 while True:
@@ -25,5 +37,4 @@ while True:
 			except:
 				msg = None
 				sender = None
-		reply_msg = reply(msg)
-		bot.sendMessage(reply_msg, sender)
+		reply(msg, sender)
