@@ -18,9 +18,11 @@ class Home extends Component {
                     <div className="tagline">Let us guide you Home!</div>
                 </div>
 
+                <div className="search">Search By</div>
+
                 <div className="methods">
-                    <NavLink to='/rent' exact className="method">Rent Estimate</NavLink>
-                    <NavLink to='/rate' exact className="method">Rate Listing</NavLink>
+                    <NavLink to='/rent' exact className="method">City & State</NavLink>
+                    <NavLink to='/rate' exact className="method">Home Details</NavLink>
                 </div>
 
                 {/* <Chat /> */}

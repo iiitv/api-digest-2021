@@ -72,3 +72,11 @@ a{
     cursor: #6f2232;
     color: #112D32;
 }
+
+.search{
+    text-align: center;
+    padding-top: 20px;
+    color: #AAABB8;
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+}
