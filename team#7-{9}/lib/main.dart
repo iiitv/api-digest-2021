@@ -4,9 +4,10 @@ import 'package:cf_pursuit/screens/rank_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
-  runApp( MyApp(),);
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,14 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CF Pursuit',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        disabledColor: Colors.white
-      ),
-      home:LandingScreenMobile(),
+      theme: ThemeData(primarySwatch: Colors.teal, disabledColor: Colors.white),
+      home: LandingScreenMobile(),
       routes: {
-        ProfileScreen.routeName:(context)=>ProfileScreen(),
-        RankScreen.routeName:(context)=>RankScreen(),
+        ProfileScreen.routeName: (context) => ProfileScreen(),
+        RankScreen.routeName: (context) => RankScreen(),
       },
     );
   }

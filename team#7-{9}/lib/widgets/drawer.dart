@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget appDrawer() {
+Widget appDrawer(BuildContext context) {
   return Drawer(
     child: Column(
       children: [
@@ -22,7 +22,9 @@ Widget appDrawer() {
           ),
         ),
         FlatButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop(); Navigator.of(context).pop();
+          },
           child: Text(
             "View Profile",
             style: GoogleFonts.roboto(fontSize: 20),
@@ -30,7 +32,9 @@ Widget appDrawer() {
         ),
         Divider(),
         FlatButton(
-          onPressed: () {},
+          onPressed: () {
+             Navigator.of(context).pop(); Navigator.of(context).pop();
+          },
           child: Text(
             "Ranklist",
             style: GoogleFonts.roboto(fontSize: 20),

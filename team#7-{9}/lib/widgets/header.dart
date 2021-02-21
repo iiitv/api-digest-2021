@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cf_pursuit/globals.dart';
+
 class WavyHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

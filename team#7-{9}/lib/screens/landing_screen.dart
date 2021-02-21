@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../widgets/header.dart';
 
 class LandingScreenMobile extends StatefulWidget {
-  static String name, institute;
+  // static String name, institute;
 
   @override
   _LandingScreenMobileState createState() => _LandingScreenMobileState();
@@ -36,26 +36,26 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
   UserData userValidators = UserData();
   bool isValid = false;
   bool isValidData = false;
-  void _submitName(bool isValidData) {
-    isValid = isValidData;
-    print(isValidData);
-    final isValidUsername = nameFieldKey.currentState.validate();
-    if (isValidUsername) {
-      print(nameField.text);
-      name = nameField.text;
-      // print(LandingScreenMobile.name.toLowerCase());
-      // notifyListeners();
-      Navigator.of(context).pushNamed(ProfileScreen.routeName);
-    }
-  }
+  // void _submitName(bool isValidData) {
+  // isValid = isValidData;
+  // print(isValidData);
+  // final isValidUsername = nameFieldKey.currentState.validate();
+  // if (isValidUsername) {
+  //   print(nameField.text);
+  //   name = nameField.text;
+  //   // print(LandingScreenMobile.name.toLowerCase());
+  //   // notifyListeners();
+  //   Navigator.of(context).pushNamed(ProfileScreen.routeName);
+  // }
+  // }
 
-  void _submitInstituteName() {
-    final isValidInstitute = instituteFieldKey.currentState.validate();
-    if (isValidInstitute) {
-      print(isValidInstitute);
-      instituteFieldKey.currentState.save();
-    }
-  }
+  // void _submitInstituteName() {
+  //   final isValidInstitute = instituteFieldKey.currentState.validate();
+  //   if (isValidInstitute) {
+  //     print(isValidInstitute);
+  //     instituteFieldKey.currentState.save();
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                 height: deviceHeight * 0.052681,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.23,
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -136,7 +136,7 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                             ),
                           ),
                           validator: (val) {
-                            if (val.length == 0) {
+                            if (val != null && val.length == 0) {
                               return "Username can't be of length 0";
                             }
                             return isValidData == true
@@ -165,14 +165,15 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                         });
                         print(isValidData);
                         final isValidUsername =
-                            nameFieldKey.currentState.validate();
-                        if (isValidUsername) {
+                            nameFieldKey.currentState?.validate();
+                        if (isValidUsername ?? false) {
                           // Navigator.of(context)
                           //     .pushNamed(ProfileScreen.routeName);
                           Navigator.pushNamed(context, ProfileScreen.routeName,
                               arguments: {
                                 "name": nameField.text.toString(),
                               });
+                          nameField.clear();
                         }
                       },
                       child: Text(
@@ -236,7 +237,7 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                           ),
                         ),
                         validator: (val) {
-                          if (val.length == 0) {
+                          if (val?.length == 0) {
                             return "Institute name can't be of length 0";
                           }
                           return null;
@@ -260,7 +261,12 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                       ),
                     ),
                     onPressed: () {
-                      _submitInstituteName();
+                      Navigator.pushNamed(context, RankScreen.routeName,
+                          arguments: {
+                            "insituteName": instituteField.text.toString(),
+                          });
+                      instituteField.clear();
+                      // _submitInstituteName();
                     },
                     child: Text(
                       "Submit",
