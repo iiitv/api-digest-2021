@@ -7,16 +7,57 @@
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
   crossorigin="anonymous"
 />
-<div class="symtom">
+<style>
+.symptoms {
+    display:inline-block;
+  background-color: #222222;
+  margin-left: 10px;
+
+  border-radius: 5px;
+  line-height: 45px;
+  position: relative;
+  color: white;
+  width:80px;
+  height:auto;
+  margin-bottom:4px;
+  height:50px;
+  text-align: center;
+  overflow-x: auto;
+}
+</style>
+
+<div class="symtom container">
     <p>Choose Your Symtom</p>
-    <form action="/dashboard/diagnosis" method="POST">
-        <select name="symptom" class="form-control">
+    <!-- <form action="/dashboard/diagnosis" method="POST"> -->
+        <!-- <select name="symptom" class="form-control"> -->
             <% if(data){ %>
                 <% data.forEach((val)=>{ %>
-                    <option value=<%=val.ID%>><%= val.Name%></option>
+                    <div class="symptoms">
+                        <%= val.Name %>
+                        <button class="btn btn-primary" onclick="addSymptoms('<%= val.ID %>')">Add</button>                       
+                    </div>
+                    <br />
+                    <!-- <option value=<%=val.ID%>><%= val.Name%></option> -->
                 <% }) %>
             <% } %>
-        </select>
-        <button class="btn btn-primary">Diagnosis</button>
-    </form>
+        <!-- </select> -->
+        <button class="btn btn-primary" onclick="sendSymptoms()">Diagnosis</button>
+    <!-- </form> -->
 </div>
+
+<script>
+    var symptomsArray = [];
+    function addSymptoms(symptom_id) {
+        symptomsArray.push(symptom_id);
+    }
+    async function sendSymptoms() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/dashboard/diagnosis', true);
+        await xhr.setRequestHeader('Content-Type', 'application/json');
+        var resp = await xhr.send(
+            JSON.stringify({
+               symptoms: symptomsArray,
+            })
+        );
+    }
+</script>

@@ -78,15 +78,23 @@ router.get("/diagnosis",(req,res)=>{
 })
 
 //post request for doing diagnosis.
+var symptoms = [];
 router.post("/diagnosis",(req,res)=>{
-    res.redirect(`/dashboard/cure/${req.body.symptom}`);
+    symptoms = req.body.symptoms;
+    res.redirect('/dashboard/cure');
 })
 
 //get request for showing possbile cure
-router.get("/cure/:id",async(req,res)=>{
+router.get("/cure",async(req,res)=>{
     
     const id = req.params.id;
-    let ed = `&symptoms=[${id}]&format=json&language=en-gb`
+    let symptom_id = "";
+    symptoms.map((id)=>{
+        symptom_id = id + ","
+    })
+    console.log(symptom_id)
+    symptom_id.slice(0,-1);
+    let ed = `&symptoms=[${symptom_id}]&format=json&language=en-gb`
     let url=`https://sandbox-healthservice.priaid.ch/symptoms?token=${token}${ed}`;
     let symptom = '';
     let t = await request(url, { json: true }, (err, response, body) => {
