@@ -4,12 +4,14 @@ import markerUrl from "./icons8-marker-100.png";
 import { useState } from "react";
 const ReactMap = ({ state }) => {
   const { userLocation } = state;
+  console.log(state);
+  console.log(userLocation);
   const [viewPort, setViewPort] = useState({
     longitude: userLocation.longitude,
     latitude: userLocation.latitude,
     height: "80vh",
-    width: "100%",
-    zoom: 14,
+    width: "80%",
+    zoom: 10,
     markerWidth: 2,
   });
 
@@ -27,7 +29,7 @@ const ReactMap = ({ state }) => {
 
   //   console.log(viewPort);
   return (
-    <div className="map">
+    <div className="map container">
       <ReactMapGL
         {...viewPort}
         mapboxApiAccessToken={accessToken}
@@ -51,31 +53,3 @@ const ReactMap = ({ state }) => {
 };
 
 export default ReactMap;
-//import { useState } from "react";
-// import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-// import ReactMapGL from "react-map-gl";
-
-// const ReactMap = ({ state: { userLocation } }) => {
-//   const [viewPort, setViewPort] = useState({
-//     longitude: userLocation.longitude,
-//     latitude: userLocation.latitude,
-//     height: "80vh",
-//     width: "80vw",
-//     zoom: 14,
-//   });
-
-//   const accessToken =
-//     "pk.eyJ1Ijoicm9oaXRoOTU4OSIsImEiOiJja2c1NDg5eGswcTFnMndwanEybXFhZGdwIn0.qO1IIccfd4OXAPsX9ayBew";
-
-//   return (
-//     <ReactMapGL
-//       {...viewPort}
-//       maxZoom={20}
-//       mapboxApiAccessToken={accessToken}
-//       onViewportChange={(viewPort) => setViewPort({ ...viewPort })}
-//     ></ReactMapGL>
-//   );
-// };
-
-// export default ReactMap;
-//

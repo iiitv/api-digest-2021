@@ -5,7 +5,7 @@ const WeatherChart = ({ state }) => {
   const data = {
     labels: state.forecast?.daily.map((day) => formatDate(day.dt)),
     datasets: [
-      {
+      { 
         label: "Max  temp in °C",
         data: state.forecast?.daily.map((day) => day.temp?.max),
         backgroundColor: ["rgba(255, 99, 132, 0.2)"],

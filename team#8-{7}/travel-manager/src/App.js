@@ -6,6 +6,7 @@ import NotFound from "./Components/NotFound/NotFound";
 import WeatherChart from "./Components/WeatherChart/WeatherChart"
 import AQI from "./Components/AQI/AQI";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+// import GoogleMaps from "./Components/Map/GoogleMaps";
 import ReactMap from "./Components/Map/ReactMap";
 function App() {
   const [state, setState] = useState("");
@@ -18,6 +19,11 @@ function App() {
       }
     );
   }, []);
+
+  function printpage()
+{
+  window.print();
+}
   return (
     <div className="App">
     <div class="row">
@@ -28,6 +34,7 @@ function App() {
 <a href="#fid" className="mylink">Restaurants</a>
 <a href="#weather" className="mylink">Weather</a>
 <a href="#aqi" className="mylink">Air Quality</a>
+<btn className="btn btn-success mylink" onClick={printpage}>Click to Print</btn>
 
     </div>
     </div>
@@ -46,9 +53,15 @@ function App() {
       <div id="aqi">
       {state.aqi_result&& <AQI state={state} setState={setState}/>}
       </div>
+      <div id="hospital" className="card mt-4 ">
+      <div className="card-header  text-center font-weight-bolder">
+      See your Hospitals here
+      </div>
+      {!state.notFound && state.userLocation && <ReactMap state={state} />}
+      </div>
     </div>
     </div>
-      {state.userLocation && <ReactMap state={state} />}
+      {/* <GoogleMaps /> */}
     </div>
   );
 }
