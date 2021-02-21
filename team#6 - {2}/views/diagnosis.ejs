@@ -1,55 +1,7 @@
 <%- include("./partials/header") %>
 <%- include("./partials/chore.ejs") -%>
 <link rel="stylesheet" href="/css/diagnosis.css">
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous"
-/>
-<style>
-.symptoms {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: aliceblue;
-    margin-left: 10px;
-    border-radius: 5px;
-    line-height: 45px;
-    position: relative;
-    color: black;
-    width:17vw;
-    height:auto;
-    margin-bottom:4px;
-    height:50px;
-    text-align: center;
-    /* overflow-x: auto; */
-}
-.name {
-    margin-left:5px ;
-}
-.symptom {
-    /* display: grid; */
-    /* grid-column: 1fr 1fr 1fr 1fr 1fr; */
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    padding: 10px;
-}
 </style>
-<!-- <p class="text-center">Choose Your Symptoms</p>
-
-<div class="symptom">
-            <% if(data){ %>
-                <% data.forEach((val)=>{ %>
-                    <div class="symptoms">
-                        <p class="name"> <%= val.Name %> </p>
-                        <button class="btn btn-primary" onclick="addSymptoms('<%= val.ID %>')">Add</button>                       
-                    </div>
-                    <br />
-                <% }) %>
-            <% } %>
-        <button class="btn btn-primary btn-lg mt-5" onclick="sendSymptoms()">Diagnose me</button>
-</div> -->
 <div class="symtom">
     <p>Choose Your Symtom</p>
     <form action="/dashboard/diagnosis" method="POST">
@@ -63,19 +15,3 @@
         <button class="btn btn-primary">Diagnosis</button>
     </form>
 </div>
-<!-- <script>
-    var symptomsArray = [];
-    function addSymptoms(symptom_id) {
-        symptomsArray.push(symptom_id);
-    }
-    async function sendSymptoms() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/dashboard/diagnosis', true);
-        await xhr.setRequestHeader('Content-Type', 'application/json');
-        var resp = await xhr.send(
-            JSON.stringify({
-               symptoms: symptomsArray,
-            })
-        );
-    }
-</script> -->
