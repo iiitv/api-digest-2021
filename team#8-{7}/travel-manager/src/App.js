@@ -1,10 +1,13 @@
-import './App.css';
-import Card from "./Components/Card";
+import { useState } from "react";
+import SearchBar from "./components/searchBar/SearchBar";
+import "./App.css";
 function App() {
+  const [state, setState] = useState("");
+
   return (
     <div className="App">
-    <h1>Hey</h1>
-    <Card />
+      <SearchBar state={state} setState={setState} />
+      <p></p>
     </div>
   );
 }
