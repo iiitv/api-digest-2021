@@ -29,9 +29,9 @@ function App() {
     <div class="row">
     <div id="sticky-navbar" className="col-md-2 bg-success">
     <div className="mynavbar  d-flex flex-column align-items-center font-weight-bolder">
-<a href="#fid" className="mylink">Hospitals</a>
-<a href="#fid" className="mylink">Schools</a>
-<a href="#fid" className="mylink">Restaurants</a>
+<a href="#mymap" className="mylink">Hospitals</a>
+<a href="#mymap" className="mylink">Schools</a>
+<a href="#mymap" className="mylink">Restaurants</a>
 <a href="#weather" className="mylink">Weather</a>
 <a href="#aqi" className="mylink">Air Quality</a>
 <btn className="btn btn-success mylink" onClick={printpage}>Click to Print</btn>
@@ -53,11 +53,13 @@ function App() {
       <div id="aqi">
       {state.aqi_result&& <AQI state={state} setState={setState}/>}
       </div>
-      <div id="hospital" className="card mt-4 ">
+      <div id="hospital" className="card mt-4 container">
       <div className="card-header  text-center font-weight-bolder">
       See your Hospitals here
       </div>
+      <div id="mymap">
       {!state.notFound && state.userLocation && <ReactMap state={state} />}
+      </div>
       </div>
     </div>
     </div>

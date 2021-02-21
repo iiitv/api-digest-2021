@@ -8,6 +8,10 @@ const ReactMap = ({ state }) => {
     lng: state.userLocation.longitude,
   };
   return (
+    <div className="container">
+    <div className="card-header text-center font-weight-bolder">
+      See Your Hospitals,Schools and Restaurants Here
+    </div>
     <div className="map">
       <MapContainer center={currentLocation} zoom={15}>
         <TileLayer
@@ -18,6 +22,7 @@ const ReactMap = ({ state }) => {
         <Markers type={"school"} />
         <Markers type={"resturents"} />
       </MapContainer>
+    </div>
     </div>
   );
 };
