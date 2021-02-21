@@ -26,6 +26,6 @@ public class EndSplash extends AppCompatActivity {
             public void run() {
                 finish();
             }
-        }, 5000);
+        }, 6000);
     }
 }
