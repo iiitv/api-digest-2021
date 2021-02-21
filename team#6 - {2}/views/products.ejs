@@ -1,0 +1,81 @@
+<%- include("./partials/header.ejs") %>
+<%- include("./partials/chore.ejs") -%>
+<style>
+.set-width {
+    width: 20vw;
+}
+.set-height {
+    height: 40vh;
+}
+</style>
+<div class="container-cards container" >
+    <div class="row text-center">
+        <% var len = productInfo.length %>
+        <% for(let j=0;j<len;j++) {%>
+        <% src = "https://github.com" %>
+                   <div class="col-md-4">
+                   <div class="card mt-3 set-width">
+                    <div class="view overlay">
+                      <img class="card-img-top set-height" src="<%= productInfo[j].image %>" alt="Card image cap">
+                            
+                      <a>
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <div class="card-body text-center">
+                      <h3 class="card-title"><%= productInfo[j].title.slice(0,11) %></h4>
+                      <hr>
+                      <% let productDetail = productInfo[j].description.slice(0,70) +"...more on website" %>
+                      <p class="card-text"><%= productDetail%></p>
+                      <div class="text-center">
+                      <h3 class="card-title"><%= productInfo[j].price +'$'%></h4>
+                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" onclick="adding('<%= productInfo[j].title.slice(0,11)%>','https://amazon.com')">Add it</a>
+                    </div>
+                    </div>
+                  </div>
+
+      </div>
+       <% } %> 
+  </div>
+  </div>
+  <h1 class="text-center"> OR didn't find above</h1>
+<div class="container text-center">
+    <p>add in this fashion name: product link comma seperated </p>
+    <textarea name="productDetail" rows="10" cols="150" id="inf"></textarea>
+    <button class="btn btn-primary btn-rounded" onclick="AddExtra()">Add it</button>
+</div>
+
+<script>
+    var productArray = [];
+    var id = '<%- article_id %>';
+    function adding(product_name, product_link) {
+        productArray.push({name:product_name, link: product_link});
+        console.log(productArray);
+    }
+    var txtbox = document.getElementById('inf');
+  async function AddExtra(){
+        let data = txtbox.value;
+        let pname = "";
+        let plink = "";
+        for(let i=0;i<data.length;i++){
+            if(data[i]==','){
+                let inf = pname.split(":");
+                productArray.push({name:inf[0],link:inf[1]});
+                pname = "";
+            }else {
+                pname = pname + data[i];
+            }
+        }
+        console.log(productArray)
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/dashboard/product', true);
+        await xhr.setRequestHeader('Content-Type', 'application/json');
+        var resp = await xhr.send(
+            JSON.stringify({
+               id: id,
+               productData: productArray,
+            })
+            );
+        window.location.href="/dashboard";
+    }
+</script>
