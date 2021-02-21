@@ -25,24 +25,31 @@ const GlobalStyles = createGlobalStyle`
         font-size: 3rem;
         font-family: 'Montserrat', sans-serif;
         font-weight: bolder;
-        color: #333;
+        color: #00003f;
     }
     h3{
         font-size: 1.3rem;
-        color: #333;
+        color: #00003f;
         padding: 1.5rem 0rem;
     }
     p{
         font-size: 1.2rem;
         line-height: 200%;
-        color: #696969;
+        color: #00003f;
     }
     a{
         text-decoration: none;
-        color: #333;
+        color: #00003f;
     }
     img{
         display: block;
+    }
+    h4{
+        display: flex;
+        justify-content: center;
+        padding: 3rem;
+        cursor: pointer;
+        font-size: 1.5rem;
     }
     input{
         font-weight: bold;
