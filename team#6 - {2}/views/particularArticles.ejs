@@ -11,7 +11,7 @@
     <% } %>
     <% articles.forEach((article)=>{ %>
         <div class="disease">
-            <div id="disease_info">
+            <div id="<%= article.id %>" >
             </div>
             <% if(article.products.length > 0){ %>
             <h1 class="info__text">If you have some difficulty buying stuff for remedy refer to below link</h1>
@@ -26,7 +26,7 @@
         </div>
         <script>
             var data = "<%- article.data %>"
-            var disease_info = document.getElementById('disease_info');
+            var disease_info = document.getElementById('<%= article.id %>');
             disease_info.innerHTML = data;
         </script>
      <% }) %>
