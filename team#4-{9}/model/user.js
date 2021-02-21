@@ -60,6 +60,16 @@ const userSchema = new Schema({
                     type:String
                 }
             }
+        ],
+        forumChats:[
+            {
+                username:{
+                    type: String,
+                },
+                message:{
+                    type:String,
+                }
+            }
         ]
     }]
 
