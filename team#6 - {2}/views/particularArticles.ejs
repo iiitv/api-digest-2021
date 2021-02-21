@@ -21,24 +21,25 @@
             <% })} %>
             <br>
             <%= article.rating%>
-            <i class="fa-lg far fa-thumbs-up" onclick="handleLike('<%= article._id%>','<%=user._id%>')"></i>
-            <i class="fa-lg far fa-thumbs-down"></i>
-            <% console.log("hello") %>
+            <i class="fa-lg far fa-thumbs-up" onclick="handleLikeDislike('<%= article._id%>','<%=user._id%>',true)"></i>
+            <i class="fa-lg far fa-thumbs-down" onclick="handleLikeDislike('<%= article._id%>','<%=user._id%>',false)"></i>
         </div>
         <script>
             var data = "<%- article.data %>"
             var disease_info = document.getElementById('disease_info');
             disease_info.innerHTML = data;
-            const handleLike = async(postId,userId)=>{
+            const handleLikeDislike = async(postId,userId,like)=>{
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', '/dashboard/likePost', true);
                 await xhr.setRequestHeader('Content-Type', 'application/json');
                 var resp = await xhr.send(
                     JSON.stringify({
                         postId,
-                        userId
+                        userId,
+                        like
                     })
                 );
+                location.reload();
             }
         </script>
      <% }) %>

@@ -125,12 +125,9 @@ router.get("/article/:id",(req,res)=>{
         if (err) { return console.log(err); }
         issue = body[0].Name;
         var articles = await articleData.find({disease_id:id});
-        console.log(articles)
         articles.map((article)=>{
            article.data = article.data.replace(/["]+/g, "'")
-            console.log(article.data)
         })
-        console.log(articles[0].data)
         res.render("particularArticles",{issue,articles});
     });
 })
@@ -138,13 +135,17 @@ router.get("/article/:id",(req,res)=>{
 //like post
 router.post("/likePost",async (req,res)=>{
     // req.body
-    const {postId,userId} = req.body;
+    const {postId,userId,like} = req.body;
     const query = { _id: postId};
     const result = await articleData.findOne(query);
-    const vote = result.rating;
-    console.log("vote",vote);
+    let vote = result.rating;
+    if(like){
+        vote+=1;
+    }else{
+        vote-=1;
+    }
     await articleData.findOneAndUpdate({_id:postId},{
-        rating:vote+1
+        rating:vote
     },{
         new:true
     });
