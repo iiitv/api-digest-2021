@@ -15,7 +15,7 @@ class Home extends Component {
         bedrooms:this.props.bedrooms,
         propertyType:this.props.propertyType,
         squareFootage:this.props.footage,
-        compCount:this.props.compCount,
+        compCount:this.props.compCount
     }
    
     clickHandler=()=>{
@@ -41,7 +41,6 @@ class Home extends Component {
 
     render () {
         let properties=this.state.properties
-
     
         return (
             <div className="rate">

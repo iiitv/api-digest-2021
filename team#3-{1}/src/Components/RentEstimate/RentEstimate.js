@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Properties from '../../Container/Properties/Properties';
 
+
 import "./RentEstimate.css"
 class Home extends Component {
     state={
@@ -28,6 +29,7 @@ class Home extends Component {
 
     render () {
         let properties=this.state.properties
+
         return (
             <div className="rent">
 

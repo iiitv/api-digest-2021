@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import Property from "./Property/Property";
+import Spinner from "../../Components/Spinner/Spinner"
 
 class properties extends Component{
     state={
