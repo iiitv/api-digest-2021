@@ -6,10 +6,11 @@ import SearchBar from './components/SearchBar';
 function App(props) {
 
   return (
-    <div className="App">
-      {process.env.REACT_APP_KEY}
+    <div className="App bg-dark" style={{minHeight: '100vh'}}>
+      <div className="mx-auto bg-light w-100 py-4">
+        <h1 className=" text-primary my-auto py-auto">Trip Assistant</h1>
+      </div>
       <Switch>
-        <Link to="/flights" component={SearchBar} {...props} />
         <Link to="/" component={SearchBar} {...props} />
         <Redirect to="/" />
       </Switch>

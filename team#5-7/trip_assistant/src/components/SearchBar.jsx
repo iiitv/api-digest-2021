@@ -12,14 +12,16 @@ const SearchBar = () => {
 
     const [location, setLocation] = useState("");
     const [weather, setWeather] = useState();
+    const [loading, setLoading] = useState(false);
 
     useEffect(async () => {
 
-    }, [location])
+    }, [location, weather])
 
     const onSearch = async (e) => {
-        setLocation(e);
-        console.log("Searched---",e);
+        setLoading(true);
+        setWeather([]);
+        await setLocation(e);
         try {
             const res = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${e}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API}`);
             let weather=[];
@@ -34,12 +36,20 @@ const SearchBar = () => {
             setWeather([]);
             message.error("Place not found");
         }
+        setLoading(false);
     }
 
     return ( 
         <div className="container mx-auto py-5 w-50">
             <Search placeholder="Enter city name" onSearch={onSearch} enterButton />
-            { weather && <WeatherForecast weather={weather} location={location} /> }
+            { loading && 
+                <div className="text-center text-light mt-5">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            }
+            { weather && location && <WeatherForecast weather={weather} location={location} /> }
         </div>
     );
 }
