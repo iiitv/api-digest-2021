@@ -8,10 +8,5 @@ const Footer = () => {
         </footer>
     );
 };
-const footer = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  padding-top: 5rem;
-  cursor: pointer;
-  `;
+
   export default Footer;

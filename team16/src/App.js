@@ -5,6 +5,7 @@ import GlobalStyles from "./components/GlobalStyles";
 import { Route } from "react-router-dom";
 import Nav from './components/Nav';
 import Footer from './Footer';
+
 function App() {
 
   return (
