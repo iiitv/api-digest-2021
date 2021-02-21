@@ -28,8 +28,8 @@
                       <% let productDetail = productInfo[j].description.slice(0,70) +"...more on website" %>
                       <p class="card-text"><%= productDetail%></p>
                       <div class="text-center">
-                      <h3 class="card-title"><%= productInfo[j].price +'$'%></h4>
-                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" onclick="adding('<%= productInfo[j].title.slice(0,11)%>','https://amazon.com')">Add it</a>
+                      <h3 class="card-title"><%= productInfo[j].price%></h4>
+                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" onclick="adding('<%= productInfo[j].title.slice(0,11)%>','<%= productInfo[j].link%>')">Add it</a>
                     </div>
                     </div>
                   </div>
@@ -42,7 +42,7 @@
 <div class="container text-center">
     <p>add in this fashion name: product link comma seperated </p>
     <textarea name="productDetail" rows="10" cols="150" id="inf"></textarea>
-    <button class="btn btn-primary btn-rounded" onclick="AddExtra()">Add it</button>
+    <button class="btn btn-primary btn-rounded" onclick="AddExtra()">Save Changes</button>
 </div>
 
 <script>

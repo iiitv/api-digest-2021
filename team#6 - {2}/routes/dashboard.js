@@ -31,7 +31,7 @@ router.get('/generate',ensureAuth, function(req, res, next) {
 currentArticleId = 'sdsdsd'
 router.get("/product",async (req,resp)=>{
     //end point
-    const url = 'https://fakestoreapi.com/products';
+    const url = 'https://nlok5923.github.io/RawData/productData.json';
         await request(url, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
         // console.log(body);

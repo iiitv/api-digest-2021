@@ -31,9 +31,9 @@ app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.get('*',checkUser);
 
+app.use('/',landingRouter);
 app.use('/register',registerRouter)
 app.use('/dashboard',dashboardRouter)
-app.use('/',landingRouter);
 app.use("/auth",require("./routes/auth"));
 
 
