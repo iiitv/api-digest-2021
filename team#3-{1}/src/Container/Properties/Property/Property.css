@@ -1,0 +1,9 @@
+.property{
+    border: 2px solid silver;
+    box-shadow: 1px 1px silver;
+    display: flex;
+}
+
+.prop{
+    padding: 6px;
+}

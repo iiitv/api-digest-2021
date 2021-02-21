@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-*{
+/* {
     background-color: #1A1A1D;
-}
+} */
 .header{
     height: 20%;
     padding: 10px;
@@ -28,8 +28,10 @@
     grid-template-columns: 1fr 1fr;
     width: 20%;
     text-align: center;
-    margin-left: 35%;
-    padding: 50px;
+    margin-left: 0;
+    padding-left: 500px;
+    padding-right: 700px;
+    background-color: #6f2232;
 }
 
 .tab{

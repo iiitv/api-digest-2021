@@ -5,17 +5,16 @@ import React from 'react';
 const property = (props) => {
     return (
         <div className="property">
-            Property
-            <p>{props.bathrooms}</p>
-            <p>{props.bedrooms}</p>
-            <p>{props.price}</p>
-            <p>{props.address}</p>
-            <p>{props.footage}</p>
-            <p>{props.county}</p>
-            <p>{props.type}</p>
-            <p>{props.city}</p>
-            <p>{props.state}</p>
-            <p>{props.zipcode}</p>
+            <p>Address:{props.address}</p>
+            <p>Bathrooms:{props.bathrooms}</p>
+            <p>Bedrooms:{props.bedrooms}</p>
+            <p>SquareFootage:{props.footage}</p>
+            <p>County:{props.county}</p>
+            <p>Type:{props.type}</p>
+            <p>City:{props.city}</p>
+            <p>State:{props.state}</p>
+            <p>Zipcode:{props.zipcode}</p>
+            <p>Price:${props.price}</p>
         </div>
     )
 }

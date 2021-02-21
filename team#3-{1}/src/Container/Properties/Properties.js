@@ -55,18 +55,27 @@ class properties extends Component{
 
     render(){
         console.log(this.state.listings)
+        let address;
+        let zipcode;
         const property =  this.state.listings.map((p,index)=>{
+            if(this.state.flag===0){
+              address=p.address;
+              zipcode=p.zipcode;
+            }else{
+              address=p.rawAddress;
+              zipcode=p.zipCode;
+            }
             return <Property 
             bathrooms={p.bathrooms} 
             bedrooms={p.bedrooms} 
             price={p.price} 
-            address={p.rawAddress}
+            address={address}
             footage={p.squareFootage}
             county={p.county}
             type={p.propertyType}
             city={p.city}
             state={p.state}
-            zipcode={p.zipCode}
+            zipcode={zipcode}
             latitude={p.latitude}
             longitude={p.longitude}
             />
