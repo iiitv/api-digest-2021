@@ -9,43 +9,61 @@
 />
 <style>
 .symptoms {
-    display:inline-block;
-  background-color: #222222;
-  margin-left: 10px;
-
-  border-radius: 5px;
-  line-height: 45px;
-  position: relative;
-  color: white;
-  width:80px;
-  height:auto;
-  margin-bottom:4px;
-  height:50px;
-  text-align: center;
-  overflow-x: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: aliceblue;
+    margin-left: 10px;
+    border-radius: 5px;
+    line-height: 45px;
+    position: relative;
+    color: black;
+    width:17vw;
+    height:auto;
+    margin-bottom:4px;
+    height:50px;
+    text-align: center;
+    /* overflow-x: auto; */
+}
+.name {
+    margin-left:5px ;
+}
+.symptom {
+    /* display: grid; */
+    /* grid-column: 1fr 1fr 1fr 1fr 1fr; */
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
 }
 </style>
+<!-- <p class="text-center">Choose Your Symptoms</p>
 
-<div class="symtom container">
-    <p>Choose Your Symtom</p>
-    <!-- <form action="/dashboard/diagnosis" method="POST"> -->
-        <!-- <select name="symptom" class="form-control"> -->
+<div class="symptom">
             <% if(data){ %>
                 <% data.forEach((val)=>{ %>
                     <div class="symptoms">
-                        <%= val.Name %>
+                        <p class="name"> <%= val.Name %> </p>
                         <button class="btn btn-primary" onclick="addSymptoms('<%= val.ID %>')">Add</button>                       
                     </div>
                     <br />
-                    <!-- <option value=<%=val.ID%>><%= val.Name%></option> -->
                 <% }) %>
             <% } %>
-        <!-- </select> -->
-        <button class="btn btn-primary" onclick="sendSymptoms()">Diagnosis</button>
-    <!-- </form> -->
+        <button class="btn btn-primary btn-lg mt-5" onclick="sendSymptoms()">Diagnose me</button>
+</div> -->
+<div class="symtom">
+    <p>Choose Your Symtom</p>
+    <form action="/dashboard/diagnosis" method="POST">
+        <select name="symptom" class="form-control">
+            <% if(data){ %>
+                <% data.forEach((val)=>{ %>
+                    <option value=<%=val.ID%>><%= val.Name%></option>
+                <% }) %>
+            <% } %>
+        </select>
+        <button class="btn btn-primary">Diagnosis</button>
+    </form>
 </div>
-
-<script>
+<!-- <script>
     var symptomsArray = [];
     function addSymptoms(symptom_id) {
         symptomsArray.push(symptom_id);
@@ -60,4 +78,4 @@
             })
         );
     }
-</script>
+</script> -->
