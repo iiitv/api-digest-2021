@@ -31,7 +31,12 @@ const articleData = new Schema({
         id:String,
         like:Boolean,
         dislike:Boolean
-    }]
+    }],
+    dtitle:{
+        type:String,
+        default:null,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('articleData',articleData);

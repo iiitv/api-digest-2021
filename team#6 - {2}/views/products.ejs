@@ -29,7 +29,7 @@
                       <p class="card-text"><%= productDetail%></p>
                       <div class="text-center">
                       <h3 class="card-title"><%= productInfo[j].price%></h4>
-                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" onclick="adding('<%= productInfo[j].title.slice(0,11)%>','<%= productInfo[j].link%>')">Add it</a>
+                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" onclick="adding('<%= productInfo[j].title.slice(0,11)%>','<%= productInfo[j].link%>')" id = "<%= productInfo[j].link %>">Add it</a>
                     </div>
                     </div>
                   </div>
@@ -51,6 +51,8 @@
     function adding(product_name, product_link) {
         productArray.push({name:product_name, link: product_link});
         console.log(productArray);
+        var addedEle = document.getElementById(product_link);
+        addedEle.innerHTML = "Added";
     }
     var txtbox = document.getElementById('inf');
   async function AddExtra(){
@@ -67,6 +69,12 @@
             }
         }
         console.log(productArray)
+        swal({
+        title: "Good job!",
+        text: "Article created successfully",
+        icon: "success",
+        button: "Yes",
+      });
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/dashboard/product', true);
         await xhr.setRequestHeader('Content-Type', 'application/json');

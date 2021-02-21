@@ -2,6 +2,7 @@
 <%- include("./partials/chore.ejs") -%>
 <link rel="stylesheet" href="/css/diagnosesData.css">
 <div class="uploadData">
+    <% if(issue!=null){%>
     <h2>Issue</h2>
     <p class="symtomName"><%= issue%></p>
     <% if(articles.length==0){ %>
@@ -26,7 +27,7 @@
             <i class="fa-lg fas fa-thumbs-down"></i> -->
         </div>
         <script>
-            var data = '<%- article.data %>'
+            var data = "<%- article.data %>"
             var disease_info = document.getElementById('disease_info');
             disease_info.innerHTML = data;
             const handleLike = async(postId,userId)=>{

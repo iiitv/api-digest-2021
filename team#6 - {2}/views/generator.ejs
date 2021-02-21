@@ -17,11 +17,22 @@
       required
     />
     
+    <label for="disease" class="mt-4">Title for your remedy</label><span class="required">*</span>
+    
+    <input
+    type="text"
+    class="form-control"
+    placeholder="Enter title here"
+    name="title"
+    id="dtitle"
+    required
+  />
+    
     <label for="disease" class="mt-4">Disease</label><span class="required">*</span>
     <select name="disease_name" id="disease" class="form-control">
       <% if(data){ %>
           <% data.forEach((val)=>{ %>
-              <option value=<%=val.ID%>><%= val.Name%></option>
+              <option onclick="setName('<%= val.Name %>')" value=<%=val.ID%> ><%= val.Name%></option>
           <% }) %>
       <% } %>
     </select>
@@ -82,16 +93,30 @@
       email = email.value;
       let disease = document.getElementById('disease');
       disease_name = disease.value;
+      let title = document.getElementById('dtitle');
+      title = title.value;
+      if(email===""||disease_name===""||title==="") {
+      swal({
+        title: "Ohh no !!",
+        text: "Please fill all field",
+        icon: "error",
+        button: "ok",
+      });
+    }
+    else {
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/dashboard/generate', true);
-      await xhr.setRequestHeader('Content-Type', 'application/json');
-      var resp = await xhr.send(
-          JSON.stringify({
-            value: quill.root.innerHTML,
-            email: email,
-            disease_name: disease_name
-          })
+     await xhr.setRequestHeader('Content-Type', 'application/json');
+     var resp = await xhr.send(
+        JSON.stringify({
+          value: quill.root.innerHTML,
+          email: email,
+          disease_name: disease_name,
+          dtitle: title
+        })
       );
       window.location.href ="/dashboard/product"
+    }
+    
     }
   </script>
