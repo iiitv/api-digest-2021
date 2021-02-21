@@ -48,7 +48,7 @@ sendRecipentsRouter.post('/addRecipients/:id',verifyToken, async (req,res)=>{
             })
         }
         await user.save()
-        res.redirect(`/home`)
+        res.redirect(`/writeMessage/${_id}`)
     }
     
 })
