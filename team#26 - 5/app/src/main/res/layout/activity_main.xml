@@ -7,22 +7,43 @@
     android:layout_height = "match_parent"
     tools:context = ".MainActivity"
     >
-
+    
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id = "@+id/progressbar"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:visibility = "gone"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent"
+        />
+    
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/charView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-        <Button
-            android:id="@+id/nextscr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/rick_morty_green"
-            android:text="Rick roll me"
-
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:id = "@+id/charView"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        />
+    
+    <Button
+        android:id = "@+id/rick_roll"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginBottom = "20dp"
+        android:background = "@color/rick_morty_green"
+        android:text = "Rick roll me"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        />
+    
+    <Button
+        android:id = "@+id/next"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Next"
+        app:layout_constraintBottom_toBottomOf = "@id/rick_roll"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toEndOf = "@+id/rick_roll"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
