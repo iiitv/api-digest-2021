@@ -8,11 +8,12 @@
         <div class="disease">
             <div id="disease_info">
             </div>
+            <% if(article.products.length > 0){ %>
             <h1 class="info__text">If you have some difficulty buying stuff for remedy refer to below link</h1>
             <% article.products.forEach((data)=>{ %>
                 <h1 class="product_name"><%= data.name %></h1>
-                <a href="<%= data.link %>" target = "_blank"class="btn btn-primary">Buy it</a>
-            <% }) %>
+                <a href="<%= data.link %>" target = "_blank" class="btn btn-primary">Buy it</a>
+            <% })} %>
         </div>
         <script>
             var data = '<%- article.data %>'
