@@ -1,25 +1,62 @@
+import 'package:cf_pursuit/utils/user_data.dart';
+import 'package:cf_pursuit/screens/profile_screen.dart';
+import 'package:cf_pursuit/screens/rank_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:provider/provider.dart';
+import '../widgets/header.dart';
 
 class LandingScreenMobile extends StatefulWidget {
+  static String name, institute;
+
   @override
   _LandingScreenMobileState createState() => _LandingScreenMobileState();
 }
 
-List<Color> colorList = [
-  Color(0xff009797),
-  Colors.teal,
-  Color(0xff4cb6b6),
-  Color(0xff99d5d5)
-];
-
 class _LandingScreenMobileState extends State<LandingScreenMobile> {
-  FocusNode nameFieldNode = FocusNode();
-  FocusNode instituteFieldNode = FocusNode();
-   FocusNode nameSubmitNode = FocusNode();
-    FocusNode instituteSubmitNode = FocusNode();
-  ScrollController scrollController = ScrollController();
+  final FocusNode nameFieldNode = FocusNode();
+
+  final FocusNode instituteFieldNode = FocusNode();
+
+  final FocusNode nameSubmitNode = FocusNode();
+
+  final FocusNode instituteSubmitNode = FocusNode();
+
+  final ScrollController scrollController = ScrollController();
+
+  final nameFieldKey = GlobalKey<FormState>();
+
+  final instituteFieldKey = GlobalKey<FormState>();
+
+  final TextEditingController nameField = TextEditingController();
+
+  final TextEditingController instituteField = TextEditingController();
+  static String institute = '', name = '';
+  UserData userValidators = UserData();
+  bool isValid = false;
+  bool isValidData = false;
+  void _submitName(bool isValidData) {
+    isValid = isValidData;
+    print(isValidData);
+    final isValidUsername = nameFieldKey.currentState.validate();
+    if (isValidUsername) {
+      print(nameField.text);
+      name = nameField.text;
+      // print(LandingScreenMobile.name.toLowerCase());
+      // notifyListeners();
+      Navigator.of(context).pushNamed(ProfileScreen.routeName);
+    }
+  }
+
+  void _submitInstituteName() {
+    final isValidInstitute = instituteFieldKey.currentState.validate();
+    if (isValidInstitute) {
+      print(isValidInstitute);
+      instituteFieldKey.currentState.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height,
@@ -58,41 +95,54 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        enableSuggestions: true,
-                        maxLines: 1,
-                        focusNode: nameFieldNode,
-                        style: GoogleFonts.openSans(color: Colors.teal),
-                        onTap: () {
-                          FocusScopeNode currentFocus = FocusScope.of(context);
-                          if (!currentFocus.hasPrimaryFocus) {
-                            currentFocus.unfocus();
-                          }
-                        },
-                        decoration: InputDecoration(
-                          labelText: "Username",
-                          icon: Icon(
-                            Icons.person,
-                            color: nameFieldNode.hasFocus
-                                ? Colors.teal
-                                : Colors.white,
-                          ),
-                          filled: true,
-                          labelStyle: GoogleFonts.roboto(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(25.0),
-                            borderSide: new BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          border: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(25.0),
-                            borderSide: new BorderSide(
+                      child: Form(
+                        key: nameFieldKey,
+                        child: TextFormField(
+                          enableSuggestions: true,
+                          maxLines: 1,
+                          focusNode: nameFieldNode,
+                          controller: nameField,
+                          style: GoogleFonts.openSans(color: Colors.teal),
+                          onTap: () {
+                            FocusScopeNode currentFocus =
+                                FocusScope.of(context);
+                            if (!currentFocus.hasPrimaryFocus) {
+                              currentFocus.unfocus();
+                            }
+                          },
+                          decoration: InputDecoration(
+                            labelText: "Username",
+                            icon: Icon(
+                              Icons.person,
                               color: nameFieldNode.hasFocus
                                   ? Colors.teal
                                   : Colors.white,
                             ),
+                            filled: true,
+                            labelStyle: GoogleFonts.roboto(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(25.0),
+                              borderSide: new BorderSide(
+                                color: Colors.white,
+                              ),
+                            ),
+                            border: new OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(25.0),
+                              borderSide: new BorderSide(
+                                color: nameFieldNode.hasFocus
+                                    ? Colors.teal
+                                    : Colors.white,
+                              ),
+                            ),
                           ),
+                          validator: (val) {
+                            if (val.length == 0) {
+                              return "Username can't be of length 0";
+                            }
+                            return isValidData == true
+                                ? null
+                                : "Invalid Username";
+                          },
                         ),
                       ),
                     ),
@@ -106,7 +156,25 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        isValidData = await userValidators
+                            .checkUser(nameField.text.toString());
+                        setState(() {
+                          isValid = isValidData;
+                          name = nameField.value.toString();
+                        });
+                        print(isValidData);
+                        final isValidUsername =
+                            nameFieldKey.currentState.validate();
+                        if (isValidUsername) {
+                          // Navigator.of(context)
+                          //     .pushNamed(ProfileScreen.routeName);
+                          Navigator.pushNamed(context, ProfileScreen.routeName,
+                              arguments: {
+                                "name": nameField.text.toString(),
+                              });
+                        }
+                      },
                       child: Text(
                         "Submit",
                         style: TextStyle(fontSize: 20),
@@ -116,55 +184,68 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                 ),
               ),
               FittedBox(
-                  child: Container(
-                      height: 70,
-                      child: Text(
-                        "-OR-",
-                        style: GoogleFonts.openSans(
-                            color: Colors.white, fontSize: 30),
-                      ))),
-              // Container(
-              //   // height: MediaQuery.of(context).size.height * 0.25,
-              //   child:
+                child: Container(
+                  height: 70,
+                  child: Text(
+                    "-OR-",
+                    style:
+                        GoogleFonts.openSans(color: Colors.white, fontSize: 30),
+                  ),
+                ),
+              ),
               Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      enableSuggestions: true,
-                      maxLines: 1,
-                      focusNode: instituteFieldNode,
-                      onTap: () {
-                        FocusScopeNode currentFocus = FocusScope.of(context);
-                        if (!currentFocus.hasPrimaryFocus) {
-                          currentFocus.unfocus();
-                        }
-                      },
-                      style: GoogleFonts.openSans(color: Colors.teal),
-                      decoration: InputDecoration(
-                        labelText: "Institution Name",
-                        icon: Icon(
-                          Icons.business,
-                          color: instituteFieldNode.hasFocus
-                              ? Colors.teal
-                              : Colors.white,
-                        ),
-                        labelStyle: GoogleFonts.roboto(color: Colors.white),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(
+                    child: Form(
+                      key: instituteFieldKey,
+                      child: TextFormField(
+                        enableSuggestions: true,
+                        maxLines: 1,
+                        focusNode: instituteFieldNode,
+                        controller: instituteField,
+                        onTap: () {
+                          FocusScopeNode currentFocus = FocusScope.of(context);
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
+                        },
+                        style: GoogleFonts.openSans(color: Colors.teal),
+                        decoration: InputDecoration(
+                          labelText: "Institution Name",
+                          icon: Icon(
+                            Icons.business,
                             color: instituteFieldNode.hasFocus
                                 ? Colors.teal
                                 : Colors.white,
                           ),
+                          labelStyle: GoogleFonts.roboto(color: Colors.white),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(
+                              color: instituteFieldNode.hasFocus
+                                  ? Colors.teal
+                                  : Colors.white,
+                            ),
+                          ),
                         ),
+                        validator: (val) {
+                          if (val.length == 0) {
+                            return "Institute name can't be of length 0";
+                          }
+                          return null;
+                        },
+                        onSaved: (val) {
+                          institute = instituteField.text;
+                          print(val);
+                          Navigator.of(context).pushNamed(RankScreen.routeName);
+                        },
                       ),
                     ),
                   ),
@@ -178,7 +259,9 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      _submitInstituteName();
+                    },
                     child: Text(
                       "Submit",
                       style: TextStyle(fontSize: 20),
@@ -186,105 +269,10 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                   ),
                 ],
               ),
-              // ),
-
-              // Expanded(
-              //   child: Align(
-              //     alignment: Alignment.bottomCenter,
-              //     child: InkWell(
-              //       onTap: () {},
-              //       child: Container(
-              //         height: deviceHeight * 0.0675852,
-              //         width: deviceWidth * 0.8,
-              //         decoration: BoxDecoration(
-              //           gradient: LinearGradient(
-              //             begin: Alignment.bottomLeft,
-              //             colors: colorList,
-              //             end: Alignment.topRight,
-              //           ),
-              //           borderRadius:
-              //               BorderRadius.circular(deviceHeight * 0.02634),
-              //         ),
-              //         child: Row(
-              //           children: [
-              //             // Container(
-              //             //   padding: EdgeInsets.only(left: deviceWidth * 0.011),
-              //             //   child: Image.asset(
-              //             //     "assets/icons/google_bg.png",
-              //             //     fit: BoxFit.fitHeight,
-              //             //   ),
-              //             // ),
-              //             // Expanded(
-              //             //   child: Text(
-              //             //     " Sign In with Google",
-              //             //     style: GoogleFonts.roboto(
-              //             //       color: Colors.white,
-              //             //       fontSize: deviceHeight * 0.02711292,
-              //             //     ),
-              //             //     textAlign: TextAlign.center,
-              //             //   ),
-              //             // ),
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-class WavyHeader extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.223898,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            colors: colorList,
-            end: Alignment.topRight,
-          ),
-        ),
-      ),
-      clipper: BottomWave(MediaQuery.of(context).size.height,
-          MediaQuery.of(context).size.height),
-    );
-  }
-}
-
-class BottomWave extends CustomClipper<Path> {
-  double deviceHeight, deviceWidth;
-  BottomWave(this.deviceHeight, this.deviceWidth);
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0.0, size.height - deviceHeight * 0.02634);
-
-    var secondControlPoint = Offset(size.width / 4, size.height);
-    var secondEndPoint =
-        Offset(size.width / 2.25, size.height - deviceHeight * 0.046096);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondEndPoint.dx, secondEndPoint.dy);
-
-    var firstControlPoint = Offset(
-        size.width - (size.width / 3.25), size.height - deviceHeight * 0.12775);
-    var firstEndPoint =
-        Offset(size.width, size.height - deviceHeight * 0.10536);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-
-    path.lineTo(size.width, size.height - deviceHeight * 0.052681);
-    path.lineTo(size.width, 0.0);
-    path.close();
-
-    return path;
   }
 }
