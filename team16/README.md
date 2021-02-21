@@ -13,4 +13,7 @@ https://rawg.io/apidocs <br/>
 - Created cards for every game in each of the mentioned categories.<br/>
 - Fetched game ratings, images and summary of the game.<br/>
 - On clicking the card, the details of the game can be seen.<br/>
-- User will see all the above functionalities on the homepage.
+- Minimized the images fetched from API.
+- Adding animations.
+- User will see all the above functionalities on the homepage.<br/>
+
