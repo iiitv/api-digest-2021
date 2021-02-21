@@ -52,11 +52,6 @@ function App() {
       </div>
       <div id="aqi">
       {state.aqi_result&& <AQI state={state} setState={setState}/>}
-      </div>
-      <div id="hospital" className="card mt-4 container">
-      <div className="card-header  text-center font-weight-bolder">
-      See your Hospitals here
-      </div>
       <div id="mymap">
       {!state.notFound && state.userLocation && <ReactMap state={state} />}
       </div>

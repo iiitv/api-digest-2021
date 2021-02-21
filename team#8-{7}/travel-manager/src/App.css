@@ -12,6 +12,7 @@ body {
   background-repeat: none;
   background-attachment: fixed;
   background-size: cover;
+  overflow: hidden;
 }
 .search-bar-container {
   display: flex;
@@ -82,7 +83,7 @@ body {
 {
   color:#fff;
   padding:20px 0px;
-  font-size:30px;
+  font-size:26px;
 
 }
 /* Map */
