@@ -13,3 +13,10 @@
 .symtomName{
     font-size: 19px;
 }
+.product_name {
+    font-size: 20px;
+    display: inline;
+}
+.info__text {
+    font-size: 15px;
+}

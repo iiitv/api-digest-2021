@@ -132,7 +132,13 @@ router.get("/article/:id",(req,res)=>{
     request(url, { json: true }, async(err, response, body) => {
         if (err) { return console.log(err); }
         issue = body[0].Name;
-        const articles = await articleData.find({disease_id:id});
+        var articles = await articleData.find({disease_id:id});
+        // const bestArticle = articles[0];
+        // doc[0].para.replace(/["]+/g, "'"),
+        articles.map((article)=>{
+            article.data.replace(/["]+/g, "'")
+        })
+        console.log(articles)
         res.render("particularArticles",{issue,articles});
     });
 })
