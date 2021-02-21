@@ -54,3 +54,10 @@ body {
 .not-found img {
   width: 100%;
 }
+
+/* Chart Component */
+
+.chart {
+  width: 60%;
+  margin: 0 auto;
+}

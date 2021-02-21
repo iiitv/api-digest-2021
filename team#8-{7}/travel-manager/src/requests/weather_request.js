@@ -2,12 +2,14 @@ import axios from "axios";
 import { formatDate } from "./helper";
 const API_KEY = "77a02429b97b271a7456b792ee9bcbaf";
 const BASE_URL = "http://api.openweathermap.org/data/2.5/";
+
 export const getWeatherData = async (value) => {
   try {
     const { data } = await axios.get(
       `${BASE_URL}weather?q=${value}&units=metric&appid=${API_KEY}`
     );
-    const { coord } = data;
+    const { coord } = data; //log lat
+
     console.log(formatDate(data.dt));
     const { lat, lon } = coord;
     const res = await axios.get(

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SearchBar from "./Components/searchBar/SearchBar";
-import Card from "./Components/Card";
 import "./App.css";
-import NotFound from "./components/NotFound/NotFound";
+import Card from "./Components/Card";
+
+import NotFound from "./Components/NotFound/NotFound";
+import WeatherChart from "./Components/WeatherChart/WeatherChart";
 function App() {
   const [state, setState] = useState("");
   console.log(state);
@@ -10,7 +12,8 @@ function App() {
     <div className="App">
       <SearchBar state={state} setState={setState} />
       {state.notFound && <NotFound />}
-      <Card />
+      {/* {state.data && <Card state={state} setState={setState} />} */}
+      {state.forecast && <WeatherChart state={state} />}
     </div>
   );
 }
