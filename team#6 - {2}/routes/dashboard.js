@@ -137,40 +137,18 @@ router.get("/article/:id",(req,res)=>{
 })
 
 //like post
-router.post("/likePost",async(req,res)=>{
+router.post("/likePost",async (req,res)=>{
     // req.body
     const {postId,userId} = req.body;
     const query = { _id: postId};
     const result = await articleData.findOne(query);
     const vote = result.rating;
-    console.log(vote);
-    articleData.findOneAndUpdate({_id:postId},{
+    console.log("vote",vote);
+    await articleData.findOneAndUpdate({_id:postId},{
         rating:vote+1
     },{
         new:true
     });
-    // const post = await articleData.findOne({_id:postId,votes:{$elemMatch: {id:userId}}});
-    // // const doc1 = await post.votes.find({id:userId});
-    //     console.log("ayyyyyar ")
-    //     try {
-    //         articleData.findOneAndUpdate(
-    //             {_id:postId},
-    //             {
-    //                 $push : {
-    //                     votes :  {
-    //                              "id": userId,
-    //                              "like": true,
-    //                              "dislike":false
-    //                            } //inserted data is the object to be inserted 
-    //                   }
-    //             },
-    //             {
-    //                 new: true
-    //             }
-    //         )
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
 })
 router.get("/all",async (req,res)=>{
     var allArticles = await articleData.find({});    
