@@ -2,17 +2,16 @@
 border: 5px solid white;
 border-radius: 10px;
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 }
 
 .home{
     width: 500px;
 }
 
-
 .maps{
-    text-decoration: none;
-    color: #bb260c;
+   color: #464866;
+   font-size: 50px;
 }
 .field{
     font-size: 1.2em;
@@ -23,3 +22,22 @@ grid-template-columns: 1fr 1fr;
 html {
     scroll-behavior: smooth;
   }
+
+.contact{
+    background-color: #888ccc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    transition: .2s all;
+    border-radius: 5px;
+    margin: 70px 0px;
+}
+
+.contact:hover{
+    background-color: #6a70c9;
+    cursor: pointer;
+}
+
+.right{
+    padding-top: 30%;
+}

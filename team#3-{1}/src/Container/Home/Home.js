@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+// import Chat from '../Chat/Chat'
+
 
 import "./Home.css";
 
@@ -16,10 +18,12 @@ class Home extends Component {
                     <div className="tagline">Let us guide you Home!</div>
                 </div>
 
-                    <div className="methods">
-                        <NavLink to='/rent' exact className="method">Rent Estimate</NavLink>
-                       <NavLink to='/rate' exact className="method">Rate Listing</NavLink>
-                    </div>
+                <div className="methods">
+                    <NavLink to='/rent' exact className="method">Rent Estimate</NavLink>
+                    <NavLink to='/rate' exact className="method">Rate Listing</NavLink>
+                </div>
+
+                {/* <Chat /> */}
 
 
             </div>
