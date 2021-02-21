@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-<<<<<<< HEAD
-/* {
-    background-color: #1A1A1D;
-} */
-=======
->>>>>>> 1d72f23f2d543c2ad3eeef2123e9f0c501331703
 .header{
     height: 20%;
     padding: 10px;
@@ -36,11 +30,6 @@
     width: 20%;
     text-align: center;
     margin-left: 0;
-<<<<<<< HEAD
-    padding-left: 500px;
-    padding-right: 700px;
-    background-color: #6f2232;
-=======
     /* padding-left: 500px;
     padding-right: 700px; */
     background-color: #464866;
@@ -49,7 +38,6 @@
 
     padding: 20px;
     padding-left: 40%;;
->>>>>>> 1d72f23f2d543c2ad3eeef2123e9f0c501331703
 }
 
 .tab{
