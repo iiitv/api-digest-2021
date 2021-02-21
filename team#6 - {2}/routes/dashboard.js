@@ -59,7 +59,7 @@ router.post('/generate', function(req, res, next) {
     currentArticleId = getId(6);
     let articleDetails = new articleData({
         email: req.body.email,
-        name: req.body.disease_name,
+        disease_id: req.body.disease_name,
         data: req.body.value,
         id: currentArticleId,
     })

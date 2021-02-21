@@ -12,8 +12,8 @@ const articleData = new Schema({
         default:null,
         required:true
     },
-    name:{
-        type:String,
+    disease_id:{
+        type:Number,
         default:null,
         required:true
     },
