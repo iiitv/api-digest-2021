@@ -7,9 +7,8 @@ Not only this they can also search for any game they wish to play and buy them f
 We have implemented the above idea using the following public API : <br/>
 https://rawg.io/apidocs <br/>
 
-###                                                           A sneek peak 😉 
-<br/>
-![Untitled_ Feb 21, 2021 11_56 PM](https://user-images.githubusercontent.com/48882133/108634753-140ec100-74a1-11eb-9b77-5ed03eb389ee.gif)
+###                                                           A sneek peak 😉<br/>
+![Untitled_ Feb 21, 2021 11_56 PM](https://user-images.githubusercontent.com/48882133/108635207-3b1ac200-74a4-11eb-9f89-b7daeee36b3d.gif)
 <br/>
 
 Steps for setting up:<br/>
