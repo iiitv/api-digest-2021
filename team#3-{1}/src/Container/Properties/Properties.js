@@ -38,7 +38,7 @@ class properties extends Component{
 
         }else{
             const fetchData = async () => {
-                const res = await fetch(`https://realty-mole-property-api.p.rapidapi.com/saleListings?city=${this.state.city}&state=${this.state.State}`, {
+                const res = await fetch(`https://realty-mole-property-api.p.rapidapi.com/saleListings?city=${this.state.city}&state=${this.state.State}&limit=10`, {
                   "method": "GET",
                   "headers": {
                     "x-rapidapi-key": "eca084dc7emshabfc11644902855p117df7jsn30163e604465"

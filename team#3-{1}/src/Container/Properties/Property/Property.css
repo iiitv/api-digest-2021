@@ -1,5 +1,5 @@
 .property{
-
+    width: 70%;
     border: 2px solid silver;
     box-shadow: 1px 1px silver;
     display: flex;
@@ -7,4 +7,9 @@
 
 .prop{
     padding: 6px;
+}
+
+.maps{
+    text-decoration: none;
+    font-weight: bold;
 }
