@@ -6,44 +6,70 @@
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
     tools:context = ".MainActivity"
+    android:id="@+id/layparent"
     >
-    
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id = "@+id/progressbar"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:visibility = "gone"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        />
-    
-    <androidx.recyclerview.widget.RecyclerView
-        android:id = "@+id/charView"
-        android:layout_width = "match_parent"
-        android:layout_height = "match_parent"
-        />
-    
-    <Button
-        android:id = "@+id/rick_roll"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:layout_marginBottom = "20dp"
-        android:background = "@color/rick_morty_green"
-        android:text = "Rick roll me"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        />
-    
-    <Button
-        android:id = "@+id/next"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:text = "Next"
-        app:layout_constraintBottom_toBottomOf = "@id/rick_roll"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toEndOf = "@+id/rick_roll"
-        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/layparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/rick_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/rick_morty_green"
+            android:text="Rick roll me"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            app:layout_constraintBottom_toBottomOf="@id/rick_roll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rick_roll" />
+
+        <Button
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prev"
+            app:layout_constraintBottom_toBottomOf="@id/rick_roll"
+            app:layout_constraintEnd_toStartOf="@+id/rick_roll"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
