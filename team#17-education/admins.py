@@ -10,7 +10,7 @@ class CS_toolkit():
         self.base = "https://api.telegram.org/bot{}/".format(self.token)
 
     def getUpdates(self, offset=None):
-        url = self.base + "getUpdates?timeout=10" #Timeout = 100 to avoid requesting endpoint again and again
+        url = self.base + "getUpdates?timeout=100" #Timeout = 100 to avoid requesting endpoint again and again
         if offset:
             url += "&offset={}".format(offset + 1)
 

@@ -2,6 +2,7 @@ import requests
 import json
 from admins import CS_toolkit
 from telegram import ForceReply
+import random
 
 bot = CS_toolkit("config.cfg")
 
@@ -13,8 +14,8 @@ class Codeforces():
         url = self.base + "user.info?handles={}".format(handle)
         r = requests.get(url)
         return json.loads(r.content)
-    
-    def problem_by_tag(self, tag):
+
+    def get_problem_by_tag(self, tag):
         url = self.base + "problemset.problems?tags={}".format(tag)
         r = requests.get(url)
         return json.loads(r.content)
@@ -31,7 +32,16 @@ class Codeforces():
             profile = self.get_user_info(reply)
             profile_str = "Profile Name: {}\nRating: {}\nRank: {}\nMax Rating: {}\nMax Rank: {}".format(profile["result"][0]["handle"], profile["result"][0]["rating"], profile["result"][0]["rank"], profile["result"][0]["maxRating"], profile["result"][0]["maxRank"])
             bot.sendMessage(profile_str, chat_id, None)
-
+        elif(callback == "problem"):
+            bot.sendMessage("Enter a tag for problem", chat_id, None)
+            reply = bot.getUpdates(offset=update_id)
+            update_id+=1
+            reply = reply["result"][0]["message"]["text"]
+            problems = self.get_problem_by_tag(reply)
+            problems = problems["result"]["problems"]
+            problem = random.choice(problems)
+            url = "https://codeforces.com/problemset/problem/{}/{}".format(problem["contestId"],problem["index"])
+            bot.sendMessage(url, chat_id, None)
 
     def show_options(self, chat_id, update_id):
         keyBoard = { "inline_keyboard": [

@@ -36,7 +36,7 @@ def reply(msg, sender, update_id):
 		/sort_algos : to fetch the link to learn about sorting algorithms
 		/dp : to fetch the link to learn about dynamic programming
 		/dnc : to fetch the link to learn about divide and conquer
-		/register : to register with your username on a given Competitive programming platform.
+		/platform : to get your profile or a problem from a given Competitive programming platform.
 		""",
 		sender, None)
 	elif msg == "/gfg":
@@ -53,7 +53,7 @@ def reply(msg, sender, update_id):
 	elif msg == "/dnc":
 		key = "DnC"
 		return displayLink(key)
-	elif msg == "/register":
+	elif msg == "/platform":
 		return register_.show_options(sender, update_id)
 	elif msg is not None:
 		return bot.sendMessage("Okay!", sender, None)
