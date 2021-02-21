@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="/css/diagnosesData.css">
 <div class="uploadData">
     <% if(data){ %>
+        <h2>Symptoms</h2>
+        <p class="symtomName"><%= symptom%></p>
         <h2>Possible Disease</h2>
         <% data.forEach((val)=>{ %>
            <div class="disease">

@@ -25,7 +25,12 @@ router.get('/',ensureAuth, function(req, res, next) {
 });
 
 router.get('/generate',ensureAuth, function(req, res, next) {
-    res.render('generator', {});
+    const ed = '&format=json&language=en-gb'
+    const url=`https://sandbox-healthservice.priaid.ch/issues?token=${token}${ed}`;
+    request(url, { json: true }, (err, response, body) => {
+        if (err) { return console.log(err); }
+        res.render("generator",{data:body});
+    });
 });
 //for testing purpose
 currentArticleId = 'sdsdsd'
@@ -83,25 +88,23 @@ router.post("/diagnosis",(req,res)=>{
 })
 
 //get request for showing possbile cure
-router.get("/cure/:id",async(req,res)=>{
+router.get("/cure/:id",(req,res)=>{
     
     const id = req.params.id;
     let ed = `&symptoms=[${id}]&format=json&language=en-gb`
     let url=`https://sandbox-healthservice.priaid.ch/symptoms?token=${token}${ed}`;
     let symptom = '';
-    let t = await request(url, { json: true }, (err, response, body) => {
-        if (err) { return console.log(err); }
-        console.log(body);
-        symptom = body[0].Name;
-        console.log(symptom)
-    });
     const gender = res.locals.user.gender;
     const year = res.locals.user.date.getFullYear();
-    ed = `&symptoms=[${id}]&gender=${gender}&year_of_birth=${year}&format=json&language=en-gb`;
-    url=`https://sandbox-healthservice.priaid.ch/diagnosis?token=${token}${ed}`;
     request(url, { json: true }, (err, response, body) => {
         if (err) { return console.log(err); }
-        res.render("uploadData",{data:body});
+        symptom = body[0].Name;
+        ed = `&symptoms=[${id}]&gender=${gender}&year_of_birth=${year}&format=json&language=en-gb`;
+        url=`https://sandbox-healthservice.priaid.ch/diagnosis?token=${token}${ed}`;
+        request(url, { json: true }, (err1, response1, body1) => {
+            if (err1) { return console.log(err1); }
+            res.render("uploadData",{data:body1,symptom:symptom});
+        });
     });
 })
 
