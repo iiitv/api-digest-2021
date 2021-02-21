@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>RSVP</title>
+    <link rel="icon" href="../assets/img/Mainfavicon.png" type="image/png"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/yesornostyles.min.css">
 </head>
@@ -33,15 +34,15 @@
     <script type="text/javascript">
         $('#yes').click(function() {
             $.post('/updateinvite/<%=event_id%>/<%=id%>', {"status": "yes"})
-            window.location.href = "/home"
+            window.location.href = "/events"
         })
         $('#maybe').click(function() {
             $.post('/updateinvite/<%=event_id%>/<%=id%>', {"status": "maybe"})
-            window.location.href = "/home"
+            window.location.href = "/events"
         })
         $('#no').click(function() {
             $.post('/updateinvite/<%=event_id%>/<%=id%>', {"status": "no"})
-            window.location.href = "/home"
+            window.location.href = "/events"
         })
     </script>
 </body>
