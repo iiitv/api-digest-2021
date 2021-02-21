@@ -84,30 +84,6 @@ const html=Mustache.render(sidebarTemplate,{
 $sidebar.innerHTML=html
 })
 
-$sendLocation.addEventListener('click', async () => {
-    if (!navigator.geolocation) {
-        return alert('Geolocation not supported by your browser!!')
-    }
-    $sendLocation.setAttribute('disabled', 'disabled')
-
-    navigator.geolocation.getCurrentPosition((position) => {
-        const location = {
-            lat: position.coords.latitude,
-            long: position.coords.longitude
-        }
-        socket.emit('sendLocation', location, (error) => {
-            if(error)
-            {
-            console.log(error)
-            }
-            $sendLocation.removeAttribute('disabled')
-            console.log('Location Shared')
-        })
-
-    })
-})
-
-
 socket.emit('join',{username,room},(error)=>{
     if(error)
     {

@@ -1,4 +1,4 @@
-$description = document.querySelector('.emailMessage')
+$description = document.querySelector('#messageField')
 $checkSentiment = document.querySelector('.checkSentiment')
 
 $checkSentiment.addEventListener('click', async () => {
@@ -21,6 +21,7 @@ $checkSentiment.addEventListener('click', async () => {
     if (polarity < 0) {
         $checkSentiment.style.backgroundColor = "#DC143C"
         $checkSentiment.innerText = `Negative (${polarity} Polarity)`
+        alert("The sentiment of your message seems to be negative. Do you want to continue?")
     }
     else if (polarity > 0) {
         $checkSentiment.style.backgroundColor = "#149414"
