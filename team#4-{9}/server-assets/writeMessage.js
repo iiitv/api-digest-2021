@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const User = require('../model/user.js')
+const sendMessage=require('./sendSms.js')
 const verifyToken = require('../security/verifytoken-middleware.js')
 sendMessageRouter=new express.Router()
 const cookieParser = require('cookie-parser')
@@ -58,7 +59,9 @@ sendMessageRouter.post('/writeMessage/:id', verifyToken, async (req, res) => {
             body = body.split('\n').join("<br>")
             values[3] = formatLink(true,generate_link(p))
             phone_message = render_template(data.phoneMessage,templates,values)
-            await sendEmail(p.email,subject,body)
+            // console.log(typeof(phone_message) )
+            // await sendEmail(p.email,subject,body)
+            sendMessage(p.contact,phone_message)
         }
     res.status(200).redirect("/home")
     }

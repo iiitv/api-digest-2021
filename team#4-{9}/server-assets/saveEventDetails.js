@@ -6,11 +6,8 @@ sendDetailsRouter=new express.Router()
 const cookieParser = require('cookie-parser')
 sendDetailsRouter.use(cookieParser())
 sendDetailsRouter.post('/createEvent',verifyToken, async (req,res)=>{
-   
-   
-
-    data = req.body
-    const event = {
+        data = req.body
+        const event = {
         title: data.event,
         description: data.eventDescription,
         start:data.eventDate,
@@ -18,9 +15,10 @@ sendDetailsRouter.post('/createEvent',verifyToken, async (req,res)=>{
         allDay:true,
       };
       const link =google(event);
+      console.log(link)
     let user = await User.findOne({"username": req.username})
     if (user!=null) {
-        user.events.push({"Title": data.event, "venue": data.eventVenue, "description": data.eventDescription, "date": data.eventDate,"duration":data.eventDuration,"calenderLink":link})
+        user.events.push({"Title": data.event, "venue": data.eventVenue, "description": data.eventDescription, "date": data.eventDate,"duration":data.eventDuration,"calendarLink":link})
         await user.save()
         event_ = user.events[user.events.length-1]
         res.redirect(`/addRecipents/${event_._id}`)
