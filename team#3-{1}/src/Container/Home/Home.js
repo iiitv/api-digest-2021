@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 import "./Home.css";
@@ -9,28 +9,22 @@ class Home extends Component {
     render () {
         
         return (
-            <div>
+            <div className="main">
                 
                 <div className="header">
                     <div className="name">Makaan.com</div>
                     <div className="tagline">Let us guide you Home!</div>
                 </div>
 
-                <div className="middle">
-                    <div className="tabs">
-                        <div className="tab">Properties</div>
-                        <div className="tab">Chat</div>
-                    </div>
-
                     <div className="methods">
-                        <div className="method"><Link to='/rent'>Rent Estimate</Link></div>
-                        <div class ="method"><Link to='/rate'>Rate Listing</Link></div>
+                        <NavLink to='/rent' exact className="method">Rent Estimate</NavLink>
+                       <NavLink to='/rate' exact className="method">Rate Listing</NavLink>
                     </div>
-                </div>
 
-               
 
             </div>
+
+            
         );
     }
 }
