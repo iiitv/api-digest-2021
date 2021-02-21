@@ -26,5 +26,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('CaloriesCalculator/', views.caloriescalculator,name='caloriesCalculator'),
     path('logout/',views.logoutpage,name='logout'),
-    
-]
+    path('recomendation/',views.getrecomendation,name='recomendation'),
+] +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -25,6 +25,21 @@
 
 </head>
 
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
 <body>
 
   <!-- Navigation -->
@@ -41,10 +56,10 @@
             <a class="nav-link" href="">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'caloriesCalculator' %}">Calories Countor</a>
+            <a class="nav-link" href="{% url 'caloriesCalculator' %}">Calories Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">New Post</a>
+            <a class="nav-link" href="{% url 'recomendation' %}">Get Recomendations</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>          </li>
@@ -60,17 +75,42 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
+            
             <h1>HealthCare</h1>
             <span class="subheading">We care about your health.</span>
+            <h6></h6>
           </div>
         </div>
       </div>
     </div>
   </header>
-
+  <h1 style="margin:1%;margin-left:10%">Welcome , {{ request.user }}</h1>
   <!-- Main Content -->
-  
+  <hr class="featurette-divider">
 
+  <div class="row featurette" style="margin-left: 7%;margin-right: 7%;">
+    <div class="col-md-7" style="margin-top: 7%;margin-bottom: 7%;">
+      <h2 class="featurette-heading">Calories Counter</h2>
+      <p class="lead">It tells you about what mineral your food contain and in how much quantiy.So that you know what you should actually eat according to your requirements.  </p>
+    </div>
+    <div class="col-md-5">
+      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" src="{% static 'img/calory.jpg' %}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+
+    </div>
+    
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette" style="margin-left: 7%;margin-right: 7%;">
+    <div class="col-md-5">
+      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" src="{% static 'img/reco.jpg' %}" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+
+    </div>
+    <div class="col-md-7" style="margin-top: 4%;margin-bottom: 7%;">
+      <h2 class="featurette-heading">Get Recommendations</h2>
+      <p class="lead">It tells you about different type of varieties of a single product and how much protein ,fat ,carbohydrates etc are present in them.So that you know which variety of a product is healthy to eat and then you can choose according to your requirement.   </p>
+    </div>
+  </div>
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -103,7 +143,7 @@
             </li>
           </ul>
           
-          <p class="copyright text-muted">Copyright &copy; Jatin Goyal Website 2021</p>
+          <p class="copyright text-muted">Copyright &copy; HackOverflow Team Website 2021</p>
         </div>
        
       

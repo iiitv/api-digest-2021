@@ -42,13 +42,13 @@ def loginpage(request):
             messages.info(request, 'Username OR password is incorrect')
             
     return render(request, 'login.html')
-
+@login_required(login_url='login')
 def home(request):
     context={}
    
 
     return render(request,'index.html',context)
-
+@login_required(login_url='login')
 def caloriescalculator(request):
     context={}
     if request.method == 'POST':
@@ -72,7 +72,11 @@ def caloriescalculator(request):
             'Carbohydrates':r[0]['carbohydrt'],
             'Calcium':r[0]['calcium'],
             'Iron':r[0]['iron'],
-            'Vitamin_C':r[0]['vit_c']
+            'Vitamin_C':r[0]['vit_c'],
+            'Cholestrol':r[0]['cholestrl'],
+            'Vitamin_b6':r[0]['vit_b6'],
+            'Vitamin_b12':r[0]['vit_b12'],
+            
         }
         # for i in r[0]:
         #     print(i)
@@ -82,3 +86,39 @@ def caloriescalculator(request):
     
 def logoutpage(request):
     return redirect('login')
+
+@login_required(login_url='login')
+def getrecomendation(request):
+    context={}
+    if request.method == 'POST':
+        anything = request.POST.get('anything')
+        print(anything)
+        url = "https://edamam-food-and-grocery-database.p.rapidapi.com/parser"
+
+        querystring = {"ingr":anything}
+
+        headers = {
+        'x-rapidapi-key': "29bae7c67bmsh5e33f608a0b93c4p1e42d6jsn8e4e057c974a",
+        'x-rapidapi-host': "edamam-food-and-grocery-database.p.rapidapi.com"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+        # print(response.json())
+        r=response.json()
+        print(r['hints'][1]['food'])
+        rec=[]
+        for i in range(20):
+            recom={
+            "Label":r['hints'][i]['food']['label'],
+            'Energy_Kcal':r['hints'][i]['food']['nutrients']['ENERC_KCAL'],
+            'Fat':r['hints'][i]['food']['nutrients']['FAT'],
+            'Protein':r['hints'][i]['food']['nutrients']['PROCNT'],
+            'Total_Carbohydrates':r['hints'][i]['food']['nutrients']['CHOCDF'],
+            'Category':r['hints'][i]['food']['category'],
+            }
+            rec.append(recom)
+        context={"rec":rec}
+        print("hello")
+        print(rec)
+    return render(request,"recommendation.html",context)

@@ -100,7 +100,8 @@ tr:nth-child(even) {
             <a class="nav-link" href="{% url 'caloriesCalculator' %}">Calories Counter</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'recomendation' %}">Get Recomendations</a>          </li>
+            <a class="nav-link" href="{% url 'recomendation' %}">Get Recomendations</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>          </li>
         </ul>
@@ -109,15 +110,15 @@ tr:nth-child(even) {
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{% static "img/counter.jpg" %} ' ) ">
+  <header class="masthead" style="background-image: url('{% static "img/recom.jpg" %} ' ) ">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Calories Counter</h1>
-            <span class="subheading">You should care about what you eat.</span>
-            <span class="subheading">Scroll down to see what you really eat.</span>
+            <h3>Get Recommendations about which type of food you shoud eat.</h3>
+            <span class="subheading">You should know which type of food is better for you.</span>
+            <span class="subheading">Scroll down to see what you shoud really eat.</span>
           </div>
         </div>
       </div>
@@ -127,7 +128,7 @@ tr:nth-child(even) {
   <br>
   <form method="POST" class="example" action="" >
       {% csrf_token %}
-    <input type="text" placeholder="Enter any food name here (e.g. apple,egg).." name="anything">
+    <input type="text" placeholder="Enter any food name here (e.g.pasta,chicken, apple,egg)..." name="anything">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <br>
@@ -142,56 +143,42 @@ tr:nth-child(even) {
   <p>Vitamin C : {{ calories.Vitamin_C }}</p>
 
 {% endif %} -->
-{% if calories %}
+
+{% for recom in rec %}
 <table>
   
-  <tr>
-    <td>Name</td>
-    <td>{{ calories.name }}</td>
-  </tr>
-  <tr>
-    <td>Energy in Kcal</td>
-    <td> {{ calories.Energy_in_Kcal }}</td>
-  </tr>
-  <tr>
-    <td>Protein</td>
-    <td> {{ calories.Protein }}</td>
-  </tr>
-  <tr>
-    <td>Carbohydrates</td>
-     <td>{{ calories.Carbohydrates }}</td>
-
-  </tr>
-  <tr>
-    <td>Calcium</td>
-    <td> {{ calories.Calcium }}</td>
-  </tr>
-  <tr>
-    <td>Iron</td>
-    <td> {{ calories.Iron }}</td>
-  </tr>
-  <tr>
-    <td>Vitamin C</td>
-    <td> {{ calories.Vitamin_C }}</td>
-  </tr>
-  <tr>
-    <td>Cholestrol</td>
-    <td> {{ calories.Cholestrol }}</td>
-  </tr>
-  <tr>
-    <td>Vitamin_b6</td>
-    <td> {{ calories.Vitamin_b6 }}</td>
-  </tr>
-  <tr>
-    <td>Vitamin_b12</td>
-    <td> {{ calories.Vitamin_b12 }}</td>
-  </tr>
-</table>
-{% endif %}
-<br>
-  <br>
-  <br>
+    <tr>
+      <td>Name</td>
+      <td>{{ recom.Label }}</td>
+    </tr>
+    <tr>
+        <td>Energy Kcal</td>
+        <td>{{ recom.Energy_Kcal }}</td>
+      </tr>
+      <tr>
+        <td>Fat</td>
+        <td>{{ recom.Fat }}</td>
+      </tr>
+      <tr>
+        <td>Protein</td>
+        <td>{{ recom.Protein }}</td>
+      </tr>
+      <tr>
+        <td>Total Carbohydrates</td>
+        <td>{{ recom.Total_Carbohydrates }}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{ recom.Category }}</td>
+      </tr>
+      <hr>
+      <p></p>
+    </table>
+{% endfor %}
   <!-- Footer -->
+  <br>
+  <br>
+  <br>
   <footer>
     <div class="container">
       <div class="row">
