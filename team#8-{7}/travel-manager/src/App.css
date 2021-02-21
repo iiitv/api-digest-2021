@@ -8,11 +8,11 @@
 }
 body {
   background: #f5f5fd;
-  background-image: url('images/Bg7.jpg');
+  background-image: url("images/Bg7.jpg");
   background-repeat: none;
   background-attachment: fixed;
   background-size: cover;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .search-bar-container {
   display: flex;
@@ -67,8 +67,7 @@ body {
   margin: 0 auto;
 }
 
-.mynavbar
-{
+.mynavbar {
   height: 100vh; /* Full-height: remove this if you want "auto" height */
   /* width: 160px; Set the width of the sidebar */
   position: sticky;

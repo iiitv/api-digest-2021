@@ -3,7 +3,6 @@ import { Popup } from "react-leaflet";
 
 const MarkerPopup = (props) => {
   const { data } = props;
-  console.log(props);
 
   return (
     <Popup>
