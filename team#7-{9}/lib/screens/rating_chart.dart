@@ -37,6 +37,7 @@ class _RanksChartState extends State<RanksChart> {
         if (ratingData.hasData) {
           Map<String, dynamic> userRatingData =
               json.decode(ratingData.data.toString()) as Map<String, dynamic>;
+          Set<String> yearSet = {};
           List<FlSpot> ratingSpotsList = [];
           userRatingData["result"].forEach((val) {
             var ratingUpdateTimeSeconds = val["ratingUpdateTimeSeconds"];
@@ -47,6 +48,8 @@ class _RanksChartState extends State<RanksChart> {
                 date.month.toDouble() * 100 +
                 date.day.toDouble();
             double pointY = val["newRating"] + .0;
+            yearSet.add(pointX.toString().substring(0, 4));
+            // print(pointX);
             if (dropDownValue.compareTo(date.year.toString()) == 0) {
               ratingSpotsList.insert(
                   ratingSpotsList.length, FlSpot(pointX, pointY));
@@ -56,6 +59,7 @@ class _RanksChartState extends State<RanksChart> {
           for (int i = DateTime.now().year; i > minYear - 1; i--) {
             yearsList.add(i.toString());
           }
+          print(yearSet.toString() + ratingSpotsList.length.toString());
           return Container(
             child: Column(
               children: [
@@ -81,8 +85,8 @@ class _RanksChartState extends State<RanksChart> {
                           dropDownValue = newValue;
                         });
                       },
-                      items: 
-                      yearsList.map<DropdownMenuItem<String>>((String value) {
+                      items: yearsList
+                          .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -135,9 +139,13 @@ class _RanksChartState extends State<RanksChart> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           right: 16.0, left: 6.0),
-                                      child: !(minYear.toString().compareTo(
-                                                  dropDownValue.toString()) >
-                                              0)
+                                      child: (!(minYear.toString().compareTo(
+                                                      dropDownValue
+                                                          .toString()) >
+                                                  0) &&
+                                              yearsList
+                                                  .contains(dropDownValue) &&
+                                              ratingSpotsList.isNotEmpty)
                                           ? Builder(
                                               builder: (context) => LineChart(
                                                 sampleData2(ratingSpotsList),

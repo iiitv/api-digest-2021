@@ -23,7 +23,8 @@ Widget appDrawer(BuildContext context) {
         ),
         FlatButton(
           onPressed: () {
-            Navigator.of(context).pop(); Navigator.of(context).pop();
+            Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
           child: Text(
             "View Profile",
@@ -33,7 +34,8 @@ Widget appDrawer(BuildContext context) {
         Divider(),
         FlatButton(
           onPressed: () {
-             Navigator.of(context).pop(); Navigator.of(context).pop();
+            Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
           child: Text(
             "Ranklist",

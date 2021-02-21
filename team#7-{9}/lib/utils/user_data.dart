@@ -42,8 +42,8 @@ class UserData {
   }
 
   Future<dynamic> getUserSubmissionData(String userName) async {
-    var result = await http.get(
-        "https://codeforces.com/api/user.status?handle=$userName");
+    var result = await http
+        .get("https://codeforces.com/api/user.status?handle=$userName");
     if (result.statusCode == 200) {
       print(result.toString());
       return result.body;

@@ -30,11 +30,11 @@ LineChartData sampleData2(List<FlSpot> list) {
       touchCallback: (LineTouchResponse touchResponse) {},
       handleBuiltInTouches: false,
     ),
-   
+
     gridData: FlGridData(
       show: true,
     ),
-   
+
     minY: miny <= 800
         ? 0
         : miny < 1500
@@ -155,6 +155,5 @@ List<LineChartBarData> linesBarData2(List<FlSpot> list) {
         show: false,
       ),
     ),
-
   ];
 }

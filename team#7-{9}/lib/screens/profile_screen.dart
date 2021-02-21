@@ -81,24 +81,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                (userMapData["result"][0]["firstName"]==null)?data["name"].toString() ?? userName:
-                                  userMapData["result"][0]["firstName"]+  " " +
-                                    userMapData["result"][0]["lastName"],
+                                (userMapData["result"][0]["firstName"] == null)
+                                    ? data["name"].toString() ?? userName
+                                    : userMapData["result"][0]["firstName"] +
+                                        " " +
+                                        userMapData["result"][0]["lastName"],
                                 style: GoogleFonts.openSans(
                                     color: Colors.teal, fontSize: 23),
                               ),
-                              if(userMapData["result"][0]["city"]!=null)
-                              Text(
-                                userMapData["result"][0]["city"],
-                                style: GoogleFonts.openSans(
-                                    color: Colors.teal, fontSize: 23),
-                              ),
-                              if( userMapData["result"][0]["country"]!=null)
-                              Text(
-                                userMapData["result"][0]["country"],
-                                style: GoogleFonts.openSans(
-                                    color: Colors.teal, fontSize: 23),
-                              ),
+                              if (userMapData["result"][0]["city"] != null)
+                                Text(
+                                  userMapData["result"][0]["city"],
+                                  style: GoogleFonts.openSans(
+                                      color: Colors.teal, fontSize: 23),
+                                ),
+                              if (userMapData["result"][0]["country"] != null)
+                                Text(
+                                  userMapData["result"][0]["country"],
+                                  style: GoogleFonts.openSans(
+                                      color: Colors.teal, fontSize: 23),
+                                ),
                             ],
                           ),
                         ),
