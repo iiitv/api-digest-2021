@@ -13,6 +13,7 @@ export const getWeatherData = async (value) => {
     const res = await axios.get(
       `${BASE_URL}onecall?lat=${lat}&lon=${lon}&units=metric&exclude={part}&appid=${API_KEY}`
     );
+
     console.log('Weather',data, res.data);
     return { data, forecast: res.data, status: 200 };
   } catch (error) {
