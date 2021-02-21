@@ -123,9 +123,12 @@ router.get("/article/:id",(req,res)=>{
         if (err) { return console.log(err); }
         issue = body[0].Name;
         var articles = await articleData.find({disease_id:id});
+        console.log(articles)
         articles.map((article)=>{
-            article.data.replace(/["]+/g, "'")
+           article.data = article.data.replace(/["]+/g, "'")
+            console.log(article.data)
         })
+        console.log(articles[0].data)
         res.render("particularArticles",{issue,articles});
     });
 })
