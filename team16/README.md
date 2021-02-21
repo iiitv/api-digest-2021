@@ -6,6 +6,7 @@ Inferno is like a library for the people for who like to know about the most pop
 Not only this they can also search for any game they wish to play and buy them from available play stores!<br/>
 We have implemented the above idea using the following public API : <br/>
 https://rawg.io/apidocs <br/>
+https://www.framer.com/api/motion/<br/>
 
 ###                                                           A sneek peak 😉<br/>
 ![Untitled_ Feb 21, 2021 11_56 PM](https://user-images.githubusercontent.com/48882133/108635207-3b1ac200-74a4-11eb-9f89-b7daeee36b3d.gif)
