@@ -1,6 +1,6 @@
+import 'package:cf_pursuit/screens/future_events.dart';
 import 'package:cf_pursuit/screens/landing_screen.dart';
 import 'package:cf_pursuit/screens/problem.dart';
-import 'package:cf_pursuit/screens/profile_screen.dart';
 import 'package:cf_pursuit/screens/rank_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,15 +28,16 @@ Widget appDrawer(BuildContext context) {
         FlatButton(
           onPressed: () {
             Navigator.of(context).pop();
-            Navigator.of(context).pushNamed(LandingScreenMobile.routeName);
+            Navigator.of(context).pushNamed(FutureEventsScreen.routeName);
             // Navigator.of(context).pushNamed(ProfileScreen.routeName);
           },
           child: Text(
-            "View Profile",
+            "Mark Future Contests",
             style: GoogleFonts.roboto(fontSize: 20),
           ),
         ),
         Divider(),
+        
          FlatButton(
           onPressed: () {
              Navigator.of(context).pop();
@@ -55,6 +56,17 @@ Widget appDrawer(BuildContext context) {
           },
           child: Text(
             "Ranklist",
+            style: GoogleFonts.roboto(fontSize: 20),
+          ),
+        ),
+        Divider(),FlatButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+            Navigator.of(context).pushNamed(LandingScreenMobile.routeName);
+            // Navigator.of(context).pushNamed(ProfileScreen.routeName);
+          },
+          child: Text(
+            "View Profile",
             style: GoogleFonts.roboto(fontSize: 20),
           ),
         ),

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:cf_pursuit/globals.dart';
 import 'package:cf_pursuit/utils/user_data.dart';
 import 'package:cf_pursuit/widgets/rating_chart_widget.dart';
 import 'package:fl_chart/fl_chart.dart';

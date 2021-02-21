@@ -38,6 +38,10 @@ dependencies:
   fl_chart: ^0.12.3
   firebase_database: ^6.0.0
   horizontal_data_table: ^2.2.0
+  googleapis: ^1.0.0
+  googleapis_auth: ^0.2.12+1
+  url_launcher: ^5.7.10
+  flutter_countdown_timer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

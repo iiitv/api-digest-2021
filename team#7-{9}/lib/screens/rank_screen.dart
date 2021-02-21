@@ -2,8 +2,6 @@ import 'package:cf_pursuit/screens/profile_screen.dart';
 import 'package:cf_pursuit/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import "package:collection/collection.dart";
-import 'package:google_fonts/google_fonts.dart';
-import 'package:json_table/json_table.dart';
 import 'dart:convert';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 

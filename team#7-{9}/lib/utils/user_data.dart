@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class UserData {
@@ -54,23 +52,12 @@ class UserData {
     var result = await http.get(
       "https://cf-pursuit-default-rtdb.firebaseio.com/users.json",
     );
-    // final extractedData = json.decode(result.body) as Map<String, dynamic>;
-    // print(extractedData);
     return result.body;
-    // extractedData.forEach((profileId, profileData) {
-    //   loadedProfile.add(
-    //     Profile(
-    //       email: profileData['email'],
-    //       lastName: profileData['firstName'],
-    //       firstName: profileData['lastName'],
-    //     ),
-    //   );
-    // });
-    if (result.statusCode == 200) {
-      print("hurray!User details added successfully!!");
-    } else {
-      print("nope,error in adding user to database");
-    }
+    // if (result.statusCode == 200) {
+    //   print("hurray!User details added successfully!!");
+    // } else {
+    //   print("nope,error in adding user to database");
+    // }
   }
 
   Future<dynamic> getUserRatingData(String userName) async {
@@ -142,19 +129,7 @@ class UserData {
       //       item.remove('handle');
       //       return item;
       //     }).toList()));
-      // print(newMapp);
-      //  print("MWNEE1222222222121");
-      // for (var j in rankinfo) {
-      //   j.forEach((key, value) {
-      //     print('key==$key, and value==$value');
-      //   });
-      //   print("BIGSHOW");
-      // }
-      // for(var i in dd)
-
-      //    rankinfo.add({"handle":dd[0]["handle"],"contestID":});
-
-      // print(result.toString());
+     
       return result.body;
     } else {
       return "Error()";
@@ -186,6 +161,18 @@ class UserData {
       // return res.body;
     } else {
       return "Error occured !!";
+    }
+  }
+  
+  static Future<dynamic> futureContestData() async {
+    contst.clear();
+    var res =
+        await http.get("https://codeforces.com/api/contest.list?gym=false");
+    if (res.statusCode == 200) {
+      
+      return res.body;
+    } else {
+      return "!!Error occured !!";
     }
   }
 }

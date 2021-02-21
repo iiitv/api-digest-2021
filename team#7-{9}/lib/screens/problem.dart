@@ -114,7 +114,7 @@ class Problem extends StatelessWidget {
               return Container(
                 child: Column(
                   children: [
-                    FittedBox(child: Text("Recommended questions to do",style:GoogleFonts.openSans(fontSize: 24,color:Colors.teal[300]))),
+                    FittedBox(child: Text("Recommended questions to do",style:GoogleFonts.openSans(fontSize: 24,color:Colors.teal[300],fontWeight:FontWeight.w600,),),),
                     SizedBox(height: 10,),
                     Container(
                       height:MediaQuery.of(context).size.height*0.8,
@@ -131,7 +131,7 @@ class Problem extends StatelessWidget {
                 ),
               );
             }
-            return CircularProgressIndicator.adaptive();
+            return Center(child: CircularProgressIndicator.adaptive());
           }),
     );
   }
