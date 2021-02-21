@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView charView;
     JSONObject jsonObject;
     JSONArray jsonArray;
-    Button button, button2;
+    Button button, buttonnext, buttonprev;
     LinearProgressIndicator progressIndicator;
     private static final String TAG = "MainActivity";
     private String CHAR_URL = "https://rickandmortyapi.com/api/character";
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.rick_roll);
-        button2 = findViewById(R.id.next);
+        buttonnext = findViewById(R.id.next);
+        buttonprev = findViewById(R.id.prev);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         progressIndicator = findViewById(R.id.progressbar);
+        getjson();
+    }
 
+    public void getjson(){
         StringRequest stringRequest = new StringRequest(Request.Method.GET, CHAR_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -62,39 +67,35 @@ public class MainActivity extends AppCompatActivity {
                             RVAdapter rva = new RVAdapter(getApplicationContext(), jsonArray);
                             charView.setAdapter(rva);
                             charView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                            button2.setOnClickListener(new View.OnClickListener() {
+                            progressIndicator.setVisibility(View.GONE);
+                            buttonnext.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     try {
                                         progressIndicator.setVisibility(View.VISIBLE);
                                         CHAR_URL = jsonObject.getJSONObject("info").getString("next");
-                                        {
-                                            StringRequest stringRequest = new StringRequest(Request.Method.GET, CHAR_URL,
-                                                    new Response.Listener<String>() {
-                                                        @Override
-                                                        public void onResponse(String response) {
-                                                            try {
-                                                                jsonObject = new JSONObject(response);
-                                                                jsonArray = jsonObject.getJSONArray("results");
-                                                            } catch (JSONException e) {
-                                                                e.printStackTrace();
-                                                                Log.d(TAG, "onResponse: " + e.getMessage());
-                                                            } finally {
-                                                                charView = findViewById(R.id.charView);
-                                                                RVAdapter rva = new RVAdapter(getApplicationContext(), jsonArray);
-                                                                charView.setAdapter(rva);
-                                                                charView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                                                                progressIndicator.setVisibility(View.GONE);
-                                                            }
-                                                        }
-                                                    },
-                                                    new Response.ErrorListener() {
-                                                        @Override
-                                                        public void onErrorResponse(VolleyError error) {
-                                                        }
-                                                    });
-                                            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                            requestQueue.add(stringRequest);
+                                        if(CHAR_URL!=null)
+                                            getjson();
+                                        else
+                                            Toast.makeText(MainActivity.this, "Doesn't exist", Toast.LENGTH_SHORT).show();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                            buttonprev.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    try {
+                                        progressIndicator.setVisibility(View.VISIBLE);
+                                        CHAR_URL = jsonObject.getJSONObject("info").getString("prev");
+                                        Log.d(TAG, "onClick: 123"+CHAR_URL);
+                                        if(!CHAR_URL.equals("null")){
+                                            getjson();
+                                        }
+                                        else{
+                                            Toast.makeText(MainActivity.this, "Doesn't exist", Toast.LENGTH_SHORT).show();
+                                            progressIndicator.setVisibility(View.GONE);
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                     }
                 });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
 
