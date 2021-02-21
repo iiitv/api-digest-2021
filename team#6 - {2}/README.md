@@ -36,6 +36,7 @@ then go to <a href="https://sandbox-authservice.priaid.ch/docs.html">here.</a> a
 
 Enter your email as username and sandbox password as password and click on generate Token.</p>
 
+<h4>Step To Download Code</h4>
 Clone this repo using `git clone https://github.com/The-Keshav-Agarwal/api-digest-2021.git`<br>
 
 Change branch to `team#6` using `git checkout team#6`<br>
