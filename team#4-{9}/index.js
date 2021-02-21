@@ -10,6 +10,7 @@ const bodyParser=require('body-parser')
 require('./database/mongodb.js')
 
 const app = express()
+app.set('view engine', 'ejs');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
@@ -111,6 +112,10 @@ app.get('/logout',(req,res)=>{
         maxAge: 0
     })
     res.sendStatus(200)
+})
+
+app.get('/addRecipents/:id', async (req, res) => {
+    res.status(200).render(__dirname+ "/webpages/recipients.ejs", {"id": req.params.id})
 })
 
 app.get(['/*'], (req, res) => {
