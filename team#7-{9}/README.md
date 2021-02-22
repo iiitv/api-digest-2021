@@ -2,15 +2,8 @@
 
 A new Flutter project.
 
-## Getting Started
+## api used
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Codeforces Api: https://codeforces.com/apiHelp
+Google Calender api:https://console.developers.google.com/apis/library/calendar-json.googleapis.com?q=google%20cal&id=84f291c9-2585-4af1-a78b-09c53a78202f&project=cf-pursuit
+Firebase realtime Database api: https://firebase.google.com/docs/database/android/start
