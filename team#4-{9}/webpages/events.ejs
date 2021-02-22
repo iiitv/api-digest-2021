@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../assets/img/Mainfavicon.png" type="image/png"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/eventsstyles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+</head>
+
+<body style="background: #283747;padding: 36px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="margin-bottom: 10%;background: #283747;">
+        <div class="container"><a class="navbar-brand" href="/home" style="color: aliceblue;">Eventifier</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/events" style="color: aliceblue;">Your Events</a></li>
+                    <li class="nav-item logout"><a class="nav-link" href="/logout" style="color: aliceblue;">Logout</a></li>
+                    
+                </ul> 
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align: center;color: rgb(255,255,255);">Events</h1><br>
+    <center><input type="text" id="username" placeholder="Username" /> <button id="changeusername">Select Username</button></center><br><br>
+        <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <table class="table table" id="ipi-table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Chatroom</th>
+                                    <th>Stats</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%events.forEach(e => {%>
+                                <tr>
+                                    <td><%=e.Title%></td>
+                                    <td><a href="/forum?username={username}&room=<%=e._id%>" class="chatlink"><button>Discuss</button></a></td>
+                                    <td><a href="/info/<%=e._id%>"><button>Status</button></a></td>
+                                </tr>
+                                <%})%>
+                            </tbody>
+                        </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/eventsscript.min.js"></script>
+    <script type="text/javascript">
+        $("#changeusername").click(()=>{
+            $('.chatlink').each(function(i, obj) {
+                obj.href = obj.href.replace("{username}",document.getElementById("username").value)
+                $("#changeusername").remove()
+});
+        })
+    </script>
+</body>
+</html>

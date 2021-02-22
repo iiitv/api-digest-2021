@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Send Invitations</title>
+    <link rel="icon" href="../assets/img/Mainfavicon.png" type="image/png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/sendMessagestyles.min.css">
+</head>
+
+<body style="background: #283747;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="margin-bottom: 10%;background: #283747;">
+        <div class="container"><a class="navbar-brand" href="/home" style="color: aliceblue;">Eventifier</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/events" style="color: aliceblue;">Your Events</a></li>
+                    <li class="nav-item logout"><a class="nav-link" href="/logout" style="color: aliceblue;">Logout</a></li>
+                    
+                </ul> 
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="shadow" style="width: 100%;min-height: 630px;margin-top: 50px;background-color: rgba(255,255,255,0.79);">
+                    <form style="padding-top: 70px;" action="/writeMessage/<%=id%>" method="POST">
+                        <div class="form-group">
+                            <h1 class="text-center">Send Invitations</h1>
+                        </div>
+                        <div class="form-group"><input class="form-control form-control-lg" type="text" name="emailSubject" style="width: 50%;margin-left: 25%;" value="Invitation for [event]" placeholder="Subject for Email"></div>
+                        <div class="form-group"><textarea class="form-control form-control-lg emailMessage" name="emailMessage" style="width: 50%;margin-left: 25%;min-height: 200px;" placeholder="Email Message">Hey [name], we are inviting you to participate in our event [event]. Please follow this [link] to review the invitation.
+About the event:-
+[description]
+Venue - [venue]
+Date - [date]
+Add to Calendar - [calendar]</textarea></div>
+                        <div class="form-group"><textarea class="form-control form-control-lg" name="phoneMessage" style="width: 50%;margin-left: 25%;min-height: 200px;" placeholder="Phone Message">Hey [name], we are inviting you to participate in our event [event]. Please visit [link] to review the invitation.</textarea></div>
+                        <div class="form-group"><button class="btn btn-dark btn-lg" style="width: 50%;margin-left: 25%;" type="submit">Send Invitations</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

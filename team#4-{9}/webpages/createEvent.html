@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../assets/img/Mainfavicon.png" type="image/png"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/createEventstyles.min.css">
+</head>
+<body style="background: #283747;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="margin-bottom: 10%;background: #283747;">
+        <div class="container"><a class="navbar-brand" href="/home" style="color: aliceblue;">Eventifier</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/events" style="color: aliceblue;">Your Events</a></li>
+                    <li class="nav-item logout"><a class="nav-link" href="/logout" style="color: aliceblue;">Logout</a></li>
+                    
+                </ul> 
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="shadow" style="width: 100%;min-height: 630px;margin-top: 2%;background-color: rgba(255,255,255,0.79);">
+                    <form style="padding-top: 70px;" action='/createEvent' method="POST">
+                        <div class="form-group">
+                            <h1 class="text-center">Create Event</h1>
+                        </div>
+                        <div class="form-group"><input class="form-control form-control-lg title" type="text" name="event" style="width: 50%;margin-left: 25%;" required="" placeholder="Event Title"></div>
+                        <div class="form-group"><input class="form-control form-control-lg venue" type="text" name="eventVenue"  style="width: 50%;margin-left: 25%;" placeholder="Venue"></div>
+                        <div class="form-group"><input class="form-control form-control-lg duration" type="text" name="eventDuration"  style="width: 50%;margin-left: 25%;" placeholder="Duration Of the Event"></div>
+                        <div class="form-group"><textarea class="form-control form-control-lg description" name="eventDescription" style="width: 50%;margin-left: 25%;min-height: 200px;" placeholder="Description"></textarea></div>
+                        <div class="form-group"><input class="form-control form-control-lg" type="date" name="eventDate"  style="width: 50%;margin-left: 25%;" placeholder="Date"></div>
+                        <div class="form-group"><button class="btn btn-dark btn-lg createEvent" style="width: 50%;margin-left: 25%;" type="submit">Create Event</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="/js/EventDetails.js"> </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

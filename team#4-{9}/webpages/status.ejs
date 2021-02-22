@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RSVP Status</title>
+    <link rel="icon" href="../assets/img/Mainfavicon.png" type="image/png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/statusstyles.min.css">
+</head>
+
+<body style="background: #283747;padding: 36px;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="margin-bottom: 10%;background: #283747;">
+        <div class="container"><a class="navbar-brand" href="/home" style="color: aliceblue;">Eventifier</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/events" style="color: aliceblue;">Your Events</a></li>
+                    <li class="nav-item logout"><a class="nav-link" href="/logout" style="color: aliceblue;">Logout</a></li>
+                    
+                </ul> 
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align: center;color: rgb(255,255,255);">Invitation status for event "event"</h1>
+    <div class="m-5">
+        <div class="text-center m-3"></div>
+        <div class="text-center m-3"></div>
+        <div class="text-center m-3"></div>
+    </div>
+    <div class="datagrid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Phone No.</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%stats.forEach(e=>{%>
+                <tr>
+                    <td><%=e.name%></td>
+                    <td><%=e.email%></td>
+                    <td><%=e.phonenumber%></td>
+                    <td><%=e.status%></td>
+                </tr>
+            <%})%>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/statusscript.min.js"></script>
+</body>
+
+</html>
