@@ -1,0 +1,27 @@
+.customimage {
+  height: 200px;
+  width: 200px;
+}
+.customcard {
+  background-color: rgb(220, 236, 219);
+  margin: 10px;
+  box-shadow: 4px 10px 10px rgba(235, 226, 226, 0.8);
+}
+.customcard
+{
+    background-color: rgb(241, 191, 52);
+}
+.infos
+{
+    font-size:20px;
+}
+.cardbody
+{
+    height:230px;
+    min-height: 230px;
+}
+.cardimage
+{
+    height:80px;
+    width:80px;
+}
