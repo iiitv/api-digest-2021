@@ -1,0 +1,11 @@
+.card {
+    border: 1px solid cyan;
+    box-shadow: 2px 2px 15px cyan;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border: 2px solid yellow;
+    box-shadow: 5px 5px 25px yellow;
+}
