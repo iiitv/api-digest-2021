@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    height: 80%;
+}
+
+p{
+    margin: 10px;
+    font-size: 18px;
+}

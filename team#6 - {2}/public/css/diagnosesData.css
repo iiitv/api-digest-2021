@@ -1,0 +1,27 @@
+.disease{
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    padding: 10px;
+    margin: 20px;
+    width: 70%;
+    cursor: pointer;
+    font-size: 20px;
+    border-left: 10px solid #339ea6;
+}
+.uploadData{
+    padding: 15px;
+}
+.symtomName{
+    font-size: 19px;
+}
+.product_name {
+    font-size: 20px;
+    display: inline;
+}
+.info__text {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.thumb-icon{
+    height: 50px;
+}

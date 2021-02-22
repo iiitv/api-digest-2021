@@ -1,0 +1,17 @@
+<%- include("./partials/header") %>
+<%- include("./partials/chore.ejs") -%>
+<link rel="stylesheet" href="/css/diagnosis.css">
+</style>
+<div class="symtom">
+    <p>Choose Your Symtom</p>
+    <form action="/dashboard/diagnosis" method="POST">
+        <select name="symptom" class="form-control">
+            <% if(data){ %>
+                <% data.forEach((val)=>{ %>
+                    <option value=<%=val.ID%>><%= val.Name%></option>
+                <% }) %>
+            <% } %>
+        </select>
+        <button class="btn btn-primary">Diagnosis</button>
+    </form>
+</div>

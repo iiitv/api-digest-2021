@@ -1,0 +1,38 @@
+<%- include("./partials/header.ejs") %>
+<%- include("./partials/chore.ejs") -%>
+<style>
+.set-width {
+    width: 20vw;
+}
+.set-height {
+    height: 40vh;
+}
+</style>
+<div class="container-cards container" >
+    <div class="row text-center">
+        <% var len = allArticles.length %>
+        <% for(let j=0;j<len;j++) {%>
+            <% var src = 'https://e-doctor01.herokuapp.com/dashboard/all/' + allArticles[j].id %>
+                   <div class="col-md-4">
+                   <div class="card mt-3 set-width">
+                    <div class="view overlay">
+                      <img class="card-img-top set-height" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/home_remedies_slideshow/493ss_thinkstock_rf_herbal_peppermint_and_oil.jpg" alt="Card image cap">                  
+                      <a>
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <div class="card-body text-center">
+                        <% if(allArticles[j].dtitle !=null){ %>
+                      <h3 class="card-title"><%= allArticles[j].dtitle.slice(0,11) %></h4>
+                        <%}%>
+                      <hr>
+                      <div class="text-center">
+                      <a type="button" class="btn btn-rounded btn-md btn-primary text-center" href="<%= src %>">See whole</a>
+                    </div>
+                    </div>
+                  </div>
+
+      </div>
+       <% } %> 
+  </div>
+  </div>

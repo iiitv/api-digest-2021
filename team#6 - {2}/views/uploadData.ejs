@@ -1,0 +1,19 @@
+<%- include("./partials/header") %>
+<%- include("./partials/chore.ejs") -%>
+<link rel="stylesheet" href="/css/diagnosesData.css">
+<div class="uploadData">
+    <% if(data){ %>
+        <h2>Symptoms</h2>
+        <p class="symtomName"><%= symptom%></p>
+        <h2>Possible Disease</h2>
+        <% data.forEach((val)=>{ %>
+           <a href="/dashboard/article/<%= val.Issue.ID %>" style="text-decoration: none;color: black;">
+                <div class="disease">
+                    <p> <%= val.Issue.Name %></p>
+                    <p> Accuracy : <%= val.Issue.Accuracy %></p>
+               </div>
+           </a>
+        <% }) %>
+        <p> Click on card to know how can you cure it</p>
+    <% } %>
+</div>

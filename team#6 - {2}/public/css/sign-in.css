@@ -1,0 +1,33 @@
+.customsignin{
+    height:100%;
+}
+
+  /*sign in style*/
+  .error-msg{
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.575);
+    width: 100%;
+    padding: 5px;
+    color: white;
+  }
+  .middle {
+    height: 70vh;
+    display: grid;
+    place-items: center;
+  }
+  .middle form {
+    display: grid;
+    place-items: center;
+  }
+  .middle form h1 {
+    font-size: 60px;
+  }
+  @media only screen and (max-width:670px) {
+    .middle form h1 {
+      font-size: 50px;
+    }
+  } 
+  .form-signin {
+    width: 40%;
+  }
+  

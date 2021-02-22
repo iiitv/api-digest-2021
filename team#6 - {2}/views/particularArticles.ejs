@@ -1,0 +1,48 @@
+<%- include("./partials/header") %>
+<%- include("./partials/chore.ejs") -%>
+<link rel="stylesheet" href="/css/diagnosesData.css">
+<div class="uploadData">
+    <% if(issue!=null){%>
+    <h2>Issue</h2>
+    <p class="symtomName"><%= issue%></p>
+    <% }%>
+    <% if(articles.length==0){ %>
+        <p>OOPS! There is No Article Regarding <%=issue%></p>
+    <% } %>
+    <% articles.forEach((article)=>{ %>
+        <div class="disease">
+            <div id="<%= article.id %>" >
+            </div>
+            <% if(article.products.length > 0){ %>
+            <h1 class="info__text">If you have some difficulty buying stuff for remedy refer to below link</h1>
+            <% article.products.forEach((data)=>{ %>
+                <h1 class="product_name"><%= data.name %></h1>
+                <a href="<%= data.link %>" target = "_blank" class="btn btn-primary">Buy it</a>
+            <% })} %>
+            <br>
+            <%= article.rating%>
+            <i class="fa-lg far fa-thumbs-up" onclick="handleLikeDislike('<%= article._id%>','<%=user._id%>',true)"></i>
+            <i class="fa-lg far fa-thumbs-down" onclick="handleLikeDislike('<%= article._id%>','<%=user._id%>',false)"></i>
+        </div>
+        <script>
+            var data = "<%- article.data %>"
+            var disease_info = document.getElementById('<%= article.id %>');
+            disease_info.innerHTML = data;
+        </script>
+     <% }) %>
+    <script>
+        const handleLikeDislike = async(postId,userId,like)=>{
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/dashboard/likePost', true);
+                await xhr.setRequestHeader('Content-Type', 'application/json');
+                var resp = await xhr.send(
+                    JSON.stringify({
+                        postId,
+                        userId,
+                        like
+                    })
+                );
+                location.reload();
+            }
+    </script>
+</div>
