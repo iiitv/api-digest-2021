@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "82586800751",
+    "project_id": "cf-pursuit",
+    "storage_bucket": "cf-pursuit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82586800751:android:b0210ea7d282291197339a",
+        "android_client_info": {
+          "package_name": "com.example.cf_pursuit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82586800751-orjh1ua0qgaebkvuseh3gdet328cu2h1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cf_pursuit",
+            "certificate_hash": "2fca51acf4fab53ebc1c765af8744dd704b3001a"
+          }
+        },
+        {
+          "client_id": "82586800751-pohjad31a9rc2g0fpsknh86qrnk0ejtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA15PrZGcTcUiDZ6dZrKlpC5rT6yj0sjE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82586800751-pohjad31a9rc2g0fpsknh86qrnk0ejtg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
