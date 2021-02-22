@@ -81,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                (userMapData["result"][0]["firstName"] == null)
+                                (userMapData["result"][0]["firstName"] == null ||userMapData["result"][0]["lastName"] == null)
                                     ? data["name"].toString() ?? userName
                                     : userMapData["result"][0]["firstName"] +
                                         " " +

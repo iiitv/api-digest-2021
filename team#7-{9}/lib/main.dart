@@ -3,6 +3,7 @@ import 'package:cf_pursuit/screens/landing_screen.dart';
 import 'package:cf_pursuit/screens/profile_screen.dart';
 import 'package:cf_pursuit/screens/rank_screen.dart';
 import 'package:cf_pursuit/screens/problem.dart';
+import 'package:cf_pursuit/screens/org_rank_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         ProfileScreen.routeName: (context) => ProfileScreen(),
         RankScreen.routeName: (context) => RankScreen(),
         Problem.routeName:(context)=>Problem(),
-        FutureEventsScreen.routeName:(context)=>FutureEventsScreen(),
+ FutureEventsScreen.routeName:(context)=>FutureEventsScreen(),
       },
     );
   }

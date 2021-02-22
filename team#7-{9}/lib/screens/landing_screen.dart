@@ -1,3 +1,4 @@
+import 'package:cf_pursuit/screens/problem.dart';
 import 'package:cf_pursuit/utils/user_data.dart';
 import 'package:cf_pursuit/screens/profile_screen.dart';
 import 'package:cf_pursuit/screens/rank_screen.dart';
@@ -168,6 +169,7 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                         final isValidUsername =
                             nameFieldKey.currentState?.validate();
                         if (isValidUsername ?? false) {
+                          Problem.userr = nameField.text.toString();
                           // Navigator.of(context)
                           //     .pushNamed(ProfileScreen.routeName);
                           Navigator.pushNamed(context, ProfileScreen.routeName,
@@ -276,9 +278,6 @@ class _LandingScreenMobileState extends State<LandingScreenMobile> {
                   ),
                 ],
               ),
-              
-                  
-                  
             ],
           ),
         ),

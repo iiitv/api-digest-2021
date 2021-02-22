@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.example.cf_pursuit",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "properties": [],
+      "versionCode": 2001,
+      "versionName": "1.0.0",
+      "enabled": true,
+      "outputFile": "app-arm64-v8a-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "properties": [],
+      "versionCode": 4001,
+      "versionName": "1.0.0",
+      "enabled": true,
+      "outputFile": "app-x86_64-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "properties": [],
+      "versionCode": 1001,
+      "versionName": "1.0.0",
+      "enabled": true,
+      "outputFile": "app-armeabi-v7a-release.apk"
+    }
+  ]
+}
