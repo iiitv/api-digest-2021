@@ -1,0 +1,38 @@
+.rent{
+    background-color: #464866;
+    text-align: center;
+}
+
+.input{
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+    text-align: center;
+    border: 3px solid rgb(174, 176, 224);
+    border-radius: 5px;
+}
+
+
+.input:focus{
+    background-color: rgb(199, 199, 199);
+}
+
+.inputs{
+    padding-top: 50px;
+}
+
+.submit{
+    background-color: #888ccc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    transition: .2s all;
+    border-radius: 5px;
+    margin: 35px 0px;
+}
+
+.submit:hover{
+    background-color: #6a70c9;
+    cursor: pointer;
+}
+
